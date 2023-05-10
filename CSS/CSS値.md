@@ -25,5 +25,6 @@ margin: auto;で中央に寄せたもののブラウザ幅が狭くなった時�
 - hsl...hue(色相)を120°ずつ赤、緑、青で表示して、そこに鮮やかさと輝度を指定する  
 `color: 🟥hsl(0deg, 100% 50%)`
 - hwb....hue(色相)とwhite,blackを混ぜる  
-`color: 🟥hwb(0deg, 0%, 0%)`
+`color: 🟥hwb(0deg, 0%, 0%)`  
+色指定したあと「/」で透明度(opacity)も指定できる
 ***
