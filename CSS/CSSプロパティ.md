@@ -101,3 +101,12 @@ background: url() center/cover pink
 ~~~
 サイズはポジションの後に「/」を入れて表示するがそれ以外は順不同
 ***
+
+# text-decoration
+テキストの装飾を指定する
+- none...テキストの装飾を行わない（初期値）
+- underline...テキストに下線を引く
+- overline...テキストに上線を引く
+- line-through...取り消し線を引く
+***
+
