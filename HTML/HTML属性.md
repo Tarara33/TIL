@@ -23,3 +23,10 @@ type一覧
 # size
 selectタグでドロップリストを作った時に使う  
 `<select size ="3"></select>`とするとリストが３行分表示される形になる
+***
+
+# value　と　checked　と　selected
+- value...textやtextareaでの初期値の設定
+- checked...checkboxやradioでの初期値の設定
+- selected...ドロップリストでの初期値の設定
+- ***
