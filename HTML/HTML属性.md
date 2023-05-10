@@ -17,7 +17,12 @@ type一覧
 - checkbox...チェックBOXで複数押せる
 - radio...チェックBOXみたいな感じだが一つしか押せない   
 `<input type = "radio" name = "">`でnameの値が同じものの中から一つ選ぶ感じ
-- submit...ボタン
+- submit...ボタン  
+
+-  password...入力が黒丸になる
+-  number...数値を入れる
+-  date...日付の入力（カレンダー表示）
+numberとdateはブラウザや古いパソコンによっては動かないので注意
 ***
 
 # size
