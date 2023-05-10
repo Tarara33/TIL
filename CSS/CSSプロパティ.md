@@ -38,6 +38,7 @@ pxで設定するとfont-size変更した時にややこしいので数値のみ
 # vertical-align
 インライン要素にのみ使える   
 - +...baselineから上に要素が動く
-- -...baselineから下に要素が動く    
+- -...baselineから下に要素が動く   
+- top...baseline からの距離ではなくて行ボックスの上上端に配置する
 - bottom...baseline からの距離ではなくて行ボックスの下端に配置する
 ***
