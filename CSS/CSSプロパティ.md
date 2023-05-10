@@ -115,4 +115,8 @@ background: url() center/cover pink
 値の種類多いので調べたほうがいい
 ***
 
-
+# border-collapse
+隣り合ったテーブルセルの間隔を指定する
+- collapse...隣接するボーダーラインを重ねあわせて表示するよう指定
+- separate...隣接するボーダーラインを離して表示する、初期値
+- ***
