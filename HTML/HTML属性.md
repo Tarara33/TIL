@@ -20,3 +20,6 @@ type一覧
 - submit...ボタン
 ***
 
+# size
+selectタグでドロップリストを作った時に使う  
+`<select size ="3"></select>`とするとリストが３行分表示される形になる
