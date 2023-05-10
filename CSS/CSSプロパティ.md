@@ -42,3 +42,16 @@ pxで設定するとfont-size変更した時にややこしいので数値のみ
 - top...baseline からの距離ではなくて行ボックスの上上端に配置する
 - bottom...baseline からの距離ではなくて行ボックスの下端に配置する
 ***
+
+# float と　clear
+- folat...要素を左右どちらかに寄せることができる 
+- clear...floatの解除
+~~~
+h1 {
+float: right;
+}
+h2 {
+clear: right;
+}
+~~~
+h1で要素が右にいくがh2では解除される
