@@ -20,10 +20,10 @@ margin: auto;で中央に寄せたもののブラウザ幅が狭くなった時�
 ***
 
 # rgb　と　hsl　と　hwb
-- rgb...red,green,blueの三原色を0~255でmixさせる
+- rgb...red,green,blueの三原色を0~255でmixさせる   
 `color: 🟥rgb(255, 0, 0)`
-- hsl...hue(色相)を120°ずつ赤、緑、青で表示して、そこに鮮やかさと輝度を指定する
+- hsl...hue(色相)を120°ずつ赤、緑、青で表示して、そこに鮮やかさと輝度を指定する  
 `color: 🟥hsl(0deg, 100% 50%)`
-- hwb....hue(色相)とwhite,blackを混ぜる
+- hwb....hue(色相)とwhite,blackを混ぜる  
 `color: 🟥hwb(0deg, 0%, 0%)`
 ***
