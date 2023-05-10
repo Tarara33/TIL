@@ -79,3 +79,25 @@ display: flow-root
 ~~~
 imgをp段落内で覆う
 ***
+
+# background
+- color...背景色
+- image...`background-image: url();`で画像入れる
+- size
+   - px...widthとheightで指定できる
+   - contain...画像がはみ出さない最大の大きさで敷き詰めてくれる
+   - cover...縦横比を保ちながらはみ出してもいいのでなるべく大きく表示
+- position...　画像の起点を決める(left,right,center)
+coverと合わせて使うと真ん中ドアップという感じで表示できたりする
+~~~
+header {
+backgrond-color: pink;
+backgrond-image: url();
+backgrond-size: cover;
+backgrond-position: center;
+}
+[一括指定]
+background: url() center/cover pink
+~~~
+サイズはポジションの後に「/」を入れて表示するがそれ以外は順不同
+***
