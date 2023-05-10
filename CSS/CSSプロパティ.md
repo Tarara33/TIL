@@ -55,3 +55,22 @@ clear: right;
 }
 ~~~
 h1で要素が右にいくがh2では解除される
+***
+
+# display
+- block...要素をブロック属性にする（縦に並ぶ）
+- inline-block....要素をインラインブロック属性にする（横に並ぶ）
+- inline....要素をインライン属性にする（要素の中に並ぶ）
+
+ブロック形式変更以外の使い方
+-　flow-root...floatさせた要素もブロックボックスに含める
+~~~
+img {
+float: right;
+}
+p {
+display: flow-root
+}
+~~~
+imgをp段落内で覆う
+***
