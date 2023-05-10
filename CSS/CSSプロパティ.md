@@ -110,3 +110,9 @@ background: url() center/cover pink
 - line-through...取り消し線を引く
 ***
 
+# cursor
+上をホバーした時にカーソルの形を変える   
+値の種類多いので調べたほうがいい
+***
+
+
