@@ -6,3 +6,7 @@
   - relativeを併用すると基準がそこからになる
   (absoluteを指定した要素囲っている要素にrelativeつける)
 - fix...スクロールしてもついてくる
+***
+
+# z-index
+positionプロパティがついている要素に使える(static以外)
