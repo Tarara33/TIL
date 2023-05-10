@@ -7,3 +7,13 @@ imgタグに使う画像の説明　　
 # target
 aタグに使うリンク先を開くときにブラウザの別のタブで開いて欲しい時に使う  
 `<a href = "" target = "_blank"></a>`と値は「_blank」にする
+***
+
+# input type = ""
+フォームを作る時に出てくる        
+type一覧
+- text...一行分のテキストBOX
+- checkbox...チェックBOXで複数押せる
+- radio...チェックBOXみたいな感じだが一つしか押せない
+- submit...ボタン
+***
