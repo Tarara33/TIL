@@ -61,6 +61,19 @@ inputの方のid名と同じものをlabelのforに入れる
 </fieldset>
 ~~~
 ***
+
+# select　と　option
+- select...選択肢のBOXを作る
+- option...選択肢
+~~~
+<select>
+  <option>選択肢１</option>
+  <option>選択肢２</option>
+  <option>選択肢３</option>
+</select>
+~~~
+***
+
        
        
        
