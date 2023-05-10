@@ -65,6 +65,10 @@ h1で要素が右にいくがh2では解除される
 ブロック形式変更以外の使い方
 -　flow-root...floatさせた要素もブロックボックスに含める
 ~~~
+[html]
+<p><img href= "">こんにちは</p>
+
+[CSS]
 img {
 float: right;
 }
