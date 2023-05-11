@@ -79,4 +79,33 @@ sum(...array); //7
 ⚠️引数よりも配列の要素が多い場合は前から順に代入されるため無視される
 ***
 
+# 分割代入
+配列を作ったけど、やっぱりこれらの値を別々の定数にしたかったとする
+~~~
+const array = [1,2,3];
+const [a,b,c] = array;
+console.log(a); //1
+console.log(b); //2
+console.log(c); //3
+~~~
+値の交換もできる
+~~~
+let x =10;
+let y = 30;
+[x,y] =[y,x];
+console.log(x); //30
+console.log(y); //10
+~~~
+***
+
+# レスト構文
+配列を作ったがやっぱりこれらの値を別々の定数にしたいかつ、定数に入れたいのは最初の２つだけで残りは配列のままでいいという場合
+~~~
+const array = [1,2,3,4,5];
+const [a,b,...newArray] = array;
+console.log(a); //1
+console.log(b); //2
+console.log(neweArray); //[3,4,5]
+~~~
+***
 
