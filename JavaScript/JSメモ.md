@@ -23,3 +23,8 @@ console.log(`my name is ${firstName} ${lastName} !`)
 文字列 => 数値...Number()
 数値　=> 文字列...String()
 ***
+
+# 比較演算子
+- ===...等しい
+- !==...等しくない
+***
