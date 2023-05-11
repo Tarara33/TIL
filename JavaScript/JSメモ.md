@@ -33,3 +33,7 @@ console.log(`my name is ${firstName} ${lastName} !`)
 別ファイルで同名のグローバル変数があるとエラーが出る    
 そのためファイル全体を{}で囲ってローカルスコープとして取り扱う技もある
 ***
+
+# NaN
+Not a Numberの略
+***
