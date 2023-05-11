@@ -22,3 +22,15 @@ function totalPrice(price, amount, rate = 1.1) {
 console.log (totalPrice(100,10)); //1100
 ~~~
 ***
+
+# 早期return
+関数内で特殊なケースを先に篩い落とす技 
+~~~
+[js]
+function Total(price, amount, rate = 1.1) {
+  if (amount >= 100) {
+    return price * amount;
+  }
+  return price * amount * rate;
+}
+~~~
