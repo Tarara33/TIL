@@ -51,3 +51,35 @@ const double = function(num) {
 変数（もしくは定数）に関数を値として代入し、後からその変数を呼び出すことで関数を間接的に利用する方法   
 セミコロン忘れずに
 ***
+
+# アロー関数
+functionを使わず=>で表現   
+関数式に使う    
+~~~
+[関数式]
+const double = function(num) {
+  return num * 2;
+}; //⚠️セミコロンつける
+double(3); //6
+~~~
+~~~
+[アロー関数]
+const double = (num) => {
+  return num * 2
+}
+double(3); //6
+~~~
+⚠️引数がひとつだった場合は()をつけなくてもいい
+~~~
+[アロー関数]
+const double = num => {
+  return num * 2
+}
+double(3); //6
+~~~
+⚠️関数ブロック内で実行する処理がreturn文だけだった場合、ブロックをあらわす {} 、そしてreturnも省略して記述することができる
+~~~
+const double = num => num * 2;
+double(3); //6
+~~~
+***
