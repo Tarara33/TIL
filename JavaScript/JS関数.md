@@ -66,7 +66,7 @@ double(3); //6
 [アロー関数]
 const double = (num) => {
   return num * 2
-}
+};
 double(3); //6
 ~~~
 ⚠️引数がひとつだった場合は()をつけなくてもいい
@@ -74,7 +74,7 @@ double(3); //6
 [アロー関数]
 const double = num => {
   return num * 2
-}
+};
 double(3); //6
 ~~~
 ⚠️関数ブロック内で実行する処理がreturn文だけだった場合、ブロックをあらわす {} 、そしてreturnも省略して記述することができる
@@ -82,4 +82,36 @@ double(3); //6
 const double = num => num * 2;
 double(3); //6
 ~~~
+***
+
+# コールバック関数
+関数に引数として渡される関数のこと   
+~~~
+[アロー関数の場合]
+const hello = () => {
+  console.log ("Hello");
+};
+
+const call = (callback) => {
+  console.log("callbackされました。");
+  callback();
+};
+
+call(hello); //callbackされました。Hello
+~~~
+⚠️引数に関数を入れる時は関数名の横に()つけない   
+処理順番としては    
+①関数callを呼び引数に関数helloを入れる    
+②まずconsole.log("callbackされました。")が実行   
+③引数に入れた関数がcallback()部分に代入されるのでhello()となりconsole.log ("Hello")を実行
+~~~
+const call = (puipui) => {
+  console.log("callbackされました。");
+  puipui();
+};
+~~~
+これでも同じ動きをする   
+callbackする側の引数名はcallbackでなくてもいい   
+ただし、引数名とブロックの中のcallbackする関数名を同じにする必要はある     
+（でないとどこでcallback処理行えばいいかわからない）    
 ***
