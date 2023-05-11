@@ -12,7 +12,7 @@ JSファイルの一番上に`'use strict'`と入れる
 `console.log("sa\nrina")`改行したい文字の直前に「/n」入れる
 ***
 
-# テンプレートリテアル
+# テンプレートリテラル
 ~~~
 console.log(`my name is ${firstName} ${lastName} !`)
 ~~~
