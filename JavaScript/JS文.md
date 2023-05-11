@@ -38,3 +38,37 @@ do whileは条件の判断が最後なのでconsole.logされる
 `score > 80 ? "A" : "B";`scoreが80以上ならA、以下ならBを返す文    
 また最終的に1つの値になるので、`const result = score > 80 ? "A" : "B";`このように定数や変数に代入して使うことができる
 ***
+
+# for文
+ループ構文   
+ある処理をN回繰り返したいときに使える   
+配列で要素分だけ繰り返す文はこういう感じ
+~~~
+const array = [1,2,3,4];
+for (let i = 0; i < array.length; i ++) {
+  console.log(`array ${i}: ${array[i]}`);
+}
+//array 0: 1
+  array 1: 2
+  array 2: 3
+  array 3: 4
+~~~
+***
+
+# forEach文
+配列のような「要素に順序を持つオブジェクト」が持つメソッドで、「その要素1つ1つに対して順番にある処理をしたい」ときに使う   
+配列に使うことが多く渡す引数によって取り出される内容が変わる
+- 第一引数...配列の要素
+- 第二引数...インデックス番号
+- 第三引数...配列全体
+~~~
+const array = [1,2,3,4];
+array.forEach((a,index) => {
+  console.log(`array ${index}: ${a}`);
+}); 
+//array 0: 1
+  array 1: 2
+  array 2: 3
+  array 3: 4
+~~~
+***
