@@ -9,5 +9,5 @@ JSファイルの一番上に`'use strict'`と入れる
 ***
 
 # 文字列の改行
-`console.log("sa\rina")`改行したい文字の直前にバックスラッシュ入れる
+`console.log("sa\nrina")`改行したい文字の直前に「/n」入れる
 ***
