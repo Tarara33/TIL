@@ -67,5 +67,16 @@ console.log(a); //[10,0,1,4]
 const a = [1,2,3];
 const b = [6,7,...a];
 console.log(b); //[6,7,1,2,3]
+~~~
+引数としても扱える
+~~~
+const array = [2,5]
+function sum(a,b) {
+  console.log(a + b);
+}
+sum(...array); //7
+~~~
+⚠️引数よりも配列の要素が多い場合は前から順に代入されるため無視される
+***
 
 
