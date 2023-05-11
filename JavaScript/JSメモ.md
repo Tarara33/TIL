@@ -38,5 +38,4 @@ case "green":
 と
 caseを条件分書く
 ***
-nいぎ
 
