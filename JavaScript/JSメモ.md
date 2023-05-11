@@ -28,3 +28,15 @@ console.log(`my name is ${firstName} ${lastName} !`)
 - ===...等しい
 - !==...等しくない
 ***
+
+# switch文
+caseをひとつではなく〇〇もしくは〇〇だったらという複数条件にしたい場合   
+~~~
+case "blue":
+case "green":
+~~~
+と
+caseを条件分書く
+***
+nいぎ
+
