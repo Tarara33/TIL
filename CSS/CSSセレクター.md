@@ -126,10 +126,31 @@ color: red;
 カーソルが上に来た時にCSSに変化がある
 ***
 
-# focus
+# :focus
 フォーム欄など入力する箇所を押した時変化がある
 ***
 
-# active
+# :active
 ボタンなどクリックした時に変化がある
+***
+
+# :not()
+()内に入れたもの以外に反映させる 
+~~~
+[html]
+<html>
+  <body>
+    <div class = "box">BOX1</div>
+    <div>BOX2</div>
+    <div class = "box">BOX3</div>
+  </body>
+</html>
+
+[css]
+:not(.box) {
+border: 1px solid red;
+}
+~~~
+こうするとhtmlタグやbodyタグにも反映させてしまうので    
+`div:not(.box)`にするとBOX2のみに反映される
 ***
