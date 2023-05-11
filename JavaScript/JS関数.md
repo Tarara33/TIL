@@ -2,8 +2,8 @@
 ~~~
 [js]
 function sum(a,b) {
-console.log (a + b);
-//return undefined;
+  console.log (a + b);
+  //return undefined;
 }
 sum(300,700); //1000
 console.log (sum(300,700) * 3); //NaN
