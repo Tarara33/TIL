@@ -37,3 +37,7 @@ console.log(`my name is ${firstName} ${lastName} !`)
 # NaN
 Not a Numberの略
 ***
+
+# 関数の巻き上げ
+関数宣言はコードのどこで書いても実行時は先頭に来るためconsole.logが宣言より上に書いてもエラーでない
+***
