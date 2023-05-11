@@ -18,3 +18,8 @@ console.log(`my name is ${firstName} ${lastName} !`)
 ~~~
 バッククォーテーションで文字列を囲む
 ***
+
+# データ型の変換
+文字列 => 数値...Number()
+数値　=> 文字列...String()
+***
