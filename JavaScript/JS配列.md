@@ -131,4 +131,22 @@ console.log(point[1].y); //40
 ~~~
 ***
 
-
+# 配列オブジェクトの追加
+- unshift()...最初に追加
+- push()...最後に追加
+~~~
+const point = [
+{x:10, y:20},
+{x:30, y:40},
+];
+point.unshift({e:30, s:70});
+point.push({b:40, t:70});
+console.log(point);
+//[
+{e:30, s:70},
+{x:10, y:20},
+{x:30, y:40},
+{b:40, t:70}
+]
+~~~
+***
