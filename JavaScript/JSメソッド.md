@@ -102,7 +102,51 @@ console.log(Math.random()); //0.5430438839381262
 ~~~
 ***
 
+# new Date()
+現在の日時が表示される
+`const d = new Date();`
+***
 
+# getFullYear()
+2023などと表示   
+`console.log(d.getFurrYear())`　とnew Dateした定数（変数）に使う
+***
 
+# getMonth()
+０〜11で月を表示（１月が０）
+`console.log(d.getMonth())`　とnew Dateした定数（変数）に使う    
+~~~
+`console.log(`${d.getMonth() + 1}`)　
+~~~
+０〜11で月を表示するので＋１するといい
+***
 
+# getDate()
+１〜31で日にちを表示   
+`console.log(d.getDate())`　とnew Dateした定数（変数）に使う
+***
 
+# getDay()
+０〜６で曜日を表示（sun:0, mon:1...）
+`console.log(d.getDay())`　とnew Dateした定数（変数）に使う
+***
+
+# getHours()
+０〜23で時を表示
+`console.log(d.getHours())`　とnew Dateした定数（変数）に使う
+***
+
+# getMinutes()
+０〜59で分を表示
+`console.log(d.getMinutes())`　とnew Dateした定数（変数）に使う
+***
+
+# getSeconds()
+０〜59で秒を表示
+`console.log(d.getSeconds())`　とnew Dateした定数（変数）に使う
+***
+
+# getMilliseconds()
+０〜999で 1/1000秒を表示
+`console.log(d.getMilliseconds())`　とnew Dateした定数（変数）に使う
+***
