@@ -88,6 +88,7 @@ const avg = sum / scores.length;
 console.log(sum); //148
 console.log(avg); //49.333333333333336
 ~~~
-⚠️引数ひとつなので()省略
+⚠️sumはletにする（constだと更新できないので値＋していけない）   
+⚠️引数ひとつなので()省略    
 ⚠️処理がreturnのみなので{}とreturn省略
 ***
