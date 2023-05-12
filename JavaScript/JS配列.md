@@ -150,3 +150,16 @@ console.log(point);
 ]
 ~~~
 ***
+
+# 配列オブジェクトの削除
+splice(変化が開始するインデックス番号, 削除数, 追加する要素);を使う
+~~~
+const point = [
+{x:10, y:20},
+{x:30, y:40},
+];
+point.splice(0,1);
+console.log(point);
+//[{x:30, y:40}]
+~~~
+***
