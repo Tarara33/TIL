@@ -74,4 +74,18 @@ console.log(other); //{y: 50, s: 900}
 ~~~
 ***
 
-
+# Object.keys　と　forEachの組み合わせ
+オブジェクトのキーと値を出す方法
+~~~
+const point = {x: 10, y: 50, r:30, s:900};
+const keys = Object.keys(point);
+keys.forEach(key => {
+  console.log(`key: ${key}, value: ${point[key]}`);
+});
+//
+key: x value: 10
+key: y value: 50
+key: r value: 30
+key: s value: 900
+~~~
+⚠️forEachでは文字列で配列要素を取得しているため`value: ${point[key]}`のkeyは`${point.key}`とできない
