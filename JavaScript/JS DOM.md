@@ -42,3 +42,14 @@ document.querySelectorAll("p").forEach((p,index) => {
 # getElementById() 
 idを指定して要素を探す
 getElementById(id名) 　⚠️#いらない
+***
+
+# getElementsByClassName()[]
+class = "class名"のクラス名を指定して要素を探す
+getElementsByClassName("class名")[そのクラス名の何番目の要素か] 　⚠️.いらない
+***
+
+# getElementsByTagName()[]
+htmlタグ名で探す    
+getElementsByTagName("タグ名")[そのタグ名の何番目の要素か] 
+***
