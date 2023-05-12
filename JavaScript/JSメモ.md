@@ -69,3 +69,12 @@ console.log(x); //[10,2]
 console.log(y); //[1,2]
 ~~~
 ***
+
+# 文字列の個々へアクセス
+~~~
+const str = "hello";
+console.log(str[0]); //h
+~~~
+⚠️しかし配列のように`str[0] = "a";`などと変更などはできない
+***
+
