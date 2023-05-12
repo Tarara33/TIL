@@ -78,3 +78,16 @@ console.log(str[0]); //h
 ⚠️しかし配列のように`str[0] = "a";`などと変更などはできない
 ***
 
+# 数値の合計と平均
+~~~
+const scores = [23, 46, 79];
+let sum = 0;
+scores.forEach(score => sum += score);
+const avg = sum / scores.length;
+
+console.log(sum); //148
+console.log(avg); //49.333333333333336
+~~~
+⚠️引数ひとつなので()省略
+⚠️処理がreturnのみなので{}とreturn省略
+***
