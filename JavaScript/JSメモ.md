@@ -128,3 +128,8 @@ console.log(Math.floor(Math.random() * 8) + 3); //3~10
 しかしTimeoutは処理が終わった時点から1000ミリ秒後に次の処理をするので処理が重ならないためPCに負担かかりにくい
 ***
 
+# ElementsBy　と　Selector
+Selectorは()にhtmlタグ名でも、属性名でも対応できる    
+ElementsByはByの後にIdやName、ClassNameなど指定されているので属性の値を入れる
+***
+
