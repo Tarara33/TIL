@@ -117,6 +117,7 @@ console.log (d); //2000,6,1 00:00:00
 ## new Dateした定数（変数）に使う
 - get/set FullYear()...2023などと表示   
 - get/set Month()...０〜11で月を表示（１月が０）
+`console.log(`${d.getMonth() + 1}`)　と０〜11で月を表示するので＋１するといい
 - get/set Date()...１〜31で日にちを表示 
 - get/ser Day()...０〜６で曜日を表示（sun:0, mon:1...）
 - get/set Hours()...０〜23で時を表示
