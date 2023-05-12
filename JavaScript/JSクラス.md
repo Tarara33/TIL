@@ -24,3 +24,33 @@ posts[1].show(); //名前は：ドラえもん、年齢は120です...0いいね
 ~~~
 このクラスから作られるインスタンスは this で表現する
 ***
+
+# 静的メソッド
+クラスが使えるメソッド   
+static メソッド名とする   
+~~~
+class Post {
+  constructor(name,age) {
+    this.name = name;
+    this.age = age;
+    this.likeCount = 0;
+   }
+   
+  show() {
+   console.log(`名前は：${this.name}、年齢は${this.age}です...${this.likeCount}いいね`);
+  }
+  
+  static showInfo() {
+    console.log("Post class version 1.1");
+  }
+}
+
+const posts = [
+new Post("ドラえもん",120),
+new Post("桜木花道",17),
+]
+
+Post.showInfo(); //Post class version 1.1
+posts[0].showInfo(); //エラー
+~~~
+***
