@@ -104,49 +104,37 @@ console.log(Math.random()); //0.5430438839381262
 
 # new Date()
 現在の日時が表示される
-`const d = new Date();`
-***
-
-# getFullYear()
-2023などと表示   
-`console.log(d.getFurrYear())`　とnew Dateした定数（変数）に使う
-***
-
-# getMonth()
-０〜11で月を表示（１月が０）
-`console.log(d.getMonth())`　とnew Dateした定数（変数）に使う    
 ~~~
-`console.log(`${d.getMonth() + 1}`)　
+[現在日時]
+const d = new Date();　//現在の日時
+
+[指定日時]
+const d = new Date(2000,6)
+console.log (d); //2000,6,1 00:00:00
 ~~~
-０〜11で月を表示するので＋１するといい
-***
+⚠️指定するとき「年、月」は指定する
 
-# getDate()
-１〜31で日にちを表示   
-`console.log(d.getDate())`　とnew Dateした定数（変数）に使う
-***
+## new Dateした定数（変数）に使う
+- get/set FullYear()...2023などと表示   
+- get/set Month()...０〜11で月を表示（１月が０）
+- get/set Date()...１〜31で日にちを表示 
+- get/ser Day()...０〜６で曜日を表示（sun:0, mon:1...）
+- get/set Hours()...０〜23で時を表示
+- get/set Minutes()...０〜59で分を表示
+- get/set Seconds()...０〜59で秒を表示
+- get/set Milliseconds()...０〜999で 1/1000秒を表示
+~~~
+[get]
+const d = new Date();
+console.log(d.getMonth()); //0(一月)
+console.log(d.getDay()); // 2(火曜日)
 
-# getDay()
-０〜６で曜日を表示（sun:0, mon:1...）
-`console.log(d.getDay())`　とnew Dateした定数（変数）に使う
-***
-
-# getHours()
-０〜23で時を表示
-`console.log(d.getHours())`　とnew Dateした定数（変数）に使う
-***
-
-# getMinutes()
-０〜59で分を表示
-`console.log(d.getMinutes())`　とnew Dateした定数（変数）に使う
-***
-
-# getSeconds()
-０〜59で秒を表示
-`console.log(d.getSeconds())`　とnew Dateした定数（変数）に使う
-***
-
-# getMilliseconds()
-０〜999で 1/1000秒を表示
-`console.log(d.getMilliseconds())`　とnew Dateした定数（変数）に使う
-***
+[set]
+const d = new Date(2000,6)
+console.log (d); //2000,6,1 00:00:00
+d.setDate(25);
+console.log(d); //2000,6,25 00:00:00
+d.setHours(12,15,30);
+console.log(d); //2000,6,25 12:15:30
+~~~
+setはまとめて複数の引数を渡すとより小さい単位までセットできる
