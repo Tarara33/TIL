@@ -29,12 +29,21 @@ console.log(evenNumber); // [56,104]
 ~~~
 ***
 
-# Object.keys
+# Object.keys()
 オブジェクトからキーを配列として抽出する  
 Object.keys(キーを抽出したいオブジェクト名)
 ~~~
 const point = {x:10, y:20, s:30, r:40};
 const keys = Object.keys(point);
 console.log(keys); //[x,y,s,r]
+~~~
+***
+
+# substring()
+部分文字列を取得する    
+substring(開始インデックス,終了インデックス)
+~~~
+const str = "hello";
+console.log(str.substring(2,4)); //ll
 ~~~
 ***
