@@ -20,8 +20,8 @@ console.log(`my name is ${firstName} ${lastName} !`)
 ***
 
 # データ型の変換
-文字列 => 数値...Number()
-数値　=> 文字列...String()
+- 文字列 => 数値...Number()
+- 数値　=> 文字列...String()
 ***
 
 # 比較演算子
