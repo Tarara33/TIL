@@ -119,7 +119,6 @@ console.log(Math.floor(Math.random() * 6) + 1); //1~6
 console.log(Math.floor(Math.random() * 8) + 3); //3~10
 ~~~
 一番右のminはmin以上にするためにある（例で言うと１以上、＋しないと×６で出る整数は0~5になる）
-~~~
 ***
 
 # setImterval　と　setTimeout
