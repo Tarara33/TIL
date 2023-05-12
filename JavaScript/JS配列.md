@@ -127,7 +127,7 @@ const point = [
 {x:10, y:20},
 {x:30, y:40},
 ];
-console.log[1].y; //40
+console.log(point[1].y); //40
 ~~~
 ***
 
