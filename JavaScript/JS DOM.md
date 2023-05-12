@@ -27,7 +27,7 @@ document.querySelectorAll("p")[1].textContent = "Changed";
 forEach使う
 ~~~
  [js]
-document.querySelectorAll("p").forEach(p,index) => {
+document.querySelectorAll("p").forEach((p,index) => {
   p.textContent = `${index}番目のpです！`;
 });
 ~~~
