@@ -32,7 +32,8 @@ end
 
 # NOT NULL制約
 NULL（nil）で入れて欲しくないカラムにつける   
-`データ型　：カラム名, null: false` ⚠️（true）にするとnull　OKになる    
+`データ型　：カラム名, null: false` （true）にするとnull　OKになる        
+⚠️このままだと「""」空文字は入ってしまうためmodelでvalidateする必要ある
 ***
 
 # 文字数制限つける
