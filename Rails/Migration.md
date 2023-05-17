@@ -47,17 +47,26 @@ NULL（nil）で入れて欲しくないカラムにつける
 ⚠️NULL同士は常に異なる値と判断され重複扱いされない    
 `データ型　：カラム名, unique: true` (falseだと発動しない)
  ***
- 
- # execute
+
+# execute
  マイグレーションファイルでSQLを実行    
  `execute(SQL文, 名前=nil)` 例`execute "SELECT * FROM pages ORDER BY updated_at DESC LIMIT 10"`
  ***
- # add_reference
+# add_reference
   指定したテーブルにリファレンスを追加    
   `add_reference(テーブル名, リファレンス名, オプション引数)`    
   例`add_reference :tasks, :user, null:false, index:true`
   ***
- # remove_reference
+# remove_reference
   既存のテーブルのリファレンスを削除   
   `remove_reference(テーブル名, リファレンス名 [, オプション])`
   ***
+  
+# モデルの関連づけ
+モデルの「関連付け」というのは、あるモデルAのレコードを別のモデルBが参照している状態を指す。   
+
+- 自テーブルが対象を複数持っている(一対多)...`has_many(関連モデル名 [, scope ,オプション])`をつける    
+自分のテーブルが対象テーブルを複数もつ場合に使う。対象テーブル側に自分のidのカラムがある場合に使う。
+
+- 自テーブルが対象に所属...`belongs_to(関連モデル名 [, scope, オプション])`   
+自分のテーブルが対象テーブルのレコードに所属する(対象テーブルのidカラムがある)場合に使う。
