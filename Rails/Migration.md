@@ -47,4 +47,8 @@ NULL（nil）で入れて欲しくないカラムにつける
 ⚠️NULL同士は常に異なる値と判断され重複扱いされない    
 `データ型　：カラム名, unique: true` (falseだと発動しない)
  ***
+ 
+ # execute
+ マイグレーションファイルでSQLを実行    
+ `execute(SQL文, 名前=nil)` 例`execute "SELECT * FROM pages ORDER BY updated_at DESC LIMIT 10"`
   
