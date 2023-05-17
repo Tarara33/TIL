@@ -51,4 +51,13 @@ NULL（nil）で入れて欲しくないカラムにつける
  # execute
  マイグレーションファイルでSQLを実行    
  `execute(SQL文, 名前=nil)` 例`execute "SELECT * FROM pages ORDER BY updated_at DESC LIMIT 10"`
-  
+ ***
+ # add_reference
+  指定したテーブルにリファレンスを追加    
+  `add_reference(テーブル名, リファレンス名, オプション引数)`    
+  例`add_reference :tasks, :user, null:false, index:true`
+  ***
+ # remove_reference
+  既存のテーブルのリファレンスを削除   
+  `remove_reference(テーブル名, リファレンス名 [, オプション])`
+  ***
