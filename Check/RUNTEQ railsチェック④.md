@@ -143,4 +143,63 @@ end
 ⚠️しかし、このままだと「ログイン画面を表示するアクション」にも適応され延々とredirect_toが行われる。    
 そのため
 ~~~
-[SessionsController.rb] =>ログインに
+[SessionsController.rb] =>ログインに関するアクションを定義してるコントローラ
+class SessionsController < ApplicationController
+  skip_before_action :login_required
+  ・・・省略
+end
+~~~
+として、SessionsControllerではlogin_requiredメソッドを無効にするとログイン画面が表示される
+***
+
+## UserとPostのような別々のモデルを紐付けたい時はどうすればいいですか？
+モデルの「関連付け」というのは、あるモデルAのレコードを別のモデルBが参照している状態を指す。
+
+- 自テーブルが対象を複数持っている(一対多)...has_many(対象モデル名 [, scope ,オプション])をつける
+自分のテーブルが対象テーブルを複数もつ場合に使う。対象テーブル側に自分のidのカラムがある場合に使う。
+
+- 自テーブルが対象を1つ持っている(一対一)...has_one(関連モデル名 [, scope ,オプション])
+自分のテーブルが対象テーブルを1つ持っている(複数持たない)場合に使う。対象テーブル側に自分のidのカラムがある場合に使う。
+
+- 自テーブルが対象に所属...belongs_to(対象モデル名 [, scope, オプション])
+自分のテーブルが対象テーブルのレコードに所属する(対象テーブルのidカラムがある)場合に使う。
+***
+
+### オプション
+- dependent: :destroy 親モデルを削除する際に、その親モデルに紐づく「子モデル」も一緒に削除できる
+~~~
+[User model.rb]
+has_many :posts
+
+[Post model.rb]
+belongs_to :user
+~~~
+このままだとユーザーが退会して消えてもユーザーの投稿は消えない
+~~~
+[User model.rb]
+has_many :posts, dependent: :destroy
+
+[Post model.rb]
+belongs_to :user
+~~~
+これでとユーザーが退会したらユーザーの投稿も消える
+***
+
+- through: :中間テーブル名 has_manyでも、has_oneでも2つのモデルの間に「第3のモデル」（joinモデル）が介在し、
+それを経由（through）して相手のモデルの「0個以上」のインスタンスとマッチする時に使う  
+例えば、医師（doctor）、患者(patients)テーブルの間に予約(appointments)をとるテーブルがあるとすると
+~~~
+[Doctor model.rb]
+has_many :appointments
+has_many :patients, through: :appointments
+
+[Patients model.rb]
+has_many :appointments
+has_many :doctor, through: :appointments
+
+[Appointments model.rb]
+belongs_to :patients
+belongs_to :doctor
+~~~
+Appointmentsテーブルはdoctor_id、patients_idを含むテーブルになる
+***
