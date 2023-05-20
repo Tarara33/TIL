@@ -118,4 +118,29 @@ def create
 ~~~
 def create
   task = current_user.tasks.new(task_params)
-  
+  => current_user(ログイン中のユーザー)が新規作成として入力したものをtaskに代入。
+end
+~~~
+どちらの書き方でもcurrent_user.id(ログイン中のユーザーid)をuser_idに入れて登録できる。
+***
+
+## ApplicationControllerにbefore_action :login_requiredを定義した時に解決しなければいけない問題はどのようなものがありますか？
+まず、before_actionを定義すると、コントローラファイルの全てのアクションを行う前に実行される。   
+今回の場合ApplicationControllerなので全てのコントローラファイルのアクション前に行われる。   
+:login_requiredは、ユーザーがログイン済みかどうかチェックが入り、ログインしていない場合ログイン画面が表示する動きをする。
+~~~
+[ApplicationController.rb]
+class ApplicationController < ActionController::Base
+   before_action :login_required
+   
+   private
+   def login_required
+    redirect_to login_url unless current_user
+    => unless文なのでcurrent_userがnil or falseなら実行される
+   end
+end
+~~~
+⚠️しかし、このままだと「ログイン画面を表示するアクション」にも適応され延々とredirect_toが行われる。    
+そのため
+~~~
+[SessionsController.rb] =>ログインに
