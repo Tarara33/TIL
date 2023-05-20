@@ -185,7 +185,7 @@ belongs_to :user
 これでとユーザーが退会したらユーザーの投稿も消える
 ***
 
-- through: :中間テーブル名 has_manyでも、has_oneでも2つのモデルの間に「第3のモデル」（joinモデル）が介在し、
+- through: :中間テーブル名 has_manyでも、has_oneでも2つのモデルの間に「第3のモデル」（joinモデル）が介在し、   
 それを経由（through）して相手のモデルの「0個以上」のインスタンスとマッチする時に使う  
 例えば、医師（doctor）、患者(patients)テーブルの間に予約(appointments)をとるテーブルがあるとすると
 ~~~
