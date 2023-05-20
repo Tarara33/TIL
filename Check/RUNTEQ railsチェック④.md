@@ -88,4 +88,34 @@ present?メソッドを使いeach文で取得する。（presentは全データ�
 ***
 
 ## has_secure_passwordはどういうときに使いますか？
-ユーザーから入力されたパスワード
+ユーザーから入力されたパスワードをハッシュ化（暗号化）してデータベースに保存したいとき。    
+モデルファイルに記述するが、それだけでは適応されない。   
+①　モデル（データベースのテーブルを作るときにパスワードのカラム名は⚠️「password_digest」にする）   
+②　bcrpt gem installする。    
+③ has_secure_passwordの記述
+~~~
+[password_digestをもつモデルファイル] 例：Userモデル
+class User < ApplicationRecord
+  has_secure_password
+end
+~~~
+has_secure_passwordを設定するとデータベースカラムには対応しない、    
+「password」「password_confirmation」と言う２つの属性が追加される。 
+- 「password」...ユーザーが入力した生のパスワードを一時的に格納する場所
+- 「password_confirmation」...確認としてもう一度パスワードを入れてもらい先ほど入れたものと合っているか
+一時的に確認用パスワードを格納する
+***
+
+## current_userはどういう時に定義しますか？
+ヘルパーメソッドの一つで、現在ログインしているユーザーをモデルオブジェクトとして利用できる。    
+例えば、ログイン中のユーザーに紐づいたcreateアクションを書くには
+~~~
+def create 
+  task = Task.new(task_params.merge(user_id: current_user.id)
+  => ユーザーから入力されるparamsにuser_idとしてcurrent_user.id(ログイン中のユーザーid)をmergeして受け取る。
+ end
+~~~
+~~~
+def create
+  task = current_user.tasks.new(task_params)
+  
