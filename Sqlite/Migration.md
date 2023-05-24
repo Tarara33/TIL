@@ -24,6 +24,7 @@
 
 ##　データ型
 テーブルをつなげたい時はreferences使う
+references型は新しく作成するテーブルのカラムに、作成済みのテーブルを指定する場合に使う。
 ~~~
 rails g Task name:string user:references
 => Userテーブルのuser_idをTaskテーブルに入れる
