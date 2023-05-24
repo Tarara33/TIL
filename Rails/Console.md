@@ -1,4 +1,5 @@
 # $rails c で入る
+# reload! でコンソールの再読み込み
 
 # new　と　create
 例えば新しくUserモデルにデータを登録したいとき
