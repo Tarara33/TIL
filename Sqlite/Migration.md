@@ -21,3 +21,13 @@
 - up...実行済み
 - down...未実行、⚠️手動でファイル消しても大丈夫
 ***
+
+##　データ型
+テーブルをつなげたい時はreferences使う
+~~~
+rails g Task name:string user:references
+=> Userテーブルのuser_idをTaskテーブルに入れる
+~~~
+⚠️references使うカラム名は〇〇_idとしない、〇〇とテーブル名だけでそのテーブルのPRIMARY KEY(主キー)が  
+foreign_keyとして追加される
+***
