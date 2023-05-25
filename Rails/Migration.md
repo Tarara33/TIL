@@ -62,3 +62,8 @@ NULL（nil）で入れて欲しくないカラムにつける
   `remove_reference(テーブル名, リファレンス名 [, オプション])`
   ***
   
+  # マイグレーション状況確認
+  `$ rails db:migrate:status`
+  ***
+  
+  
