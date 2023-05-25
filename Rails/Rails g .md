@@ -13,6 +13,6 @@ $ rails g model名 データベースにほしいカラム
 
 # 間違えて作成して取り消したい
 ~~~
-rails destroy モデル名やコントローラー名　（name：などの引数不要）
+rails destroy model or controller モデル名やコントローラー名　（name：などの引数不要）
 ~~~
 ***
