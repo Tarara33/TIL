@@ -2,14 +2,14 @@
 
 # コントローラーの作成
 ~~~
-$ rails g controller名 欲しいviewファイル
+$ rails g controller controller名 欲しいviewファイル
 ~~~
 ⚠️コントローラー名は複数形
 ***
 
 # モデルの作成
 ~~~
-$ rails g model名 データベースにほしいカラム
+$ rails g model model名 データベースにほしいカラム
 ~~~
 
 # 間違えて作成して取り消したい
