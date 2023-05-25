@@ -1,4 +1,4 @@
-[参考]（https://qiita.com/histori/items/7b76aaaa69f2e3ab4f06）
+https://qiita.com/histori/items/7b76aaaa69f2e3ab4f06
 
 # コントローラーの作成
 ~~~
