@@ -14,3 +14,24 @@ User.create(name: "Taro")
 - new...saveをしないとデータベースに登録されない
 - create... save含んでる
 ***
+
+# コンソールでエラーメッセージ確認
+~~~
+[model.rb]
+class Post < ApplicationRecord
+  validates :title,:body, presence: true
+  validates :body, length: {in: 5..140}
+end
+
+[rails c]
+post = Post.new
+post.valid?
+=> false
+post.errors
+=> #<ActiveModel::Errors:0x0000000126e3d3a8 @base=#<Post id: nil, title: nil, body: nil, created_at: nil, updated_at: nil>, @messages={:title=>["can't be blank"], :body=>["can't be blank", "is too short (minimum is 5 characters)"]}, @details={:title=>[{:error=>:blank}], :body=>[{:error=>:blank}, {:error=>:too_short, :count=>5}]}>
+入ってるものとエラーの理由両方出る
+
+post.errors.full_messages
+=> ["Title can't be blank", "Body can't be blank", "Body is too short (minimum is 5 characters)"]
+~~~
+
