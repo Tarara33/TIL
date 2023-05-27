@@ -60,3 +60,9 @@ mysql> CREATE TABLE user(
 - VARCHAR()...()の数字の文字数まで入る。
 - PRIMARY KEY ()...データを一意に識別するための項目で（）内のカラムにもたせる
 ***
+
+# テーブル削除
+~~~
+DROP TABLE テーブル名;
+~~~
+***
