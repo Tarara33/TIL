@@ -65,4 +65,11 @@ mysql>
 
 mysql> や　bash-4.2# から出るには`exit`   
 Docker止めるには`$ docker-compose down`とする
+***
+
+
+# Docker run と　start
+runにすると新しくコンテナができる。   
+startだと既存コンテナ起動
+***
 
