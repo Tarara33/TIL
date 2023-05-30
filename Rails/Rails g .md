@@ -17,3 +17,12 @@ $ rails g model model名 データベースにほしいカラム
 rails destroy model or controller モデル名やコントローラー名　（name：などの引数不要）
 ~~~
 ***
+
+# g 実行後の意味
+- identical...同一の
+- exist...存在する
+- invoke...呼び出す
+- conflict...競合している
+- force...強制的に
+- create...作成
+***
