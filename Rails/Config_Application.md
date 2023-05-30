@@ -5,8 +5,14 @@ Applicationクラス内に記述
 
 config.generators do |g|
    g.ファイル名 false
-例) g.helper false
-  ...と書いていく
+例) g.helper false　
+    # helperファイルを作成しない
+    g.assets false
+    # css,javascriptファイルを作成しない
+    g.test_framework false
+    # テストファイルを作成しない
+    g.skip_routes
+    # routes.rbを変更しない
 end
 ~~~
 ***
