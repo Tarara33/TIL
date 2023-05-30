@@ -1,4 +1,5 @@
 # rails g 実行時に無駄なファイル作りたくない
+Applicationクラス内に記述
 ~~~
 [config.application.rb]
 
