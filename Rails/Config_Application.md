@@ -1,3 +1,4 @@
+[ジェネレーター](https://railsguides.jp/configuring.html#%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%82%BF%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B)
 # rails g 実行時に無駄なファイル作りたくない
 Applicationクラス内に記述
 ~~~
