@@ -3,6 +3,16 @@ has_secure_passwordメソッドをユーザーモデルで呼び出すだけで�
 パスワードを引数としてユーザーの認証を行うことができる。    
 - 誤ったパスワードの場合　→ falseを返す
 - 正しいパスワードの場合　→ そのユーザーを返す
+⚠️
+~~~
+ログイン分岐などで
+if user.authenticate(params[:session][:password])
+としたときにuserがnil(elseを辿ろうとすると)だとエラーが出るのでその場合は
+user&.authenticate(params[:session][:password])
+や
+user && user.authenticate(params[:session][:password])　=> userが存在したら &&の後ろを実行、存在しなければそのままelseへ
+とする
+~~~
 ***
 
 # redirect_to　と　redirect_back_or_to
