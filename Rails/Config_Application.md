@@ -5,16 +5,20 @@ Applicationクラス内に記述
 ~~~
 [config.application.rb]
 
-config.generators do |g|
-   g.ファイル名 false
-例) g.helper false　
-    # helperファイルを作成しない
-    g.assets false
-    # css,javascriptファイルを作成しない
-    g.test_framework false
-    # テストファイルを作成しない
-    g.skip_routes true
-    # routes.rbを変更しない
+module RunteqNormal
+  class Application < Rails::Application
+   config.generators do |g|
+      g.ファイル名 false
+ 例)   g.helper false　
+      # helperファイルを作成しない
+      g.assets false
+      # css,javascriptファイルを作成しない
+      g.test_framework false
+      # テストファイルを作成しない
+      g.skip_routes true
+      # routes.rbを変更しない
+   end
+ end
 end
 ~~~
 ***
@@ -23,6 +27,9 @@ end
 Applicationクラス内に記述
 ~~~
 [config.application.rb]
-
-config.i18n.default_local = :ja
+module RunteqNormal
+  class Application < Rails::Application
+   config.i18n.default_local = :ja
+  end
+end
 ~~~
