@@ -32,6 +32,25 @@ redirect_to login_path, sccess: 'ユーザーを作成しました'
 
 # flash　と　flash.now
 [![Image from Gyazo](https://i.gyazo.com/535c54e1ad12164a8e02edd1b3b92bdc.png)](https://gyazo.com/535c54e1ad12164a8e02edd1b3b92bdc)
-redirect_toは「flash」じゃないと、メッセージが見れなくなる。   
-renderは「flash.now」じゃないと、メッセージが残りすぎる。（２回再読み込みすると消える）
+redirect_toは次のアクションになるので、「flash.now」だとメッセージ表示見れない。    
+renderは指定したviewsを呼び出すだけなので、アクションではない。そのため「flash」にすると予期せぬ動きをする。    
+１　createアクションの実行    
+２　表示したページでメッセージを表示（1回目）   
+３　〇〇アクションの実行（例　ページ遷移）   
+４　遷移したページでメッセージを表示（2回目）（寿命を迎える）  => ページ変わってもまだあるよ状態     
+５　〇〇アクションの実行（例　ページ遷移）     
+６　遷移したページでメッセージは表示されない    
+***
+
+
+
+
+
+
+
+
+
+
+
+
 ***
