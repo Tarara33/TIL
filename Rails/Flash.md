@@ -29,3 +29,9 @@ redirect_to login_path, sccess: 'ユーザーを作成しました'
 これをレイヤーに読み込ませると
 全てのviewに適応されるので、いちいちこれを各viewファイルに書かなくて済む。
 ***
+
+# flash　と　flash.now
+[![Image from Gyazo](https://i.gyazo.com/535c54e1ad12164a8e02edd1b3b92bdc.png)](https://gyazo.com/535c54e1ad12164a8e02edd1b3b92bdc)
+redirect_toは「flash」じゃないと、メッセージが見れなくなる。   
+renderは「flash.now」じゃないと、メッセージが残りすぎる。（２回再読み込みすると消える）
+***
