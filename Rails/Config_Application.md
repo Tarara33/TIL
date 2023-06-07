@@ -35,6 +35,15 @@ end
 ~~~
 ***
 
-# 時間を
-      # helperファイルを作成しない日本n
-      # helperファイルを作成しない
+# 時間を日本時間にする
+Applicationクラス内に記述
+~~~
+[config.application.rb]
+module RunteqNormal
+  class Application < Rails::Application
+   config.time_zone = 'Asia/Tokyo'
+  end
+end
+~~~
+rails c　で`$ Time.zone.now`または`$ Time.current`とすると設定した時刻で出る
+***
