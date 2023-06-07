@@ -4,10 +4,24 @@
 - integer...整数
 - boolean...true or false(0 or 1)
 - references...新しく作成するテーブルのカラムに、作成済みのテーブルを指定する場合に使う   
-PRIMARY KEYを持つカラムを参照する
+PRIMARY KEYを持つカラムを参照する（だいたいIDにつけてる）
 ~~~
 $ rails g model post title:string body:text user:references
-=> userモデル
+=> userモデルがPRIMARY KEYをつけている「id」カラムを参照する。
+~~~
+***
+
+## rails g 実行後
+~~~
+[app/model/post.rb]
+class Post < ApplicationRecord
+  belongs_to :user
+end
+~~~
+アソシエーション（モデルの関連づけ）のための「belongs_to」が自動的に入る。    
+⚠️親側の
+
+
 
 
 # validates　と　validate
