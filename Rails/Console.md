@@ -1,5 +1,12 @@
-# $rails c で入る
-# reload! でコンソールの再読み込み
+# 入り方　と　出方
+入る：`$ rails c`    
+出る：`$ exit`
+***
+
+# reload!
+いちいち「exit」で出なくても`$ reload!`で再読み込みされる。   
+しかし @user = User.last など変数定義してた情報もリセットされる。
+***
 
 # new　と　create
 例えば新しくUserモデルにデータを登録したいとき
