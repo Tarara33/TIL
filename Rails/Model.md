@@ -9,6 +9,8 @@ PRIMARY KEYを持つカラムを参照する（だいたいIDにつけてる）
 $ rails g model post title:string body:text user:references
 => userモデルがPRIMARY KEYをつけている「id」カラムを参照する。
 ~~~
+⚠️「references」使うカラム名は〇〇_idとしない、〇〇とテーブル名だけで、     
+そのテーブルのPRIMARY KEY(主キー)がforeign_keyとして追加される。
 ***
 
 ## rails g 実行後
