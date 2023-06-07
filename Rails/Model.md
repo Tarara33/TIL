@@ -1,3 +1,15 @@
+# rails g model　の内容
+- string型...文字列
+- text型... 長い文字列
+- integer...整数
+- boolean...true or false(0 or 1)
+- references...新しく作成するテーブルのカラムに、作成済みのテーブルを指定する場合に使う   
+PRIMARY KEYを持つカラムを参照する
+~~~
+$ rails g model post title:string body:text user:references
+=> userモデル
+
+
 # validates　と　validate
 - validates...標準のバリデーションを書くとき
 - validate...オリジナルのバリデーションを書くとき
