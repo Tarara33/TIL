@@ -31,15 +31,3 @@ $ rails generate scaffold_controller コントローラ名 <カラム名:型>...
 `rails or bin/rails c`　でコンソールに入り、   
 `クラス名.create(データベースのカラム名１:値, カラム名２:値...)`で作成
 ***
-
-# db/seeds.rbファイルからデーター登録する方法
-`クラス名.create(データベースのカラム名１:値, カラム名２:値...)`で作成    
-ruby言語使えるので適当にデータ入れたい時は
-
-`クラス名.create(データベースのカラム名１:値, カラム名２:値...)`で作成　.timesメソッドとかで入れれる
-~~~
-5.times do |i|
-  Task.create(name: "name#{i}", description: "#{i}")
-end
-~~~
-***
