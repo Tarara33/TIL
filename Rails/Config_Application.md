@@ -41,9 +41,25 @@ Applicationクラス内に記述
 [config.application.rb]
 module RunteqNormal
   class Application < Rails::Application
-   config.time_zone = 'Asia/Tokyo'
+    config.active_record.default_timezone = :local 
+    config.time_zone = 'Asia/Tokyo'
   end
 end
 ~~~
-rails c　で`$ Time.zone.now`または`$ Time.current`とすると設定した時刻で出る
+***
+
+## config.active_record.default_timezone
+DBを読み書きする際に、DBに記録されている時間をどのタイムゾーンで読み込むかの設定。   
+:UTC か　　:local 　の二種類から選ぶ。   
+ActiveRecordを読み書きする際に、:UTCと設定されていればUTC時刻として読み書きすることになり、   
+:localと設定すると、OSのタイムゾーン設定と同じ形になる。
+***
+
+## config.time_zone
+Rails自体のアプリケーションの時刻の設定。
+***
+
+## rails c　で`$ 設定した時刻の確認
+- `$ Time.zone.now`...OSのタイムゾーンの結果（UTC or local）を返す。
+- `$ Time.current`...Railsアプリのタイムゾーンの結果を返す。
 ***
