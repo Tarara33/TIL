@@ -88,7 +88,7 @@ passwordなど他の名前にするとhas_secure_passwordが発動されなく�
 それを経由（through）して相手のモデルの1個のインスタンスとマッチする。 
 [![Image from Gyazo](https://i.gyazo.com/af1f6242cff3c4013c0e746cb79a005d.png)](https://gyazo.com/af1f6242cff3c4013c0e746cb79a005d)   
 
-- 自テーブルが対象テーブルをもつ(多対多)...'has_and_belongs_to_many 対象テーブル名`    
+- 自テーブルが対象テーブルをもつ(多対多)...'has_and_belongs_to_many 対象テーブル名`       
 「第3のモデル」（joinモデル）がない。   
 （⚠️join用のテーブルは必要なので`rails g migrastion`でテーブルは作るが、モデルはいらない(カラムとか作らない))
 [![Image from Gyazo](https://i.gyazo.com/a348c0f377f90013cc36f59a716ac0ec.png)](https://gyazo.com/a348c0f377f90013cc36f59a716ac0ec) 
@@ -134,4 +134,24 @@ belongs_to :doctor
 ~~~
 Appointmentsテーブルはdoctor_id、patients_idを含むテーブルになる
 ***
+
+# belons_to, has_one　をどちらにつけるか
+例えば、供給者モデルとアカウントモデルがあり、一対一にしたい場合、   
+区別の決め手となるのは外部キー（foreign key）をどちらに置くかである。  
+（外部キーは、belongs_to関連付けを追加したモデルのテーブルに追加される）    
+has_oneというリレーションシップは、主語となるものが目的語となるものを「所有する」ことを表す。    
+「1人の供給者がアカウントを1つ所有する」と考える方が、「1つのアカウントが1人の供給者を所有する」と考えるよりも自然なので
+~~~
+class Supplier < ApplicationRecord
+  has_one :account
+end
+
+class Account < ApplicationRecord
+  belongs_to :supplier
+end
+~~~
+このようになる。
+***
+  
+  
 
