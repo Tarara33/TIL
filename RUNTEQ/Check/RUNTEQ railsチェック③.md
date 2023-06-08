@@ -131,8 +131,7 @@ collectionオプションの値としてインスタンス変数(複数形)を�
 => <%= name.farst_name %></li>に変えて、<%= name(<= ここに＠usersの要素を入れたい).farst_name %></li>
 
 <%= render partial: 'user', collection: @users, as: 'name' %>
-
-
+~~~
 ***
 
 - 省略記法
