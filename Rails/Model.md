@@ -91,6 +91,8 @@ passwordなど他の名前にするとhas_secure_passwordが発動されなく�
 - 自テーブルが対象テーブルをもつ(多対多)...'has_and_belongs_to_many 対象テーブル名`    
 「第3のモデル」（joinモデル）がない。   
 （⚠️join用のテーブルは必要なので`rails g migrastion`でテーブルは作るが、モデルはいらない(カラムとか作らない))
+[![Image from Gyazo](https://i.gyazo.com/a348c0f377f90013cc36f59a716ac0ec.png)](https://gyazo.com/a348c0f377f90013cc36f59a716ac0ec) 
+***
 
 ## オプション
 - dependent: :destroy
