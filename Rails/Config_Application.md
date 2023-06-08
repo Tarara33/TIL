@@ -60,6 +60,6 @@ Rails自体のアプリケーションの時刻の設定。
 ***
 
 ## rails c　で`$ 設定した時刻の確認
-- `$ Time.zone.now`...OSのタイムゾーンの結果（UTC or local）を返す。
+- `$ Time.now`...OSのタイムゾーンの結果（UTC or local）を返す。
 - `$ Time.current`...Railsアプリのタイムゾーンの結果を返す。
 ***
