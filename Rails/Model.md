@@ -156,7 +156,7 @@ end
 # has_many_throughとhas_and_belongs_to_manyをどちらを使うか
 中間テーブルを独立させたテーブルとして使用したいか、    
 また、バリデーション、コールバック、追加の属性が必要かで決める。    
-不要ならhas_and_belongs_to_many　、必要ならhas_many through　にする
+不要ならhas_and_belongs_to_many、必要ならhas_many_through　にする
 ***
 
   
