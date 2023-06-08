@@ -78,7 +78,7 @@ passwordなど他の名前にするとhas_secure_passwordが発動されなく�
 - 自テーブルが対象に所属...`belongs_to(対象モデル名 [, scope, オプション])`   
 自分のテーブルが対象テーブルのレコードに所属する(対象テーブルのidカラムがある)場合に使う。   
 
--　自テーブルが第三のテーブルを介在して対象テーブルをもつ(多対多)...`has_many 介在するモデル名, through: :対象モデル名   
+- 自テーブルが第三のテーブルを介在して対象テーブルをもつ(多対多)...`has_many 介在するモデル名, through: :対象モデル名   
 2つのモデルの間に「第3のモデル」（joinモデル）が介在し、   
 それを経由（through）して相手のモデルの「0個以上」のインスタンスとマッチする。
 [![Image from Gyazo](https://i.gyazo.com/6f13de9a372223b5066b1cba16ca5aeb.png)](https://gyazo.com/6f13de9a372223b5066b1cba16ca5aeb)   
