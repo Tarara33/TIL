@@ -135,7 +135,7 @@ belongs_to :doctor
 Appointmentsテーブルはdoctor_id、patients_idを含むテーブルになる
 ***
 
-# belons_to, has_one　をどちらにつけるか
+# belons_to　と　has_one　をどちらにつけるか
 例えば、供給者モデルとアカウントモデルがあり、一対一にしたい場合、   
 区別の決め手となるのは外部キー（foreign key）をどちらに置くかである。  
 （外部キーは、belongs_to関連付けを追加したモデルのテーブルに追加される）    
@@ -152,6 +152,12 @@ end
 ~~~
 このようになる。
 ***
-  
+
+# has_many through　と　has_and_belongs_to_many　をどちらを使うか
+中間テーブルを独立させたテーブルとして使用したいか、    
+また、バリデーション、コールバック、追加の属性が必要かで決める。    
+不要ならhas_and_belongs_to_many　、必要ならhas_many through　にする
+***
+
   
 
