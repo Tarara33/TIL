@@ -55,7 +55,7 @@ console.log(y); //1
 ~~~
 let x = [1.2]
 let y = x;
-x[0] = 10;
+x[0] = 10;　=>xの１の部分を10に変更
 console.log(x); //[10,2]
 console.log(y); //[10,2]
 ~~~
