@@ -87,7 +87,14 @@ params[:id]はリクエストから得られるid、つまりリクエストさ�
 
 例：　<%= render "shared/header" %> (.erbいらない)
 ~~~
-で呼び出せる
+で呼び出せる    
+⚠️パーシャルファイル内ではインスタンス変数ではなく、ローカル変数で書く。   
+~~~
+app/views/boards/_form.html.erbでmodelをローカル変数boardにすることにより、
+new.html.erbの場合は{board: @board}だが、（newファイル内でパーシャルファイル使うときは「board」のところを「＠board」にしてねという意味）
+例えば/boards/edit.html.erbで同じフォームを使いたいがコントローラでは@boardsと定義した、
+という場合に{board: @boards}に変換して_form.html.erbを再利用できるといった感じ。
+~~~
 ***
 
 ### オプション　locals
