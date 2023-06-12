@@ -11,6 +11,8 @@ $ rails g controller controller名 欲しいviewファイル
 ~~~
 $ rails g model model名 データベースにほしいカラム
 ~~~
+⚠️モデル名は単数系
+***
 
 # 間違えて作成して取り消したい
 ~~~
