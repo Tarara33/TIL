@@ -56,4 +56,7 @@ describe "タスク管理機能", type: :system do
 左で定義してること　＝　右で定義してること
 ~~~
 例：　expect(current_path).to eq blogs_path
-=> 
+=> （左）current_path(現在のページ)　＝　（右）blogs_path
+~~~
+***
+
