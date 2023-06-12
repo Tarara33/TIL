@@ -37,7 +37,7 @@ describe "タスク管理機能", type: :system do
 
 # expect(期待する結果)の中身
 - have_content '文字列'    
-ページ内に　''　内の文字列がある
+ページ内に　'　'　内の文字列がある
 ~~~
 例：　expect(page).to have_content 'Blogs'
 => ページ内に'Blogs'と言う文字列がある
@@ -45,8 +45,15 @@ describe "タスク管理機能", type: :system do
 ***
 
 - have_no_content '文字列'   
-ページ内に　''　内の文字列がない
+ページ内に　'　'　内の文字列がない
 ~~~
 例：　expect(page).to have_no_content 'Blogs'
 => ページ内に'Blogs'と言う文字列がない
 ~~~
+***
+
+- eq    
+左で定義してること　＝　右で定義してること
+~~~
+例：　expect(current_path).to eq blogs_path
+=> 
