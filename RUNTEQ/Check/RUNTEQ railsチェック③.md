@@ -109,6 +109,16 @@ locals: { '部分テンプレート内で使う変数': '変数に入れる値' 
 ⚠️locals使う時は 「partial:」を省略できない
 ***
 
+### localsを使うときと使わない時
+~~~
+①<%= render 'shared/error_messages', object: f.object %>
+と
+②<%= render partial: 'shared/error_messages', locals: { object: f.object } %>
+はどちらも同じ目的で使うが動きが少し違う。
+~~~
+開発現場では、①が使われることが多い。
+***
+
 ### オプション　collection
 collection: コントローラーで設定したインスタンス変数(複数形)     
 collectionオプションの値としてインスタンス変数(複数形)を渡すことで、内部で要素を1つずつ取り出して処理してくれている。    
