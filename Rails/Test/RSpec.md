@@ -35,3 +35,9 @@ describe "タスク管理機能", type: :system do
 `lit(定義名){定義の内容}`で定義できる
 ***
 
+# expect(期待する結果)の中身
+- `have_content '期待する文字'`
+~~~
+例：　expect(page).to have_content 'Blogs'
+=> ページ内に'Blogs'と言う文字列がある
+=> ページ内に'Blogs'と言う
