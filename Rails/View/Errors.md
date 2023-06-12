@@ -1,17 +1,26 @@
 # エラーメッセージを出す
-form画面のviewにかいたりするのが一般的
+form画面のviewやパーシャルファイルにかいたりするのが一般的   
+例：　パーシャルファイルに書く場合
 ~~~
-[app/view/users/_form.html.erb]
-<% if.@user.errors.any? %>
+[app/view/shared/_errors.html.erb]
+<% if object.errors.any? %>
   <div class = "alert-danger"> => bootstrapでCSSしたい場合入れる
     <ul>
-      <% @user.errors.full_messages.each do |message| %>
+      <% object.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
   </div>
 <% end %>
+
+[app/view/users/new.html.erb]
+<% form_with (model: @user, local: true) do |f|
+  <%= render 'shared/errors', obect: f.object %>
+=> パーシャルファイルの「object」の部分が「@user.object」になって適応される。
 ~~~
+<%= render 'shared/errors', obect: ＠user %>でもいいが、   
+postモデルのフォームに使いたい時は<%= render 'shared/errors', obect: ＠post %>    
+など変えなきゃいけないので「f.object」にすると同じ文章で使いまわせる
 ***
 
 ## errors.any?　と　errors.present?
