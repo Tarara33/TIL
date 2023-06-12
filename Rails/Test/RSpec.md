@@ -50,6 +50,13 @@ describe "タスク管理機能", type: :system do
 例：　expect(page).to have_no_content 'Blogs'
 => ページ内に'Blogs'と言う文字列がない
 ~~~
+⚠️not_toでも同じ意味になる
+~~~
+例：　expect(page).to have_no_content 'Blogs'
+と
+例：　expect(page).not_to have_content 'Blogs'
+は同じ意味
+~~~
 ***
 
 - eq    
