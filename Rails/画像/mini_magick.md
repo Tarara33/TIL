@@ -1,4 +1,10 @@
 # carrierwave + mini_magickでできること（一部）
+mini_magick使う時は
+~~~
+include CarrierWave::MiniMagick
+~~~
+を記述する。
+***
 
 ## resize_to_fit(width, height)
 画像を指定したサイズにリサイズする。    
