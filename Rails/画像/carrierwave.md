@@ -56,7 +56,7 @@ end
 ***
 
 ## ⑤Uploaderクラスの設定
-紐付けはできたので次はアップロードされた画像がどのように処理されるかを設定する。    
+紐付けはできたので次はアップロードされた画像がどのように処理されるかを「app/uploaders/以下」に設定する。    
 ### 1.画像の保存先
 - storage :file   
 アップロードされたファイルはRailsアプリケーションのファイルシステム内の指定された場所に保存される。    
@@ -113,7 +113,8 @@ end
 => 悪意のあるコードを含む実行可能ファイルなどがアップロードされるのを防ぐことができる。
 ***
 
-### 4.画像の処理
+### 4.画像の処理(一部紹介)
+詳しくは[Mini_magick]()で    
 - サムネイルの生成    
 ~~~
 varsion :thumbnail do
@@ -139,5 +140,17 @@ def crop_image
 end
 ~~~
 ***
+
+## ⑥viewファイルに画像ファイルの入力フィールドを用意する
+フォームコードに追加する
+~~~
+[app/views/boards/_form.html.erb]
+
+<%= f.label :board_image %>
+<%= f.file_field :board_image, class: 'form-control' %>
+
+<%= f.hidden_field :board_image_cache %>
+=> なくても動いた
+~~~
 
 
