@@ -1,4 +1,4 @@
-# carrierwave + mini_magickでできること
+# carrierwave + mini_magickでできること（一部）
 
 ## resize_to_fit(width, height)
 画像を指定したサイズにリサイズする。    
@@ -39,8 +39,3 @@ process resize_to_fill: [100, 100, "Center"]
 ***
 
 [![Image from Gyazo](https://i.gyazo.com/2fc89822605445d7faaa17b59f29706e.png)](https://gyazo.com/2fc89822605445d7faaa17b59f29706e)
-
-  - crop: 画像を指定したサイズで切り抜きます。切り抜く範囲を指定することができます。
-  - rotate: 画像を指定した角度で回転させます。
-  - blur: 画像にぼかし効果を適用します。
-  - convert: 画像の形式を変換します。
