@@ -141,7 +141,16 @@ end
 ~~~
 ***
 
-## ⑥viewファイルに画像ファイルの入力フィールドを用意する
+## ⑥画像フォルダをGitのPush対象から外す
+~~~
+[.gitignore]
+
+# Ignore vendor
+/public/uploads
+~~~
+***
+
+## ⑦viewファイルに画像ファイルの入力フィールドを用意する
 フォームコードに追加する
 ~~~
 [app/views/boards/_form.html.erb]
@@ -152,7 +161,7 @@ end
 ~~~
 ***
 
-## ⑦ストロングパラメーターの編集
+## ⑧ストロングパラメーターの編集
 board_image が受け取れるようにする。
 ~~~
 [app/controllers/boards_controller.rb]
@@ -163,7 +172,7 @@ end
 ~~~
 ***
 
-## ⑧ブラウザにアップロード画像を表示する
+## ⑨ブラウザにアップロード画像を表示する
 ~~~
 [app/views/_board.html.erb]
 
