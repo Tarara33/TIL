@@ -149,14 +149,10 @@ end
 <%= f.label :board_image %>
 <%= f.file_field :board_image, class: 'form-control', accept: 'image/*' %>
 => accept　なくても動くがつけといたほうがimageファイル以外が送られるのを防げる。
-
-[書かない]
-<%= f.hidden_field :board_image_cache %>
-=> carrierwave使うときは自動的にキャッシュ情報を処理するので一時保存場所いらない
 ~~~
 ***
 
-### ⑦ストロングパラメーターの編集
+## ⑦ストロングパラメーターの編集
 board_image が受け取れるようにする。
 ~~~
 [app/controllers/boards_controller.rb]
@@ -167,7 +163,7 @@ end
 ~~~
 ***
 
-### ⑧ブラウザにアップロード画像を表示する
+## ⑧ブラウザにアップロード画像を表示する
 ~~~
 [app/views/_board.html.erb]
 
@@ -175,4 +171,15 @@ end
 => @boardのboard_imageのURLを取得する。
 ~~~
 ⚠️Uploaderクラスではリサイズなどはできるがブラウザに表示される直接的なサイズ設定はできないのでここでする。
+***
+
+# +a
+## アップロード失敗しても画像が消えないようにする
+~~~
+[app/views/boards/_form.html.erb]に追加する
+
+<%= f.hidden_field :board_image_cache %>
+=> carrierwave使うときは自動的にキャッシュ情報を処理するので一時保存場所なくてもいいが、
+あると、アップロード失敗してrenderされたときに消えなくなる。
+~~~
 ***
