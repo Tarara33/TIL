@@ -176,6 +176,10 @@ end
 # +a
 ## アップロード失敗しても画像が消えないようにする
 ~~~
+[app/controllers/boards_controller.rb]ストロングパラメータに追加
+params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
+
+
 [app/views/boards/_form.html.erb]に追加する
 
 <%= f.hidden_field :board_image_cache %>
