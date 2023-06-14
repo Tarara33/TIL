@@ -196,3 +196,8 @@ params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
 あると、アップロード失敗してrenderされたときに消えなくなる。
 ~~~
 ***
+
+## carrierwaveのエラーの日本語化
+[carrierwave Github]([https://github.com/carrierwaveuploader/carrierwave#i18n](https://github.com/carrierwaveuploader/carrierwave-i18n/blob/master/rails/locales/ja.yml)    
+config/locals/carrierwave/ja.ymlなどに書く。
+***
