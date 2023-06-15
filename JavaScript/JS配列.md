@@ -64,7 +64,7 @@ console.log(a); //[10,0,1,4]
 const scores = [10, 20, 30, 40];
 const deleted = scores.splice(3,1);
 console.log(deleted);
-// 40
+// [40]
 ~~~
 ***
 
