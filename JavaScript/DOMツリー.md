@@ -30,25 +30,33 @@ DOMではドキュメントを構成するオブジェクトのことを「ノ�
 ノードはいくつか種類がある。
 ***
 
-##  要素ノード（Elementノード）
+###  要素ノード（Elementノード）
 HTMLの要素を表す
 ~~~
 例：　　<html>, <head>, <body>, <p>, <h1> など
 ~~~
 ***
   
-## テキストノード（Textノード）
+### テキストノード（Textノード）
 テキストや空白、改行を表す。
 [![Image from Gyazo](https://i.gyazo.com/a290dea0c38bdc3d1b1a307707f104c2.png)](https://gyazo.com/a290dea0c38bdc3d1b1a307707f104c2)
 ⚠️文章内の空白や改行はノードになるが「html」要素の先頭と末尾の空白と改行はノードにならない！
 ***
 
-## 属性ノード
+### 属性ノード
 class, id, nameなどの属性を表す。
 ***
 
-## コメントノード
+### コメントノード
 コメントを表す。
 ***
 
+# ノードの関係性
+[![Image from Gyazo](https://i.gyazo.com/2486f26325242c9e4690230853761e7e.png)](https://gyazo.com/2486f26325242c9e4690230853761e7e)
+
+-　親ノード（Parent Node）
+-　子ノード(Child Node)
+-　兄弟ノード（Sibling Node）   
+と言う関係性がある
+***
 
