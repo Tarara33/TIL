@@ -89,3 +89,33 @@ key: r value: 30
 key: s value: 900
 ~~~
 ⚠️forEachでは文字列で配列要素を取得しているため`value: ${point[key]}`のkeyは`${point.key}`とできない
+***
+
+# オブジェクトの合計値を出す
+①オブジェクトの中身をObject.entriesで配列にする。 
+②変数sumを定義（合計値入れる用）    
+③できた配列に対してforEachする。    
+④でた合計値を叫ぶ＋平均値も出せる。
+~~~
+①const scores = {
+  math: 80,
+  english: 30,
+};
+const entries = Object.entries(scores);
+console.log(entries);
+// ['math', 80], ['english', 30]
+
+②let sum = 0;
+
+③entries.forEach((entry) => {
+  sum += entry[1];
+  console.log(`${entry[0] : ${entry[1]}`)
+})
+//math: 80
+  english: 30
+  
+④
+  english: 30
+~~~
+なぜ「entry[1]」に足していくのか？   
+=> 配列の中のインデックス番号[1]に足していくため。[0]に足すと「math + 」のようになるため。   
