@@ -66,6 +66,7 @@ const deleted = scores.splice(3,1);
 console.log(deleted);
 // [40]
 ~~~
+⚠️deleteされた値は一つでも配列で代入される。
 ***
 
 # スプレット構文
