@@ -56,6 +56,7 @@ class, id, nameなどの属性を表す。
 
 -　親ノード（Parent Node）   
 -　子ノード(Child Node)    
--　兄弟ノード（Sibling Node）     
+-　兄弟ノード（Sibling Node）  
+-　子孫ノード（親の親との関係）   
 と言う関係性がある
 ***
