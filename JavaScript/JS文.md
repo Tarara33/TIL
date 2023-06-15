@@ -73,22 +73,6 @@ array.forEach((a,index) => {
 ~~~
 ***
 
-## for と　forEach　の違い
-for文だとbreakで途中で抜け出せる
-~~~
-const array = [1,2,3,4];
-for (let i = 0; i < array.length; i ++) {
-  if (i == 3){
-    break;
-  }
-  console.log(`array ${i}: ${array[i]}`);
-}
-//array 0: 1
-  array 1: 2
-  array 2: 3
-~~~
-***
-
 # break
 ある条件のときにループを抜け出せる
 ~~~
@@ -106,7 +90,22 @@ for (let i = 0; i < array.length; i ++) {
 ***
 
 # continue
-ある
-***z要件
+ある条件のときにループを飛ばす
+~~~
+const array = [1,2,3,4];
+for (let i = 0; i < array.length; i ++) {
+  if (i == 2){
+    continue;
+  }
+  console.log(`array ${i}: ${array[i]}`);
+}
+//array 0: 1
+  array 1: 2
+  array 3: 4
+  => iが２の処理だとそこでループを飛ばして、その後ループに戻る。
+~~~
 ***
 
+## for と　forEach　の違い
+for文だとbreakや、continueが使える。
+***
