@@ -72,3 +72,24 @@ array.forEach((a,index) => {
   array 3: 4
 ~~~
 ***
+
+## for と　forEach　の違い
+for文だとbreakで途中で抜け出せる
+~~~
+const array = [1,2,3,4];
+for (let i = 0; i < array.length; i ++) {
+  if (i == 3){
+    break;
+  }
+  console.log(`array ${i}: ${array[i]}`);
+}
+//array 0: 1
+  array 1: 2
+  array 2: 3
+~~~
+***
+
+# break
+ある
+~~~z要件
+~~~
