@@ -59,6 +59,13 @@ console.log(a); //[10,100,1,4]
 a.splice(1,1,0)
 console.log(a); //[10,0,1,4]
 ~~~
+消された値を変数に入れることもできる
+~~~
+const scores = [10, 20, 30, 40];
+const deleted = scores.splice(3,1);
+console.log(deleted);
+// 40
+~~~
 ***
 
 # スプレット構文
