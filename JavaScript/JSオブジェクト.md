@@ -114,8 +114,11 @@ console.log(entries);
 //math: 80
   english: 30
   
-④
-  english: 30
+④console.log(`SUM: ${sum}`)
+ console.log(`AVG: ${sum/entries.length}`)
+//SUM: 110
+  AVG: 55
 ~~~
 なぜ「entry[1]」に足していくのか？   
 => 配列の中のインデックス番号[1]に足していくため。[0]に足すと「math + 」のようになるため。   
+***
