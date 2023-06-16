@@ -16,7 +16,7 @@ type一覧
 - placeholder...何を入力するのか例を薄く表示する
 - checkbox...チェックBOXで複数押せる
 - radio...チェックBOXみたいな感じだが一つしか押せない   
-`<input type = "radio" name = "">`でnameの値が同じものの中から一つ選ぶ感じ
+💡`<input type = "radio" name = "">`でnameの値が同じものの中から一つ選ぶ感じ
 - submit...ボタン  
 -  password...入力が黒丸になる
 -  number...数値を入れる
