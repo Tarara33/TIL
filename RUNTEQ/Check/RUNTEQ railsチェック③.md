@@ -8,13 +8,13 @@
 
 ## config/routes.rbでresources :tasksと書くとどのようなことが出来ますか？
 resourcesメソッドに含まれる
--　index...一覧
--　show...詳細
--　new...新規作成
--　create...登録
--　edit...編集
--　update...更新
--　destroy...削除    
+-　index...一覧    
+-　show...詳細    
+-　new...新規作成    
+-　create...登録    
+-　edit...編集    
+-　update...更新    
+-　destroy...削除        
 の７機能が使えるルート一式を定義する    
 ***
 
