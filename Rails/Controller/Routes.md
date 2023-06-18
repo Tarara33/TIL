@@ -70,6 +70,7 @@ end
 
 resources :boards, shallow: true  do
   resources :comments
+end
 ~~~
 ***
 
