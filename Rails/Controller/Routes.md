@@ -64,5 +64,12 @@ resources :boards do
   resources :comments, shallow: true
 end
 ~~~
+親側に書くと親子両方に反映される
+~~~
+[config/routes.rb]
+
+resources :boards, shallow: true  do
+  resources :comments
+~~~
 ***
 
