@@ -20,7 +20,7 @@ DOMでは対象となるドキュメントをノートの階層構造として�
 </html>
 ~~~
 DOMでは次のような階層構造のドキュメントツリーとして認識する。
-[![Image from Gyazo](https://i.gyazo.com/9bea15335f81be1044fe4122a7dc3094.png)](https://gyazo.com/9bea15335f81be1044fe4122a7dc3094)
+[![Image from Gyazo](https://i.gyazo.com/4be5f9b6bed38b9e445f1f1a6f507521.png)](https://gyazo.com/4be5f9b6bed38b9e445f1f1a6f507521)
 ⚠️最上位のノードは「Doctype」ではなく「Document」ノード。   
 このような階層のことを「Nodeツリー」「DOMツリー」とも呼ぶ。  
 ***
