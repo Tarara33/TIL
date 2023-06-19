@@ -31,7 +31,7 @@ redirect_to login_path, sccess: 'ユーザーを作成しました'
 ***
 
 # flash　と　flash.now
-[![Image from Gyazo](https://i.gyazo.com/535c54e1ad12164a8e02edd1b3b92bdc.png)](https://gyazo.com/535c54e1ad12164a8e02edd1b3b92bdc)
+[![Image from Gyazo](https://i.gyazo.com/63bfa5260ed0c7df5a2e4fed28d0f2e7.png)](https://gyazo.com/63bfa5260ed0c7df5a2e4fed28d0f2e7)
 redirect_toは次のアクションになるので、「flash.now」だとメッセージ表示見れない。    
 renderは指定したviewsを呼び出すだけなので、アクションではない。そのため「flash」にすると予期せぬ動きをする。    
 １　createアクションの実行    
@@ -40,17 +40,4 @@ renderは指定したviewsを呼び出すだけなので、アクションでは
 ４　遷移したページでメッセージを表示（2回目）（寿命を迎える）  => ページ変わってもまだあるよ状態     
 ５　〇〇アクションの実行（例　ページ遷移）     
 ６　遷移したページでメッセージは表示されない    
-***
-
-
-
-
-
-
-
-
-
-
-
-
 ***
