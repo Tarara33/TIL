@@ -44,4 +44,5 @@ process resize_to_fill: [100, 100, "Center"]
 画像投稿一覧を表示させるにはこのresize_to_fillが相性が良いかも。
 ***
 
-[![Image from Gyazo](https://i.gyazo.com/2fc89822605445d7faaa17b59f29706e.png)](https://gyazo.com/2fc89822605445d7faaa17b59f29706e)
+[![Image from Gyazo](https://i.gyazo.com/440b3209e8d9553f7eab24ef68e88c43.png)](https://gyazo.com/440b3209e8d9553f7eab24ef68e88c43)
+***
