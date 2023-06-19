@@ -52,8 +52,7 @@ class, id, nameなどの属性を表す。
 ***
 
 # ノードの関係性
-[![Image from Gyazo](https://i.gyazo.com/2486f26325242c9e4690230853761e7e.png)](https://gyazo.com/2486f26325242c9e4690230853761e7e)
-
+[![Image from Gyazo](https://i.gyazo.com/5603cca9b992565b5c0a14ec3305e747.png)](https://gyazo.com/5603cca9b992565b5c0a14ec3305e747)
 -　親ノード（Parent Node）   
 -　子ノード(Child Node)    
 -　兄弟ノード（Sibling Node）  
