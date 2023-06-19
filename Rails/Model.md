@@ -71,27 +71,33 @@ passwordなど他の名前にするとhas_secure_passwordが発動されなく�
 
 - 自テーブルが対象を複数持っている(一対多)...`has_many(対象モデル名 [, scope ,オプション])`をつける    
 自分のテーブルが対象テーブルを複数もつ場合に使う。対象テーブル側に自分のidのカラムがある場合に使う。
+***
 
 -  自テーブルが対象を1つ持っている(一対一)...`has_one(対象モデル名 [, scope ,オプション])`   
 自分のテーブルが対象テーブルを1つ持っている(複数持たない)場合に使う。対象テーブル側に自分のidのカラムがある場合に使う。
+***
 
 - 自テーブルが対象に所属...`belongs_to(対象モデル名 [, scope, オプション])`   
-自分のテーブルが対象テーブルのレコードに所属する(対象テーブルのidカラムがある)場合に使う。   
+自分のテーブルが対象テーブルのレコードに所属する(対象テーブルのidカラムがある)場合に使う。
+***
+
 
 - 自テーブルが第三のテーブルを介在して対象テーブルをもつ(多対多)...`has_many 介在するモデル名, through: :対象モデル名   
 2つのモデルの間に「第3のモデル」（joinモデル）が介在し、   
 それを経由（through）して相手のモデルの「0個以上」のインスタンスとマッチする。
-[![Image from Gyazo](https://i.gyazo.com/6f13de9a372223b5066b1cba16ca5aeb.png)](https://gyazo.com/6f13de9a372223b5066b1cba16ca5aeb)   
+[![Image from Gyazo](https://i.gyazo.com/b246ceb2ddafa4d989f9f5b314eec852.png)](https://gyazo.com/b246ceb2ddafa4d989f9f5b314eec852)
+***
 
 - 自テーブルが第三のテーブルを介在して対象テーブルをもつ(一対一)...`has_one 介在するモデル名, through: :対象モデル名      
 2つのモデルの間に「第3のモデル」（joinモデル）が介在し、   
 それを経由（through）して相手のモデルの1個のインスタンスとマッチする。 
-[![Image from Gyazo](https://i.gyazo.com/af1f6242cff3c4013c0e746cb79a005d.png)](https://gyazo.com/af1f6242cff3c4013c0e746cb79a005d)   
+[![Image from Gyazo](https://i.gyazo.com/1c73e65f9266637cfbe4752152333648.png)](https://gyazo.com/1c73e65f9266637cfbe4752152333648)
+***
 
 - 自テーブルが対象テーブルをもつ(多対多)...'has_and_belongs_to_many 対象テーブル名`       
 「第3のモデル」（joinモデル）がない。   
 （⚠️join用のテーブルは必要なので`rails g migrastion`でテーブルは作るが、モデルはいらない(カラムとか作らない))
-[![Image from Gyazo](https://i.gyazo.com/a348c0f377f90013cc36f59a716ac0ec.png)](https://gyazo.com/a348c0f377f90013cc36f59a716ac0ec) 
+[![Image from Gyazo](https://i.gyazo.com/a22f85446ae2a5b8a9547ec7e41ad58b.png)](https://gyazo.com/a22f85446ae2a5b8a9547ec7e41ad58b)
 ***
 
 ## オプション
