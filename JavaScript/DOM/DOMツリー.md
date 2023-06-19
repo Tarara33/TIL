@@ -39,7 +39,7 @@ HTMLの要素を表す
   
 ### テキストノード（Textノード）
 テキストや空白、改行を表す。
-[![Image from Gyazo](https://i.gyazo.com/2109ff5c20d2bb1b18aa49fe6bff3fbe.png)](https://gyazo.com/2109ff5c20d2bb1b18aa49fe6bff3fbe)
+[![Image from Gyazo](https://i.gyazo.com/e731f75550cea183c18e36c8e9a4e094.png)](https://gyazo.com/e731f75550cea183c18e36c8e9a4e094)
 ⚠️文章内の空白や改行はノードになるが「html」要素の先頭と末尾の空白と改行はノードにならない！
 ***
 
