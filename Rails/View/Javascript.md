@@ -1,6 +1,6 @@
 [サブミットボタンについて](https://railsdoc.com/page/submit_tag)
 # 確認ダイアログを出す
-[![Image from Gyazo](https://i.gyazo.com/2ef5559b601317fefd50aa4f8214d29b.png)](https://gyazo.com/2ef5559b601317fefd50aa4f8214d29b)
+[![Image from Gyazo](https://i.gyazo.com/0842a62b75b0a406bb8b14d606c276a5.png)](https://gyazo.com/0842a62b75b0a406bb8b14d606c276a5)
 ~~~
 = link_to "アカウント削除", user_registration_path, method: :delete, data: { confirm: "【確認】アカウントを削除してもよろしいですか？" }
 
