@@ -74,3 +74,57 @@ end
 ~~~
 ***
 
+# member と collection
+簡単に言うとIDがつくかつかないか    
+:id を使用した特定のデータに対するアクションの場合は member を使用する。    
+:id の必要ない全体のデータに対するアクションの場合は collection を使用する。
+***
+
+## member
+routingにIDがつく(users/:id/...)の形
+~~~
+[例]
+resources :user do
+  member do
+    get :logout
+  end
+end
+
+=> users#logoutは、「/users/:id/logout」となる
+~~~
+***
+
+## collection
+routingにIDがつかない(users/...)の形
+~~~
+[例]
+resource :user_sign_ups do
+  collection do
+    get :tell 
+  end
+end
+
+=> user_sign_ups#tellは、「/user_sign_ups/tell」となる
+~~~
+***
+
+## on
+member, collectionに指定したいアクションが一つの時は
+~~~
+resources :user do
+  member do
+    get :logout
+  end
+end
+
+=>
+
+resources :user do
+  get :login, on: :member
+end
+
+でもOK
+~~~
+***
+
+
