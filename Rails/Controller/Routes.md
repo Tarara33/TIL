@@ -128,7 +128,7 @@ end
 ***
 
 # namespace
-[![Image from Gyazo](https://i.gyazo.com/531e4d842a8e1874b52fbd22f9a66600.png)](https://gyazo.com/531e4d842a8e1874b52fbd22f9a66600)
+[![Image from Gyazo](https://i.gyazo.com/dcde886cecd718f32c6ab9dc7b2c1a0d.png)](https://gyazo.com/dcde886cecd718f32c6ab9dc7b2c1a0d)
 「URI Pattern」と「Controller#Action」の2つを同時にカスタマイズしたい場合に使用する。
 ~~~
 [例：URI Pattern => classroom/student,
@@ -138,4 +138,6 @@ namespace :classroom do
   resources :student
 end
 ~~~
+[![Image from Gyazo](https://i.gyazo.com/824603bc90cebd38bf234e7c57b4ccad.png)](https://gyazo.com/824603bc90cebd38bf234e7c57b4ccad)
+***
 
