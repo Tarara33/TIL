@@ -127,17 +127,81 @@ end
 ~~~
 ***
 
-# namespace
+# URL設計
 [![Image from Gyazo](https://i.gyazo.com/dcde886cecd718f32c6ab9dc7b2c1a0d.png)](https://gyazo.com/dcde886cecd718f32c6ab9dc7b2c1a0d)
+「URI Pattern」, 「Controller#Action」を操作する方法をまとめる。    
+例として上の写真のstudentコントローラーを操作する。
+[参考](https://techtechmedia.com/namespace-scope-module-routing/)
+
+***
+
+##  namespace
 「URI Pattern」と「Controller#Action」の2つを同時にカスタマイズしたい場合に使用する。
 ~~~
-[例：URI Pattern => classroom/student,
+[例：URI Pattern => classroom/student/,
  Controller#Action => classroom/student#アクション]にする場合
 
 namespace :classroom do
   resources :student
 end
 ~~~
+💡アクションを書いていくコントローラーも「app/controllers/student_controller.rb」から    
+「app/controllers/classroom/student_controller.rb」に配下を変える
+~~~
+[app/controllers/classroom/student_controller.rb]
+
+module Crassroom
+ class StudentsController < ApplicationController
+    def index
+      @students = Student.all
+    end
+  end
+end
+~~~
+***
 [![Image from Gyazo](https://i.gyazo.com/824603bc90cebd38bf234e7c57b4ccad.png)](https://gyazo.com/824603bc90cebd38bf234e7c57b4ccad)
 ***
 
+
+## scope
+「URI Pattern」のみカスタマイズしたい場合に使用する。
+~~~
+[例：URI Pattern => classroom/student,
+ Controller#Action => student#アクションのまま]にする場合
+
+scope :classroom do
+  resources :student
+end
+~~~
+💡コントローラーアクションはそのままなので、    
+「app/controllers/student_controller.rb」でOK
+***
+[![Image from Gyazo](https://i.gyazo.com/3c3cf7b315cc78f52170be677833e7d8.png)](https://gyazo.com/3c3cf7b315cc78f52170be677833e7d8)
+***
+
+## scope　module
+「Controller#Action」のみカスタマイズしたい場合に使用する。
+~~~
+[例：URI Pattern => student/のまま,
+ Controller#Action => classroom/student#アクション]にする場合
+
+scope module :classroom do
+  resources :student
+end
+~~~
+💡アクションを変えているのでコントローラーも「app/controllers/student_controller.rb」から    
+「app/controllers/classroom/student_controller.rb」に配下を変える
+~~~
+[app/controllers/classroom/student_controller.rb]
+
+module Crassroom
+ class StudentsController < ApplicationController
+    def index
+      @students = Student.all
+    end
+  end
+end
+~~~
+***
+[![Image from Gyazo](https://i.gyazo.com/b60e0dceeb5bd6614438028445c4a49c.png)](https://gyazo.com/b60e0dceeb5bd6614438028445c4a49c)
+***
