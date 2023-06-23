@@ -77,7 +77,8 @@ end
 # member と collection
 簡単に言うとIDがつくかつかないか    
 :id を使用した特定のデータに対するアクションの場合は member を使用する。    
-:id の必要ない全体のデータに対するアクションの場合は collection を使用する。
+:id の必要ない全体のデータに対するアクションの場合は collection を使用する。    
+💡get,patch,put,deleteなどの後に書く　「:〇〇」はコントローラー名ではなく、path名。
 ***
 
 ## member
