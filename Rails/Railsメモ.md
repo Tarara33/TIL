@@ -31,3 +31,15 @@ $ rails generate scaffold_controller コントローラ名 <カラム名:型>...
 `rails or bin/rails c`　でコンソールに入り、   
 `クラス名.create(データベースのカラム名１:値, カラム名２:値...)`で作成
 ***
+
+# デバック
+rails では主に    
+- byebug    
+- binding.irb    
+- binding.pry    
+がある。
+***
+デバックがサーバー側なのか、ブラウザ側なのかで書き方変わる。
+- サーバー...そのままかく。
+- ブラウザ...`<% %>`で囲む
+***
