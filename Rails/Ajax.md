@@ -101,8 +101,16 @@ $ ('セレクター').メソッド(引数)
 ***
 
 ## jsファイル作る
-アクションとしては、「bookmarks#create」,「 bookmarks#delete」なので
+アクションとしては、「bookmarks#create」,「 bookmarks#delete」なので   
+app/views/bookmarks/配下に作る。
+~~~
+[app/views/bookmarks/create.js.erb]
+$("#js-bookmark-button-for-board-<%= @board.id %>").html("<%= j(render('boards/unbookmark', board: @board)) %>");
 
 
+~~~
+⭐️ .html()は、jQueryのメソッドの1つであり、   
+選択された要素の内部HTMLコンテンツを取得したり、新しいHTMLコンテンツで置き換えたりするために使用される。  
+⭐️ jメソッドは、引数として与えられたJavaScriptの文字列を適切にエスケープして、JavaScript内で正しく解釈されるようにする。  
 
 
