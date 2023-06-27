@@ -130,7 +130,8 @@ $("#js-bookmark-button-for-board-<%= @board.id %>").replaceWith("<%= j(render('b
 ***
 
 ## bookmarksコントローラーにインスタンス変数入れる
-bookmarksコントローラーにviewファイルができたので、インスタンス変数使う。
+「board」をビューファイル(create.js.erbとdestroy.js.erb)に渡すため、インスタンス変数する。
+ajaxで処理を行うので、必要ないredirect_backの記述を削除。
 ~~~
 [app/controllers/bookmarks_controller.rb]
 class BookmarksController < ApplicationController
