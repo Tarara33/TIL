@@ -3,6 +3,12 @@ JSファイルの一番上に`'use strict'`と入れる
 これを書いておくとJavaScriptで良くない書き方をしているときにエラーを出してくれる厳格モードというモードで動作するようになる
 ***
 
+# デバック
+- console.log()    
+- debugger
+を主に使う。[参考](https://qiita.com/fruitriin/items/d0a1cd943233cd22ef30)
+***
+
 # e数字
 10の数字乗という意味   
 `console.log(1.2e4)`だと1.2に10の4乗をかけている
