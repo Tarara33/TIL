@@ -105,12 +105,22 @@ $ ('セレクター').メソッド(引数)
 app/views/bookmarks/配下に作る。
 ~~~
 [app/views/bookmarks/create.js.erb]
-$("#js-bookmark-button-for-board-<%= @board.id %>").html("<%= j(render('boards/unbookmark', board: @board)) %>");
+$("#js-bookmark-button-for-board-<%= @board.id %>").replaceWith("<%= j(render('boards/unbookmark', board: @board)) %>");
 
 
+[app/views/bookmarks/destroy.js.erb]
+$("#js-bookmark-button-for-board-<%= @board.id %>").replaceWith("<%= j(render('boards/bookmark', board: @board)) %>");
 ~~~
-⭐️ .html()は、jQueryのメソッドの1つであり、   
-選択された要素の内部HTMLコンテンツを取得したり、新しいHTMLコンテンツで置き換えたりするために使用される。  
-⭐️ jメソッドは、引数として与えられたJavaScriptの文字列を適切にエスケープして、JavaScript内で正しく解釈されるようにする。  
+***
 
+### ⭐️ .html() と .replaceWith()
+- .html()メソッド...要素の内部HTMLコンテンツを置き換えるために使用され、要素自体および子孫要素も置き換える。
+- .replaceWith()メソッド...要素自体を他の要素やHTMLコンテンツで置き換えるために使用され、子孫要素は置き換えない。
+***
+今回の
+⭐️ jメソッドは、引数として与えられたJavaScriptの文字列を適切にエスケープして、JavaScript内で正しく解釈されるようにする。  
+***
+
+## bookmarksコントローラーにインスタンス変数入れる
+viewファイルで
 
