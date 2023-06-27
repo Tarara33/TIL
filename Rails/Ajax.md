@@ -117,10 +117,35 @@ $("#js-bookmark-button-for-board-<%= @board.id %>").replaceWith("<%= j(render('b
 - .html()メソッド...要素の内部HTMLコンテンツを置き換えるために使用され、要素自体および子孫要素も置き換える。
 - .replaceWith()メソッド...要素自体を他の要素やHTMLコンテンツで置き換えるために使用され、子孫要素は置き換えない。
 ***
-今回の
-⭐️ jメソッドは、引数として与えられたJavaScriptの文字列を適切にエスケープして、JavaScript内で正しく解釈されるようにする。  
+今回のケースでは  
+.html使うと、指定した要素はそのままなので、<a>タグの中にネストしたような形で表示された。
+[![Image from Gyazo](https://i.gyazo.com/94cc5e1960a09f73d9932441eae3be18.png)](https://gyazo.com/94cc5e1960a09f73d9932441eae3be18)
+***
+.replaceWithを使うと、指定要素自体を置き換えるのでネストされずキレイに表示させることができた。
+[![Image from Gyazo](https://i.gyazo.com/04595ce1082c11e06094d63635631e16.png)](https://gyazo.com/04595ce1082c11e06094d63635631e16)
+***
+
+### ⭐️ jメソッド
+引数として与えられたJavaScriptの文字列を適切にエスケープして、JavaScript内で正しく解釈されるようにする。  
 ***
 
 ## bookmarksコントローラーにインスタンス変数入れる
-viewファイルで
+bookmarksコントローラーにviewファイルができたので、インスタンス変数使う。
+~~~
+[app/controllers/bookmarks_controller.rb]
+class BookmarksController < ApplicationController
+
+  def create
+    @board = Board.find(params[:board_id])
+    current_user.bookmark(@board)
+  end
+
+  def destroy
+    @board = current_user.bookmarks.find(params[:id]).board
+    current_user.unbookmark(@board)
+  end
+end
+~~~
+***
+
 
