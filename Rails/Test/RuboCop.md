@@ -1,3 +1,6 @@
+[参考](https://qiita.com/tomohiii/items/1a17018b5a48b8284a8b)
+
+
 # RuboCop
 Rubyの静的コード解析を実行するgem。    
 要はRuboCopが.rbファイルに記述してあるコードを検査し、ここのコードは長すぎるね。とか、    
