@@ -123,7 +123,7 @@ $("tr#comment-<%= @comment.id %>").remove();
 
 ### ⭐️prepend()　と　remove()
 - prepend...対象のノードの子ノードの先頭にノードを追加する。
-- remove...ノードを削除する。
+- remove...ノードを削除する。    
 [詳しくは一番下の方にある](https://github.com/Tarara33/TIL/blob/main/JavaScript/DOM/%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%8F%96%E5%BE%97%E3%80%81%E4%BD%9C%E6%88%90%E3%80%81%E5%A4%89%E6%9B%B4.md)
 ***
 
