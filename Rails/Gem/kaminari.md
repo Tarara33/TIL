@@ -129,6 +129,13 @@ semantic ui ※指定するコマンドはsemantic_ui
 
 # ⭐️GemでもView変えられた
 ` gem 'bootstrap4-kaminari-views'`　をインストールすることで、    
-`$ rails g kaminari:views bootstrap4`　をしなくてもデザインがいい感じになった。
+`$ rails g kaminari:views bootstrap4`　をしなくてもデザインがいい感じになった。    
+おおざっぱなデザイン設定ならこれでいいみたい。    
+これを使う場合はView編集はこうなる。
+~~~
+[app/views/board/index.html.erb]
+<%= paginate @boards, theme: 'twitter-bootstrap-4 %>
+~~~
+theme:...特定のテーマを設定するオプション。
 ***
 
