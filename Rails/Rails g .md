@@ -15,8 +15,12 @@ $ rails g model model名 データベースにほしいカラム
 ***
 
 # 間違えて作成して取り消したい
+rails g で作ったものは　rails destroyで消せる
 ~~~
 rails destroy model or controller モデル名やコントローラー名　（name：などの引数不要）
+
+rails destroy scaffold モデル名
+なども削除できる。
 ~~~
 ***
 
