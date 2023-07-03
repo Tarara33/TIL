@@ -13,8 +13,8 @@ $ bundle
 ~~~
 ***
 
-# kaminariの設定する
-## 方法①　configファイルで細かく設定する
+## kaminariの設定する
+### 方法①　configファイルで細かく設定する
 ~~~
 $ rails g kaminari:config
 
@@ -73,4 +73,62 @@ end
 [![Image from Gyazo](https://i.gyazo.com/2f9b02afff006d300eb230e7cf589d71.png)](https://gyazo.com/2f9b02afff006d300eb230e7cf589d71)
 ***
  
+⑦モデルに追加されるページ番号を指定するスコープの名前    
+デフォルトは「page」
+~~~
+@posts = Post.page <= これ
+~~~
+⑧ページ番号を渡すために使用するリクエストパラメータの名前    
+デフォルトは「page」
+~~~
+@posts = Post.page(params[:page] <= これ)
+~~~
+***
+
+⑨表示するページ数の最大値
+[![Image from Gyazo](https://i.gyazo.com/e4c9f5d2b6aedaf50dda29c5570c13b1.png)](https://gyazo.com/e4c9f5d2b6aedaf50dda29c5570c13b1)
+***
+
+⑩最初のページでparamsを無視するか、しないか
+ちょっとまだ謎
+***
+
+### 方法②コントローラーで直接設定
+~~~
+[app/controllers/board_controller.rb]
+
+def index
+  @posts = Post.page(params[:page]).per(20)
+=> 表示件数を20で設定
+~~~
+***
+
+## Viewの編集
+~~~
+$ rails g kaminari:views bootstrap4(フレームワーク名)
+=> 用意されてるフレームワークは
+bootstrap4
+bourbon
+bulma
+foundation
+materialize
+pure css ※指定するコマンドはpurecss
+semantic ui ※指定するコマンドはsemantic_ui
+~~~
+これを打つと「app/views/kaminari/」配下にファイルができる。
+    
+~~~
+[app/views/board/index.html.erb]
+<%= paginate @boards %>
+=> ページネーション出すメソッド
+
+<%= page_entries_info @boards %>
+=> 「今3ページ目で、201件目から300件目まで表示している」みたいな表示を出すメソッド
+~~~
+***
+
+# ⭐️GemでもView変えられた
+` gem 'bootstrap4-kaminari-views'`　をインストールすることで、    
+`$ rails g kaminari:views bootstrap4`　をしなくてもデザインがいい感じになった。
+***
 
