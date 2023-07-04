@@ -24,3 +24,7 @@ HTMLのimgタグは閉じタグいらないが、JSXのimgタグは必要。
 <img src = "#" />
 ~~~
 ***
+
+# class
+`class = ""` ではなく、`className = ""`でつける。
+***
