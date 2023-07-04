@@ -11,3 +11,33 @@ Webサイト上のUIパーツを構築するためのJavaScriptライブラリ�
 JavaScript    
 JSX
 ***
+
+# 基本構文
+~~~
+①import React from 'react;
+
+②class App extends React.Component {
+  ③render() {
+    return(
+      JSXの記述
+    );
+  }
+}
+④export default App;
+~~~
+①Reactをインポート    
+②React.Componentを継承するクラス定義    
+③JSXを戻り値とするrenderメソッドの設置    
+④クラスをexport
+***
+
+### extends/export/import
+- extends
+あるクラスを継承すること
+
+- export
+とあるファイルで定義されてる関数や、クラスを他のファイルでも読み込めるようにすること。
+
+- import
+他のファイルで定義されてる関数や、クラスを作業ファイルでも読み込めるようにすること。
+***
