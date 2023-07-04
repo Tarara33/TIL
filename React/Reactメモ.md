@@ -41,3 +41,12 @@ JSX
 - import
 他のファイルで定義されてる関数や、クラスを作業ファイルでも読み込めるようにすること。
 ***
+
+# 言語のエリア
+[![Image from Gyazo](https://i.gyazo.com/b3b3a0439da43eb468fbc05da32ae84d.png)](https://gyazo.com/b3b3a0439da43eb468fbc05da32ae84d)
+***
+
+# コメントアウト
+JSの範囲なら`//`    
+JSXの範囲なら`{/**/}`
+***
