@@ -85,5 +85,7 @@ document.getElementById('〇〇')で index.html内にある同じid名の部分�
 ~~~
 ***
 
+[![Image from Gyazo](https://i.gyazo.com/1818f7404caf2bda6e187092839e65c6.png)](https://gyazo.com/1818f7404caf2bda6e187092839e65c6)
+***
 
 
