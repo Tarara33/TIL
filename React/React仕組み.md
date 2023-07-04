@@ -51,7 +51,39 @@ JSX
 [![Image from Gyazo](https://i.gyazo.com/b3b3a0439da43eb468fbc05da32ae84d.png)](https://gyazo.com/b3b3a0439da43eb468fbc05da32ae84d)
 ***
 
-# コメントアウト
-JSの範囲なら`//`    
-JSXの範囲なら`{/**/}`
+# ブラウザに表示される仕組み
+App.js => index.js => index.html の順番にファイルが呼ばれていく。
+~~~
+[App.js]
+import React from 'react;
+class App extends React.Component {
+  ...省略
+
+export default App;
+~~~
+💡index.jsで App.jsを読み込むために exportしてる！
 ***
+    
+~~~
+[index.js]
+import App from './component/App';
+ReactDOM.render(<App />, document.getElementById('root'))
+~~~
+***
+
+### ⭐️ReactDOM.renderメソッド
+<〇〇 />で大元のルートコンポネート指定して、    
+document.getElementById('〇〇')で index.html内にある同じid名の部分に    
+ルートコンポネートの情報を挿入する。
+***
+
+~~~
+[index.html]
+<body>
+  <div id = 'root'></div>
+</bodu>
+~~~
+***
+
+
+
