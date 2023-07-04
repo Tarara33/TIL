@@ -36,7 +36,7 @@ JSX
 ④クラスをexport
 ***
 
-### extends/export/import
+### ⭐️extends/⭐️export/⭐️import
 - extends
 あるクラスを継承すること
 
