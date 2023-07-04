@@ -17,3 +17,10 @@ class App extends React.Component {
 ~~~
 `{}`を使って埋め込むことができる。
 ***
+
+# img
+HTMLのimgタグは閉じタグいらないが、JSXのimgタグは必要。
+~~~
+<img src = "#" />
+~~~
+***
