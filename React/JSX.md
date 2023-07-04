@@ -3,3 +3,17 @@
 
 return内でのみ使えて、記述したものはブラウザに表示される。
 ***
+
+# JSを埋め込む
+~~~
+class App extends React.Component {
+  render() {
+    const text = 'Hello World';
+    return(
+      <h1>{text}</h1>
+    );
+  }
+}
+~~~
+`{}`を使って埋め込むことができる。
+***
