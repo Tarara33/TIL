@@ -25,6 +25,14 @@ HTMLのimgタグは閉じタグいらないが、JSXのimgタグは必要。
 ~~~
 ***
 
+# input/textarea
+imgと同じように閉じタグつける。
+~~~
+<input />
+<textarea />
+~~~
+***
+
 # class
 `class = ""` ではなく、`className = ""`でつける。
 ***
