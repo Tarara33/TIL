@@ -1,4 +1,4 @@
-# resources :コントローラー名
+# resources (複数系　リソース) :コントローラー名
 resourcesメソッドに含まれる
 -　index...一覧    
 -　show...詳細    
@@ -20,6 +20,21 @@ resources :tasks, only: [:index]
 resources :tasks, except: [:delete, :edit, :update]
 => destroy,edit,update以外の４アクションのルートを作成する
 ~~~
+***
+
+# resource (単数系　リソース)
+resources と違ってコントローラの７つのアクションに対して、indexとid付きのパスが生成されない。    
+show, editアクションの実行に、idが必要ない場合に有効なので、    
+例えばユーザー情報の編集画面などで「profile/1/edit」と idがあると、    
+何番めに作ったユーザーだとかわかってしまうし、自分以外の編集しないのでidなくていい。    
+という場合などに使える！
+~~~
+resource :profiles, only: %i[show edit update]
+~~~
+**resourceで作った場合**
+[![Image from Gyazo](https://i.gyazo.com/4263a8a1d2a421b8aa1dbe888aec29ca.png)](https://gyazo.com/4263a8a1d2a421b8aa1dbe888aec29ca)
+**resourcesで作った場合**
+[![Image from Gyazo](https://i.gyazo.com/a2d66768f63a977f4bc1e1711a3a9a37.png)](https://gyazo.com/a2d66768f63a977f4bc1e1711a3a9a37)
 ***
 
 # ネスト
