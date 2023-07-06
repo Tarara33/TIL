@@ -63,7 +63,7 @@ rubyでコメントを検索した場合に、掲示板Aが2回取得されて�
 <%= render 'search', q: @q, url: boards_path %>
 
 パーシャル内での「@q」を「q」で書く場合
-<%= render 'search_form', q: @q, url: boards_path %>
+<%= render 'search', q: @q, url: boards_path %>
 ~~~
 ***
 
