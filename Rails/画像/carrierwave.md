@@ -201,3 +201,7 @@ params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
 [carrierwave Github](https://github.com/carrierwaveuploader/carrierwave-i18n/blob/master/rails/locales/ja.yml)      
 config/locals/carrierwave/ja.ymlなどに書く。
 ***
+
+# プレビュー機能
+[ここ](https://github.com/Tarara33/TIL/blob/main/JavaScript/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/%E7%94%BB%E5%83%8F.md)
+***
