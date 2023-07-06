@@ -97,12 +97,12 @@ text_fieldの ransack版
 - cont
 値を含む。    
 例`:title_cont`
-
+    
 - イコール
-完全一致。
-例`:age_eq`
-
-- titleカラムとbodyカラムに両方に検索文字を含む
-例`:title_and_body_cont`
+完全一致。    
+例`:age_eq`    
+    
+- titleカラムとbodyカラムに両方に検索文字を含む    
+例`:title_and_body_cont`    
 ***
 
