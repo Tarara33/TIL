@@ -20,6 +20,15 @@ $ rails db:migrate
 このコマンドを実行することでリセットパスワード機能を追加することができる。
 ***
 
+
+# 確認
+以下一行が追加されてるか確認。
+~~~
+[config/initializars/sorceryrb]
+Rails.application.config.sorcery.submodules = [:reset_password]
+~~~
+***
+
 ## 新しくできたカラムの意味
 ~~~
 [マイグレーションファイル]
