@@ -25,6 +25,7 @@ RuboCopの設定ファイル。
 ## 解析
 ~~~
 $ rubocop
+
 ランテックのやつは
 $bundle exec rubocop
 じゃないと動かなかった
