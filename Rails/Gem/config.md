@@ -6,11 +6,20 @@
 メールを送る下準備としてホスト情報を設定しておく必要があるが、    
 ホスト情報は開発環境、ステージング環境、本番環境で異なる。    
     
-
-- 開発環境...localhost:3000    
-- ステージング環境...localhost:3000    
-- 本番環境...exumple.jp
-
+- 開発環境...localhost:3000        
+- ステージング環境...staging.runteq.jp        
+- 本番環境...runteq.jp
+これを素直に実装しようとすると以下のようになる。
+~~~
+if Rails.env.development?
+  host = 'localhost:3000'
+elsif Rails.env.staging?
+  host = 'staging.runteq.jp'
+elsif Rails.env.production?
+  host = 'runteq.jp'
+end
+~~~
+これでも動くが管理対象の値が他にも出てきた場合、各所でこのような条件分岐をするのはあまり綺麗ではない。
 ***
 
 # 使い方
@@ -31,3 +40,13 @@ $ rails g config:install
 ***
 
 ## 試しに設定
+今回は開発環境でホスト設定する
+~~~
+[config/settings/development.yml]
+
+default_url_options:
+=> Railsアプリケーションで使用されるデフォルトのURLオプションを設定するためのオプション。
+  host: 'localhost:3000'
+~~~
+***
+
