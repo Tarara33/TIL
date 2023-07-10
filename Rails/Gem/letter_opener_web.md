@@ -33,8 +33,8 @@ if Rails.env.development?
 この二行を追加
 ~~~
 [config/environments/development.rb]
-config.action_mailer.delivery_method = :letter_opener
-=> メールの配信方法を指定していて、 letter_opener使うよう設定している。
+config.action_mailer.delivery_method = :letter_opener_web
+=> メールの配信方法を指定していて、 letter_opener_web使うよう設定している。
 
 config.action_mailer.perform_deliveries = true
 => メールの実際の配信を有効または無効にするためのオプション。
