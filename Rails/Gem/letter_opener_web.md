@@ -36,6 +36,9 @@ if Rails.env.development?
 config.action_mailer.delivery_method = :letter_opener_web
 => メールの配信方法を指定していて、 letter_opener_web使うよう設定している。
 
+config.action_mailer.default_url_options = { host: 'localhost:3000' }
+=> メールのURL生成に使用されるデフォルトのホストとポートを指定。
+
 config.action_mailer.perform_deliveries = true
 => メールの実際の配信を有効または無効にするためのオプション。
    trueに設定されている場合、メールは実際に送信される。
