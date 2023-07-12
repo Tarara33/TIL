@@ -1,0 +1,76 @@
+# 機能
+gemの依存関係とバージョンを管理するためのツール。    
+複数のジェムのパッケージみたいな。
+***
+
+# 使い方
+~~~
+＄ gem install bundler
+
+インストール後
+$ rbenv rehash
+~~~
+rehashが何をやっているかというと、    
+新規にインストールされたbundlerの実行ファイルへの実行フォルダをrubyが気にすることのないようにしている。
+***
+
+# Bundleコマンド
+gemファイルインストールするときにターミナルで打つやつ。    
+bundlerをインストールすることで使えるようになる。    
+[詳しくはここに](https://ruby.studio-kingdom.com/bundler/bundle_install/)
+***
+
+# 種類
+## Gemfile作る
+~~~
+$ bundle init
+~~~
+実行したフォルダまたはディクレトリに管理ファイル「Gemfile」が作られる。
+***
+
+## Gemインストールする
+~~~
+$ bundle install
+$ bundle
+~~~
+Gemfileに記載されたGemをインストールする
+***
+
+### オプション
+- 
+~~~
+--without=<list>
+
+[例]
+＄ bundle install --without=development
+~~~
+Gemfileに記載している developmentグループ内の Gemをインストールしない。    
+💡この --withoutオプションは記憶されるため、    
+次にbundle installを実行した時は　--withoutオプションがなくても先に指定したgroupのGemをインストールしない。
+***
+
+## Gemのアップデート
+~~~
+$ bundler update
+~~~
+Gem　のアップデートがあれば行う。
+***
+
+## bundle install したGemを使う
+~~~
+$ bundle exec
+
+[例]
+$ bundle exec rails s
+~~~
+Gemfile.lockに書かれているバージョンのgemが動く。
+***
+
+### つけなくてもいい？？
+Railsでは利便性や一貫性のために、        
+bundle execをつけなくても実行できるコマンドを binディレクトリに用意している。    
+このようなファイルをbinstubという。    
+各ファイルは実行権限が付与されていて、bundle execなしで直接実行できる。
+
+[![Image from Gyazo](https://i.gyazo.com/1769ec894ba13ee5f63e36038f47475b.png)](https://gyazo.com/1769ec894ba13ee5f63e36038f47475b)
+***
