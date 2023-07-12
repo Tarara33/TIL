@@ -38,10 +38,6 @@ config.action_mailer.delivery_method = :letter_opener_web
 
 config.action_mailer.default_url_options = { host: 'localhost:3000' }
 => メールのURL生成に使用されるデフォルトのホストとポートを指定。
-
-config.action_mailer.perform_deliveries = true
-=> メールの実際の配信を有効または無効にするためのオプション。
-   trueに設定されている場合、メールは実際に送信される。
 ~~~
 [細かい設定はこちらを参考に](https://railsguides.jp/configuring.html#action-mailer%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B)
 ***
