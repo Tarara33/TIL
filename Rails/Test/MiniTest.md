@@ -1,3 +1,18 @@
+# 使い方
+~~~
+$ rails test
+~~~
+
+# 見やすさ設定
+minitest-reporters gemの利用がオススメ。    
+以下２行を追加する。
+~~~
+[test/test_helper.rb]
+require "minitest/reporters"
+Minitest::Reporters.use!
+~~~
+***
+
 # 書き方見本
 ~~~
 require "test_helper"
