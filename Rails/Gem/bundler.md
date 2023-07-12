@@ -37,7 +37,7 @@ Gemfileに記載されたGemをインストールする
 ***
 
 ### オプション
-- 
+- 指定グループをインストール対象から外す
 ~~~
 --without=<list>
 
@@ -73,4 +73,25 @@ bundle execをつけなくても実行できるコマンドを binディレク�
 各ファイルは実行権限が付与されていて、bundle execなしで直接実行できる。
 
 [![Image from Gyazo](https://i.gyazo.com/1769ec894ba13ee5f63e36038f47475b.png)](https://gyazo.com/1769ec894ba13ee5f63e36038f47475b)
+***
+
+## Bundlerの設定
+~~~
+$ bundle config set
+~~~
+Bundlerの設定を変更するためのコマンド。    
+オプション(--local)なしだとグローバルなBundlerの設定を変更する。    
+あんま良くない。
+***
+
+### オプション
+- 設定変更を現在のプロジェクトにのみ適用。
+~~~
+--local
+
+[例]
+$ bundle config set --local
+~~~
+現在のプロジェクトのみに対して設定を変更するという意味になる。    
+つまり、「.bundle/configファイル」がプロジェクトのルートディレクトリに作成され、そこに設定が保存される。
 ***
