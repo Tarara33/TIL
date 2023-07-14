@@ -27,11 +27,6 @@ $ rails generate scaffold_controller コントローラ名 <カラム名:型>...
 ~~~
 ***
 
-# ターミナルからデータベースにデーターを登録する方法
-`rails or bin/rails c`　でコンソールに入り、   
-`クラス名.create(データベースのカラム名１:値, カラム名２:値...)`で作成
-***
-
 # デバック
 rails では主に    
 - byebug    
