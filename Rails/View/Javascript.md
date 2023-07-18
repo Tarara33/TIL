@@ -16,3 +16,13 @@
 ~~~
 ⚠️form_remort_tagの場合コツが必要らしい。[コツ](https://zariganitosh.hatenablog.jp/entry/20070623/1182551690)
 ***
+
+## デフォルト値
+data-disable-withにはデフォルトでvalue属性が使われる。    
+[ココ](https://api.rubyonrails.org/v5.1.7/classes/ActionView/Helpers/FormTagHelper.html#method-i-submit_tag)に、いくつか例が載っている。    
+「=>」で書かれているのは、出力されるHTML(検証で見れるやつ)      
+⭐️ value属性とは異なった文字を表示したい場合は、「 data: { disable_with: '表示したい文字'} 」とする。
+***
+
+
+
