@@ -242,3 +242,12 @@ end
 ***
 [![Image from Gyazo](https://i.gyazo.com/b60e0dceeb5bd6614438028445c4a49c.png)](https://gyazo.com/b60e0dceeb5bd6614438028445c4a49c)
 ***
+
+### ⭐️ いつ使うのか・使い分け
+例えば、管理者用のコントローラーを作る時などに使う。    
+アプリ用にもログイン用の「user_sessionコントローラー」・「user_session#new」があり、    
+管理者用にもログイン用の「user_sessionコントローラー」・「user_session#new」を作りたい場合、    
+namespace使えば同名でも「admin/user_sessionコントローラー」・「admin/user_session#new」となるので作れる。    
+    
+逆に言えば、 scopeや scope moduleだと、アプリのコントローラと URLかアクションがかぶるので向いていない。
+***
