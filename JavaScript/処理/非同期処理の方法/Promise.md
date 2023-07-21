@@ -262,4 +262,4 @@ Promise.race([promise1, promise2]).then(() => {
 ~~~
 ***
 
-[参考]（https://qiita.com/cheez921/items/41b744e4e002b966391a）
+[参考](https://qiita.com/cheez921/items/41b744e4e002b966391a)
