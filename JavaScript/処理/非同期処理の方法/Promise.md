@@ -121,19 +121,12 @@ const promise = new Promise((resolve, reject) => {
     console.log('error');　　　　　　　#失敗なので処理される　＋　新しいPromiseオブジェクトを返す。
   })
   .then(() => {
-    console.log('resolve again');　　#新しいPromiseが成功したらしいのでこれも処理される。
+    console.log('resolve again');　　#新しいPromiseは resolveステータスなのでこれも処理される。
   });
 // error
 // resolve again
 ~~~
-💡 このコードの場合、新しいPromiseのresolveは明示的に書かれていない。    
-this.$axios.get("tasks")がPromiseを返し、そのPromiseが解決（resolve）したときにthenの中の処理が実行されるようになってる。    
-それに対して、Promiseが拒否（reject）された時にはcatchの中の処理が実行されるようになっているんだ。らしい。    
-    
-this.$axios.get("tasks")は、"tasks"というURLに対してHTTP GETリクエストを送るためのもの。    
-このコードが実行されると、サーバーからタスクのデータが返ってきて、それがthenメソッドの引数の関数に渡されるんだ。    
-    
-よくわからん
+💡 catchでできる Promiseはresolveステータス。(厳密には違う)
 ***
 
 # finallyメソッド
