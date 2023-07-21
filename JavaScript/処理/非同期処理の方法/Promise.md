@@ -232,3 +232,34 @@ Promise.all([promiseA, promiseB, promiseC]).then((results) => {
 // false
 ~~~
 ***
+
+## Promise.raceメソッド
+allと似ているが【どれかひとつ】でもresolveになったら実行される
+~~~
+const promise1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve();
+  }, 1000);
+}).then(() => {
+  console.log("promise1おわったよ！");
+});
+
+const promise2 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve();
+  }, 3000);
+}).then(() => {
+  console.log("promise2おわったよ！");
+});
+
+Promise.race([promise1, promise2]).then(() => {
+  console.log("どれか一つおわったよ！");
+});
+
+// promise1おわったよ！
+// どれか一つおわったよ！
+// promise2おわったよ！
+~~~
+***
+
+[参考]（https://qiita.com/cheez921/items/41b744e4e002b966391a）
