@@ -30,7 +30,7 @@ const promise = new Promise((resolve, reject) => {
 ~~~
 ***
 
-## thenメソッド
+# thenメソッド
 thenメソッドは、Fullfilledステータス(処理成功・完了)、      
 または Rejectedステータス(処理失敗)の Promiseオブジェクトを受け取ることができる。    
 resolveされた時にはその成功した結果を受け取り、rejectされた時にはそのエラーを受け取る。    
@@ -87,7 +87,7 @@ validation(password).then(
 ~~~
 ***
 
-## catchメソッド
+# catchメソッド
 catchメソッドは、rejectedステータスの Promiseオブジェクトを受け取る。    
 つまりかんたんに言うと、エラー処理専用のメソッド。   
     
@@ -134,4 +134,108 @@ this.$axios.get("tasks")は、"tasks"というURLに対してHTTP GETリクエ�
 このコードが実行されると、サーバーからタスクのデータが返ってきて、それがthenメソッドの引数の関数に渡されるんだ。    
     
 よくわからん
+***
+
+# finallyメソッド
+finallyメソッドとは、処理の成功・失敗に関わらず、その先の処理を継続して行うメソッド。        
+Promiseチェーンのさいごに必ず呼び出したい処理などを定義することができる。
+        
+### result・rejectあろうとなかろうと関係ない
+~~~
+const promise = new Promise((resolve, reject) => {
+  const something = true;
+　　if (!something) {
+　　  resolve('成功');
+　　} else {
+　　  reject('失敗');
+　　}
+}).finally(() => console.log('結果に関係なく処理'));
+// '結果に関係なく処理'
+~~~
+***
+
+### finaly - then
+finalyは Promiseの成功または失敗のステータスを変えない。        
+なのでこの場合そのまま 失敗の処理される。
+~~~
+const promise = new Promise((resolve, reject) => {
+  const something = true;
+  if (!something) {
+　  resolve('成功');
+  } else {
+　  reject('失敗');
+  }
+})
+  .finally(() => console.log('結果に関係なく処理'))
+  .then( // resolve, またはrejectを扱う
+    result => console.log(result),
+    error => console.log(error)
+  );
+// '結果に関係なく処理'
+// '失敗'
+~~~
+***
+
+### finaly - catch
+catchでも変わらず処理して、その先の処理の邪魔もしない。
+~~~
+const promise = new Promise((resolve, reject) => {
+  const something = true;
+  if (!something) {
+    resolve('成功');
+  } else {
+    reject('失敗');
+  }
+})
+  .finally(() => console.log('結果に関係なく処理'))
+  .catch(error => console.log(error)); // rejectを扱う
+// '結果に関係なく処理'
+// '失敗'
+~~~
+***
+
+# Promise.allメソッド
+指定したすべてのPromiseオブジェクトに対して処理を実行するメソッド。        
+【すべて】の Promiseオブジェクトが fulfilledステータスになると、それぞれの結果の値を集めた配列を返す。        
+~~~
+const promiseA = new Promise((resolve, reject) => {
+  resolve(123)
+});
+
+const promiseB = new Promise((resolve, reject) => {
+  resolve('string')
+});
+
+const promiseC = new Promise((resolve, reject) => {
+  resolve(true)
+});
+
+Promise.all([promiseA, promiseB, promiseC]).then((results) => {
+  console.log(results);
+});
+// [123, 'string', true]
+~~~
+***
+
+⭐️ 【すべて】なので一つでも rejectあれば実行されない。
+~~~
+const promiseA = new Promise((resolve, reject) => {
+  resolve(123)
+});
+
+const promiseB = new Promise((resolve, reject) => {
+  resolve('string')
+});
+
+const promiseC = new Promise((resolve, reject) => {
+  reject(false)
+});
+
+// promiseCがrejectされたため、実行されない
+Promise.all([promiseA, promiseB, promiseC]).then((results) => {
+  console.log(results);
+})
+  .catch(error => console.log(error)); // rejectされたオブジェクトを返す
+// false
+~~~
 ***
