@@ -10,7 +10,7 @@ gem 'bootstrap-sass'を入れると使えるようになる。
 $gray-light: #777;
 ~~~
     
-しかし、Bootstrapが用意している　を使うと
+しかし、Bootstrapが用意している LESS変数を使うと
 ~~~
 @gray-light: #777;
 ~~~
