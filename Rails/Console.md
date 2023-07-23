@@ -175,3 +175,15 @@ post.errors.full_messages
 => ["Title can't be blank", "Body can't be blank", "Body is too short (minimum is 5 characters)"]
 ~~~
 
+# pluck
+カラムの中の情報たちを配列にして返してくれる。        
+`モデル名.plick(:カラム名)`で定義する。        
+~~~
+[rails c]
+irb(main):002:0> User.pluck(:first_name)
+   (1.2ms)  SELECT "users"."first_name" FROM "users"
+=> ["s", "拓海", "美咲", "優花", "大輔", "優", "優", "舞", "悠人", "太一", "優菜", "愛美", "優菜", "優花", "輝", "健", "太郎", "優斗", "翔", "美優", "m"]
+~~~
+***
+
+カラムの中の情報たちを配列にして返してくれる
