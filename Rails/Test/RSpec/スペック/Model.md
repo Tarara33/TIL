@@ -60,5 +60,28 @@ RSpec.describe Task, type: :model do
 end
 ~~~
 ⭐️ rails_helper読み込ませるの忘れないように！
+***
+
+### ⭕️eqの後なぜ[]??
+エラーメッセージは配列に入っているため。    
+~~~
+[rails c]
+$ task = Task.new
+
+$ task.valid?
+=> false
+
+$ task.errors
+=> @base=#<Task:0x000000011c1274e8 id: nil, title: nil, content: nil, status: nil, deadline: nil, created_at: nil, updated_at: nil, user_id: nil>,
+ @details={:user=>[{:error=>:blank}], :title=>[{:error=>:blank}], :status=>[{:error=>:blank}]},
+ @messages={:user=>["must exist"], :title=>["can't be blank"], :status=>["can't be blank"]}>
+⭐️ ここのメッセージをeqの後ろに入れてる
+~~~
     
-⭕️エラーメッセージの書き方
+💡 ちなみにexpect(task_without_title.errors[:title])も意味としては    
+taskの、エラーメッセージたちの、タイトルのエラーメッセージ、という意味で    
+コンソールで打つと出る。
+[![Image from Gyazo](https://i.gyazo.com/d15a56f0b35b17f2dd4224386a1e80fe.png)](https://gyazo.com/d15a56f0b35b17f2dd4224386a1e80fe)
+***
+
+
