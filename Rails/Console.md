@@ -165,7 +165,7 @@ end
 
 [rails c]
 post = Post.new
-post.valid?
+⭕️post.valid?
 => false
 post.errors
 => #<ActiveModel::Errors:0x0000000126e3d3a8 @base=#<Post id: nil, title: nil, body: nil, created_at: nil, updated_at: nil>, @messages={:title=>["can't be blank"], :body=>["can't be blank", "is too short (minimum is 5 characters)"]}, @details={:title=>[{:error=>:blank}], :body=>[{:error=>:blank}, {:error=>:too_short, :count=>5}]}>
@@ -174,6 +174,9 @@ post.errors
 post.errors.full_messages
 => ["Title can't be blank", "Body can't be blank", "Body is too short (minimum is 5 characters)"]
 ~~~
+ちなみに、エラーメッセージが出るタイミングは⭕️部分の「valid?」を使ったとき。        
+なので、newの後 errorsしても[]と返ってくる。
+***
 
 # pluck
 カラムの中の情報たちを配列にして返してくれる。        
