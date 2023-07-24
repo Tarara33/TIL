@@ -25,15 +25,20 @@ FactoryBot.define do
   factory :user do
     name { "testuser1" }
     email {"a@exsample.com"}
+    sex {:man}
+    deadline { 1.week.from_now }
   end
 end
 ~~~
+- 名前やメールアドレスなど入力系は{""}に文字など書く。        
+- 性別など選択系は{:選択肢}で書く。        
+- 期限などのカレンダー入力系はメソッド使って{}内に書く。
 ***
 
 ## モデル名以外の書き方
 ~~~
 FactoryBot.define do
-  factory :testuser, class: User do
+  ⭐️factory :testuser, class: User do
     name { "testuser2" }
   end
 end
@@ -43,7 +48,9 @@ end
 ***
 
 # sequence
-複数のテストデータを生成する際に活用できると便利
+uniqunessかけてるカラムに使う（重複しなくなる）
+
+## 使いかた①ブロックタイプ
 ~~~
 [factories/users.ub]
 
@@ -53,6 +60,7 @@ FactoryBot.define do
   end
 end
 ~~~
+        
 rails cなどで`FactoryBot.create(:user)`されるたびに    
 ~~~
 irb(main):001:0> FactoryBot.create(:user)
@@ -61,6 +69,20 @@ irb(main):002:0> FactoryBot.create(:user)
 => #<User id: 12, name: "ごりら2", created_at: "2021-08-22 23:33:04", ....
 ~~~
 とつくられていく
+***
+
+## 使いかた②ノーブロックタイプ
+変えたい場所が末尾の場合のみ使える書き方
+~~~
+[factories/users.ub]
+
+FactoryBot.define do
+  factory :user do
+    sequence(:name, "ごりら_1")
+  end
+end
+~~~
+⚠️ 末尾が数字の場合【のみ】この形式が使える。
 ***
 
 # Factoryデーターを紐付ける
@@ -80,7 +102,9 @@ FactoryBot.define do
   factory :task do
     title { "テスト" }
     body {"テストだよ"}
-  ⭐️user
+  ⭐️association user
+    または
+    user のみでも可
   end
 end
 ~~~
