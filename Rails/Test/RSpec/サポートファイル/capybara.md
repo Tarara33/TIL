@@ -48,9 +48,9 @@ JavaScriptを含むテストケースをサポートする。
 spec_helperはコードがたくさん書いてあって、いちいちブラウザドライバーを切り替えるの大変なので切り分ける方法もある。    
     
 その場合は    
-① spec/supportディレクトリを作成(手動)    
-② その配下にcapybara.rbファイルを作成    
-③ supportファイルを読み込むように rails_helperで設定
+① spec/supportディレクトリを作成(手動)        
+② その配下にcapybara.rbファイルを作成        
+③ supportファイルを読み込むように rails_helperで設定    
 ***
 
 ## ②
