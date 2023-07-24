@@ -59,7 +59,8 @@ RSpec.describe Task, type: :model do
   end
 end
 ~~~
-⭐️ rails_helper読み込ませるの忘れないように！
+⭐️ rails_helper読み込ませるの忘れないように！    
+⚠️ FactoryBotは new使えない
 ***
 
 ### ⭕️eqの後なぜ[]??
