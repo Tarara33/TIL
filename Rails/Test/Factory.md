@@ -141,3 +141,13 @@ user = FactoryBot.create(:user)
 user = create(:user)
 ~~~
 ***
+
+# ⚠️ FactoryBotは new使えない
+~~~
+⭕️user = FactoryBot.create(:user)
+⭕️user = FactoryBot.build(:user)
+❌user = FactoryBot.new(:user)
+~~~
+なので、作成・セーブするときは create        
+作成だけしてバリデーションなど確認したいときは build使う。
+***
