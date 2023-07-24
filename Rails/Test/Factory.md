@@ -4,7 +4,10 @@
 # 導入
 ~~~
 [gemfile]
+group :development, :test do
 gem 'factory_bot'
+end
+
 $bundle
 ~~~
 ***
