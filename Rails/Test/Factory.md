@@ -126,3 +126,18 @@ end
 ⭐️ こう書くことでUserモデルのファクトリー:admin_userから、    
 自動的に作成されたユーザーオブジェクトを関連付ける。
 ***
+
+# FactoryBot. の省略
+~~~
+[spec/rails_helper.rb]
+
+config.include FactoryBot::Syntax::Methods
+~~~
+        
+と記載すると、テストを書くところで「FactoryBot.」を省略できる。
+~~~
+user = FactoryBot.create(:user)
+↓
+user = create(:user)
+~~~
+***
