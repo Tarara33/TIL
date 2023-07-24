@@ -1,6 +1,18 @@
 # capybara
 システムテストをするときに人間がブラウザ操作するようなシュミレーションをしてくれる。(ログインボタン押すとか)    
-rails newして bundle installしたときにもう入ってるので、gemの追加などはいらない。
+
+    
+rails newして bundle installしたときにもう入ってるので、gemの追加などはいらない。    
+⭐️しかし、クロームブラウザ使うので、　gem 'webdrivers'はインストールする。
+~~~
+[gemfile]
+
+group :development, :test do
+gem 'webdrivers'
+end
+
+$ bundle
+~~~
 ***
 
 # capybaraの設定
