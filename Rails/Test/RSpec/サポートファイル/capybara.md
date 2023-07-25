@@ -7,12 +7,13 @@ rails newして bundle installしたときにもう入ってるので、gemの�
 ~~~
 [gemfile]
 
-group :development, :test do
+group :test do
 gem 'webdrivers'
 end
 
 $ bundle
 ~~~
+⚠️ capybaraはテスト環境しか使わないのでグループ「テスト」に書く。
 ***
 
 # capybaraの設定
