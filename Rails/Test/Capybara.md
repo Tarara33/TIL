@@ -56,3 +56,78 @@ JavaScriptを含むテストケースをサポートする。
 ヘッドレスモードを使用しないので、実際のブラウザの動作をテストすることができる。    
 その分実行が少し遅くなる可能性がある。
 ***
+
+# RspecでのCapybaraのメソッド
+itブロック内で使う。            
+他のブロック内だとエラー出る。        
+[参考](https://qiita.com/sogu/items/4370e8e54751899d5cad)        
+[困った時](https://qiita.com/kon_yu/items/52a0f5f0016564486061)
+
+## visit
+テストで訪れる URLやパスを入れる。
+~~~
+visit '/login'
+visit login_path
+~~~
+***
+
+## fill_in '', with: ''
+フォームなどの入力を行う。
+~~~
+fill_in 'Email', with: 'user@example.com'
+fill_in 'Email', with: user.email
+fill_in 'カレンダー', with '002023-06-18-16-30'
+~~~
+💡 カレンダーの日付登録は「年」の頭に「00」つける。
+***
+
+### ⚠️ fill_in　''　どこの文字列を入れればいいか？？
+~~~
+[ビューファイル]
+<%= form.label :email %><br />
+<%= form.text_field :email %>
+
+
+[検証でみたHTML]
+<label for="email">Email</label><br>
+<input type="text" name="email" id="email">
+~~~
+この場合 labelタグのテキスト「Email」でも、        
+inputタグの name属性の「email」でもOK。    
+        
+もし labelタグがない時は nameかid属性の値を入れる。        
+⚠️ nameもid属性も無ければ fill_inは使えない。
+その場合は「困った時」を見てね。
+***
+
+### click_button/click_link/click_on
+- click_button...ボタンを押す操作。        
+- click_link...リンクを押す操作。        
+- click_on...ボタンかリンクを押す。        
+~~~
+click_button 'Login'
+click_link 'Login'
+click_on 'login'
+~~~
+⚠️ 基本的にbuttonタグのテキストを指定するが、
+~~~
+<button><i>Button</i></button>
+~~~
+このようになってると上手くいかないので「困った時」を見てね。
+***
+
+## check/uncheck
+チェックボックスをチェックする/チェックボックスのチェックを外す
+~~~
+check 'woman'
+uncheck 'woman'
+~~~
+***
+
+## select '', from: ''
+セレクトボックスを選ぶ。        
+select ''には選ぶ要素、from: ''はセレクトボックス名を入れる。
+~~~
+select 'todo', from: 'Status'
+~~~
+***
