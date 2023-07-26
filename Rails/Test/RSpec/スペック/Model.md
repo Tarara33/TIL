@@ -13,7 +13,7 @@ $ rails g rspec:model モデル名(単数系)
 
 # データー作る
 [詳しくはこちら](https://github.com/Tarara33/TIL/blob/main/Rails/Test/Factory.md)
-　***
+
 
 # テストかく
 今回は Taskモデルのバリデーションがされてるか・エラーメッセージの内容      
