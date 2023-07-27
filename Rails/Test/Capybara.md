@@ -157,12 +157,12 @@ it '掲示板が作成できること' do
     it '掲示板の作成に失敗すること' do
     fill_in 'タイトル', with: 'テストタイトル'
     fill_in '本文', with: nil
-    file_path = Rails.root.join('spec', 'fixtures', 'example.txt')
+    ❌file_path = Rails.root.join('spec', 'fixtures', 'example.txt')
     attach_file "サムネイル", file_path
     click_button '登録する'
     expect(page).to have_content('掲示板を作成できませんでした')
     expect(page).to have_content('本文を入力してください')
 ~~~
-失敗させる方は、画像拡張子ではないものをわざと選んで入れてる。
+❌ 失敗させる方は、画像拡張子ではないものをわざと選んで入れてる。
 ***
 
