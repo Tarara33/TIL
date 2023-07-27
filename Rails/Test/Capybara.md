@@ -133,3 +133,36 @@ select ''には選ぶ要素、from: ''はセレクトボックス名を入れる
 select 'todo', from: 'Status'
 ~~~
 ***
+
+# 画像を添付した投稿のテスト
+① spec/配下に fixturesというフォルダを作成。        
+② その配下にテスト用の「sample.jpg」(成功用)と「sample.txt」(失敗用)を入れる。        
+        
+ここからコード内        
+③ テスト用ファイルまでのルート指定。        
+④ attach_fileメソッドを使って、'サムネイル'というフィールドにファイルを添付する
+~~~
+it '掲示板が作成できること' do
+    fill_in 'タイトル', with: 'テストタイトル'
+    fill_in '本文', with: 'テスト本文'
+    ③file_path = Rails.root.join('spec', 'fixtures', 'example.jpg')
+    ④attach_file "サムネイル", file_path　　#上で定義した変数
+    click_button '登録する'
+    expect(current_path).to eq(boards_path)
+    expect(page).to have_content('掲示板を作成しました')
+    expect(page).to have_content('テストタイトル')
+    expect(page).to have_content('テスト本文')
+    end
+    
+    it '掲示板の作成に失敗すること' do
+    fill_in 'タイトル', with: 'テストタイトル'
+    fill_in '本文', with: nil
+    file_path = Rails.root.join('spec', 'fixtures', 'example.txt')
+    attach_file "サムネイル", file_path
+    click_button '登録する'
+    expect(page).to have_content('掲示板を作成できませんでした')
+    expect(page).to have_content('本文を入力してください')
+~~~
+失敗させる方は、画像拡張子ではないものをわざと選んで入れてる。
+***
+
