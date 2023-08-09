@@ -1,0 +1,43 @@
+# ER図とは
+ER図とは、データベースのテーブルとテーブル同士の関連を図に表したものでありデータベースのテーブル設計に用いられる。
+[![Image from Gyazo](https://i.gyazo.com/98f4b93386831e20482a54df01105479.png)](https://gyazo.com/98f4b93386831e20482a54df01105479)
+***
+
+# ER図の要素
+## エンティティ
+テーブルのこと。    
+[![Image from Gyazo](https://i.gyazo.com/887224aca0576bae937b54dbf73ddd9f.png)](https://gyazo.com/887224aca0576bae937b54dbf73ddd9f)
+***
+
+## アトリビュート(属性)
+テーブル内のカラム(属性値)   
+この見本では    
+- プライマリーキー    
+- name      
+- email    
+- age
+     
+[![Image from Gyazo](https://i.gyazo.com/e35da063305b4d8177aab397724ccedd.png)](https://gyazo.com/e35da063305b4d8177aab397724ccedd)    
+※ PK...プライマリーキー
+***
+
+## リレーション（関係）
+エンティティ同士の関係のこと。    
+Railsでいうアソシエーションのこと。    
+[![Image from Gyazo](https://i.gyazo.com/f9d0ff916e10c0f3436cc654a6de10a1.png)](https://gyazo.com/f9d0ff916e10c0f3436cc654a6de10a1)
+***
+
+## カーディナリティ（多重度）
+「1対1」「1対多」「多対多」など、リレーションの詳細を表現する記号。
+[![Image from Gyazo](https://i.gyazo.com/c309c8ecd74b3f6a7b50cd5966c708b2.png)](https://gyazo.com/c309c8ecd74b3f6a7b50cd5966c708b2)
+***
+
+# カーディナリティの種類
+[![Image from Gyazo](https://i.gyazo.com/5f2122c07573ee363b59c84a14df5f5b.png)](https://gyazo.com/5f2122c07573ee363b59c84a14df5f5b)    
+基本的にはこの「0,1,多」を組み合わせて使う。
+***
+
+## 使い方(NG)
+[![Image from Gyazo](https://i.gyazo.com/8c542d24b84212a4b7451bbef65684e5.png)](https://gyazo.com/8c542d24b84212a4b7451bbef65684e5)
+このように、
+[![Image from Gyazo](https://i.gyazo.com/8c542d24b84212a4b7451bbef65684e5.png)](https://gyazo.com/8c542d24b84212a4b7451bbef65684e5)
