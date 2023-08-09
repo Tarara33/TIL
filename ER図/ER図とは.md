@@ -52,10 +52,33 @@ Railsでいうアソシエーションのこと。
 # 見本
 [![Image from Gyazo](https://i.gyazo.com/ab1e0c00cd0786a12c91b67c183f51c4.png)](https://gyazo.com/ab1e0c00cd0786a12c91b67c183f51c4)
 - 一人のUserは0~多の投稿を持つ。          
-- 一つの投稿は必ず一人のUserと結びつく。
+- 一つの投稿は必ず一人のUserと結びつく。     
                 
-=> User : Post = 1:多(０含む)
-
-
-
+=> User:Post = 1:多(０含む)     
+     
+- 一人のUserは0~多のコメントを持つ。     
+- 一つのコメントは必ず一人のUserと結びつく。     
+     
+=> User:Comment = 1:多(0含む)     
+     
+- 一つのPostは0~多のコメントを持つ。          
+- 一つのコメントは必ず一つのPostと結びつく。          
           
+=> Post:Comment = 1:多(0含む)   
+***
+
+### ❓ 1:1? 　1:多?
+例えば、user_id:1が自分自身だとする。               
+Postテーブルの中の全データーから、user_id:1と言う情報だけで一件のPostが特定できるだろうか？          
+答えは、NO。          
+「user_id:1, post_id:1」、「user_id:1, post_id:2」など多数出てくる。                    
+          
+逆の視点に変えて今度はPostからみる。     
+post_id:1と言う情報だけで一件のPostが特定できるだろうか？        
+答えは、YES。     
+「user_id:1, post_id:1」なら、Userはuser_id:1の人だと特定できる。     
+
+なので User:Post = 1:多(０含む)
+***
+
+
