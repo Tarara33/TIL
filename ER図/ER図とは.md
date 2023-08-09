@@ -1,6 +1,5 @@
 # ER図とは
 ER図とは、データベースのテーブルとテーブル同士の関連を図に表したものでありデータベースのテーブル設計に用いられる。
-[![Image from Gyazo](https://i.gyazo.com/98f4b93386831e20482a54df01105479.png)](https://gyazo.com/98f4b93386831e20482a54df01105479)
 ***
 
 # ER図の要素
@@ -39,5 +38,24 @@ Railsでいうアソシエーションのこと。
 
 ## 使い方(NG)
 [![Image from Gyazo](https://i.gyazo.com/8c542d24b84212a4b7451bbef65684e5.png)](https://gyazo.com/8c542d24b84212a4b7451bbef65684e5)
-このように、
-[![Image from Gyazo](https://i.gyazo.com/8c542d24b84212a4b7451bbef65684e5.png)](https://gyazo.com/8c542d24b84212a4b7451bbef65684e5)
+このように、一種類ずつ使うのは不十分。
+***
+
+## 使い方(OK)
+[![Image from Gyazo](https://i.gyazo.com/8658988f573ef313c82b3306a0cd2e28.png)](https://gyazo.com/8658988f573ef313c82b3306a0cd2e28)
+- 一つのPostは必ず一人のUserと関連する。          
+- 一人のUserはPostを複数持つが投稿しない場合もある関連を持つ。     
+          
+と言うように下限と上限をつける。
+***
+
+# 見本
+[![Image from Gyazo](https://i.gyazo.com/ab1e0c00cd0786a12c91b67c183f51c4.png)](https://gyazo.com/ab1e0c00cd0786a12c91b67c183f51c4)
+- 一人のUserは0~多の投稿を持つ。          
+- 一つの投稿は必ず一人のUserと結びつく。
+                
+=> User : Post = 1:多(０含む)
+
+
+
+          
