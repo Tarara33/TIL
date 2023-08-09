@@ -107,3 +107,30 @@ li {
 => li.secondと同じ意味
 ~~~
 ***
+
+# @extend
+CSSのスタイルを再利用するために使用される機能。
+~~~
+[SASS]
+
+// ベースのスタイルを定義
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+// .buttonを拡張して別のクラスを作成
+.submit-button {
+  @extend .button;
+  font-weight: bold;
+}
+
+// .buttonを拡張して別のクラスを作成
+.cancel-button {
+  @extend .button;
+  background-color: #dc3545;
+}
+~~~
+***
