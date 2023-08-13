@@ -14,3 +14,12 @@
 または   
 `$ rbenv install -l`    
 インストールできるリスト見れる
+***
+
+# M1マック
+上のインストール方法だとエラー出ることある。    
+その場合、コレでやってみて。
+~~~
+$ OPENSSL_CFLAGS=-Wno-error=implicit-function-declaration RUBY_CFLAGS=-DUSE_FFI_CLOSURE_ALLOC rbenv install バージョン
+~~~
+***
