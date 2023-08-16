@@ -155,3 +155,61 @@ user = create(:user)
 なので、作成・セーブするときは create        
 作成だけしてバリデーションなど確認したいときは build使う。
 ***
+
+# trait
+だいたい一緒だけど少しだけステータスが違うデーターを作るときに使うと便利。    
+例えば、あるテストだけ adminにしたい + 名前もadmin_userにしたいなど。
+~~~
+[traitなし]
+
+FactoryBot.define do
+  factory :user do
+    sequence(:name) { |n| "user-#{n}" }
+    password { 'password' }
+    password_confirmation { 'password' }
+    role { :writer }
+  end
+end
+
+let(:user) {create(:user)}
+let(:admin) {create(:user, name: 'admin_user, role: admin)}
+~~~
+traitを使ってない場合は、名前はコレ、権限はコレと()内に定義しなければいけない。
+***
+
+## 使い方
+~~~
+FactoryBot.define do
+  factory :user do
+    sequence(:name) { |n| "user-#{n}" }
+    password { 'password' }
+    password_confirmation { 'password' }
+    role { :writer }
+
+    trait :admin do
+      sequence(:name) { |n| "admin-#{n}" }
+      role { :admin }
+    end
+
+    trait :editor do
+      sequence(:name) { |n| "editor-#{n}" }
+      role { :editor }
+    end
+
+    trait :writer do
+      sequence(:name) { |n| "writer-#{n}" }
+      role { :writer }
+    end
+  end
+end
+
+
+[呼び出す時]
+let(:user) {create(:user)}
+=> ノーマルユーザー作られる。
+let(:admin) {create(:user, :admin)}
+=> traitのadminのユーザーが作られる。
+~~~
+trait :〇〇の、〇〇部分を(:user, :〇〇)とつける感じ
+***
+
