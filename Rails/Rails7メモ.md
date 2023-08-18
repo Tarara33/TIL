@@ -1,1 +1,47 @@
-#
+# コントローラーでのステータスコード
+## status: :see_other
+HTTPステータスコードで、303のエイリアス。    
+303ステータスコードは、「See Other」を意味し、リクエストに対して別のURIへのリダイレクトを指示する。    
+    
+【記載しないとどうなるか】    
+Railsがデフォルトで使用するリダイレクトステータスコードに従うことになる。    
+通常、リダイレクトの際には302ステータスコードが使用される。    
+302ステータスコードは、一時的なリダイレクトを意味するが、    
+ブラウザによってはこのリダイレクト先で元のHTTPメソッド（この場合DELETE）を保持しようとすることがある。    
+303ステータスコードを使用する場合、リダイレクト先のメソッドはGETになる。
+***
+
+## status: :unprocessable_entity
+HTTPステータスコードの422を表す。    
+このステータスコードは、リクエストが形式として正しいものの、サーバーが処理することができない状態であることを示す。    
+RailsなどのWebフレームワークでよく使われるのは、バリデーションエラーなどの処理に失敗した場合。    
+    
+【記載しないとどうなるか】    
+特定のHTTPステータスコードが指定されないため、デフォルトの200 OKが使用されることになる。    
+200ステータスコードはリクエストが成功したことを示すため、    
+クライアント側でエラーのハンドリングを正しく行いたい場合、この情報が失われると問題が発生する可能性がある。    
+(バリデーションが効かなくなる)    
+***
+
+~~~
+[例: sorceryを使わないログイン機能のコントローラー]
+
+  def create
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+      reset_session
+      log_in user
+      redirect_to user
+    else
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    log_out
+    redirect_to root_url, status: :see_other
+  end
+end
+~~~
+***
