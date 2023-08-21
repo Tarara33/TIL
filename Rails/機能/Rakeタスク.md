@@ -104,6 +104,7 @@ namespace :hello do
   end
 end
 
+rails 'hello:hello_name[Tarara]'
 =>
 hello:hello_name
 ~~~
@@ -126,6 +127,7 @@ namespace :hello do
   end
 end
 
+$ rails 'hello:hello_name[Tarara]'
 =>
 #<Rake::TaskArguments name: Tarara>
 ~~~
@@ -145,4 +147,24 @@ namespace :tasks do
   end
 end
 ~~~
+***
 
+# Rakeタスクの実行
+~~~
+$ rails タスクのファイル名:タスク名
+
+[例]
+$ rails hello:hello_name
+
+[引数渡す場合]
+$ rails hello:hello_name[Tarara]
+
+[Zsh環境だとクォーテーションで囲まないと no matches found:出るかも]
+$ rails 'hello:hello_name[Tarara]'
+~~~
+***
+
+# タスクを自動で実行させる
+今のままだと、自分でターミナルで叩かないと実行されない。
+コレを自動化するにはコレが必要。
+***
