@@ -36,8 +36,7 @@ $ bundle exec wheneverize .
 config/schedule.rbが生成される。
 ***
 
-# schedule.rbの編集
-初期設定
+# schedule.rbの編集 (初期設定)
 ~~~
 [config/schedule.rb]
 
@@ -103,5 +102,172 @@ job_type :rake, %Q{export PATH="$HOME/.rbenv/shims:$PATH"; cd :path && RAILS_ENV
 ***
 
 ### job_type
-ジョブの種類とそのジョブを実行するためのコマンドのテンプレートを定義するもの。
-wheneverでは次の4つのjob_typeと呼ばれる4種類の処理を行うことができ、時間も好きに設定できる。
+ジョブの種類とそのジョブを実行するためのコマンドのテンプレートを定義するもの。  
+wheneverでは次の4つのjob_typeと呼ばれる4種類の処理を行うことができ、時間も好きに設定できる。    
+
+【job-type】    
+- command (bashコマンド実行)  
+任意のコマンドを実行する。  
+:taskと :outputを指定して、そのコマンドの出力をログに書き出す。  
+    
+- rake (rakeタスク実行)  
+Rakeタスクを実行する。  
+:pathで指定したディレクトリに移動してから、:environment_variableに設定した環境で、bundle exec rake :taskコマンドを実行する。  
+    
+- runner (Rails内のメソッド実行)  
+Railsの runnerを使って、Rubyのコードを実行する。  
+:pathで指定したディレクトリに移動してから、 bin/rails runner -e :environment ':task'コマンドを実行する。
+
+- script (scriptの実行)
+スクリプトを実行する。  
+:pathで指定したディレクトリに移動してから、:environment_variableに設定した環境で、bundle exec script/:taskコマンドを実行する。
+    
+これらはデフォルトでは以下のコードと同じ挙動をする。 
+~~~
+job_type :command, ":task :output"
+job_type :rake,    "cd :path && :environment_variable=:environment bundle exec rake :task --silent :output"
+job_type :runner,  "cd :path && bin/rails runner -e :environment ':task' :output"
+job_type :script,  "cd :path && :environment_variable=:environment bundle exec script/:task :output"
+~~~
+💡 設定はタスク処理外でして、コマンド使うのはタスク処理内という感じ！
+***
+
+# schedule.rbの編集 (タスク設定)
+タスクはハローと出力させるというもの。
+~~~
+[lib/tasks/hello.rake]
+namespace :greet do
+  desc 'ハローと出力する'
+  task :say_hello do
+    puts 'HELLO!'
+  end
+end
+~~~
+コレを schedule.rbに書いていく。
+~~~
+[config/schedule.rb]
+
+# Rails.root(Railsメソッド)を使用するために必要
+require File.expand_path(File.dirname(__FILE__) + '/environment')
+
+# cronを実行する環境変数(:development, :product, :test)
+# 環境変数'RAILS_ENV'にセットされている変数またはdevelopmentを指定
+rails_env = ENV['RAILS_ENV'] || :development
+
+# cronを実行する環境変数をセット
+set :environment, rails_env
+
+# cronのログの吐き出し場所
+set :output, "#{Rails.root}/log/cron.log"
+
+# .zshrcとrbenvのパスを指定するrakeを定義
+job_type :rake, %Q{export PATH="$HOME/.rbenv/shims:$PATH"; cd :path && RAILS_ENV=:environment bundle exec rake :task :output}
+
+
+#1時間ごとに（:hour）実行する先程設定した rakeタスクを記入
+every 1.minute do
+  rake 'hello:say_hello'
+end
+~~~
+この　rakeが先ほど job-typeで設定した「job_type :rake」の内容が使われる！
+***
+
+## 時間設定
+- １分ごと
+~~~
+every 1.minute
+~~~
+  
+- １時間ごと
+~~~
+every 1.hour do
+~~~
+  
+- １日ごと
+~~~
+every 1.day do
+~~~
+時間指定してないので、デフォルトで　00:00にタスク実行される。
+もし時間設定する場合はこちらのようにする。
+~~~
+every 1.day, at: ['4:30 am', '6:00 pm'] do
+=> 毎日4:30と 18:00にタスク実行
+~~~
+
+- 曜日ごと
+~~~
+every :sunday do 
+~~~
+***
+
+# ⭐️ crontabに反映させる
+- wheneverの設定更新
+~~~
+$ bundle exec whenever --update-crontab
+
+=>
+[write] crontab file updated
+コレが出たら、crontabが正常に更新されてる。
+~~~
+
+- 設定内容にエラーがないか確認
+~~~
+$ bundle exec whenever
+
+=>
+0 * * * * /bin/bash -l -c 'export PATH="$HOME/.rbenv/shims:$PATH"; cd /Users/sarina/workspace/runteq/rails_ouyo/27722_Tarara33_runteq_curriculum_advanced && RAILS_ENV=development bundle exec rake article_status:change_to_be_published >> /Users/sarina/workspace/runteq/rails_ouyo/27722_Tarara33_runteq_curriculum_advanced/log/cron.log 2>&1'
+
+## [message] Above is your schedule file converted to cron syntax; your crontab file was not updated.
+## [message] Run `whenever --help' for more options.
+
+この二つの[message]は出力されるのが正常
+(crontabにupdateされてないよ(--update-crontabつけてないから)　と　ヘルプコマンドの案内メッセージ)
+~~~
+
+- 設定されているcronを見る
+~~~
+$ crontab -l
+
+=>
+# Begin Whenever generated tasks for: /Users/sarina/workspace/runteq/rails_ouyo/27722_Tarara33_runteq_curriculum_advanced/config/schedule.rb at: 2023-08-21 20:43:37 +0900
+0 * * * * /bin/bash -l -c 'export PATH="$HOME/.rbenv/shims:$PATH"; cd /Users/sarina/workspace/runteq/rails_ouyo/27722_Tarara33_runteq_curriculum_advanced && RAILS_ENV=development bundle exec rake article_status:change_to_be_published >> /Users/sarina/workspace/runteq/rails_ouyo/27722_Tarara33_runteq_curriculum_advanced/log/cron.log 2>&1'
+
+# End Whenever generated tasks for: /Users/sarina/workspace/runteq/rails_ouyo/27722_Tarara33_runteq_curriculum_advanced/config/schedule.rb at: 2023-08-21 20:43:37 +0900
+~~~
+
+- crontabの設定削除（定期実行を辞めたいとき）
+~~~
+$ bundle exec whenever --clear-crontab
+
+=>
+[write] crontab file
+
+この後
+$ crontab -lを実行すると空白が返ってくる。
+
+もし再度実行させたい場合は
+$ bundle exec whenever --update-crontabをまた実行する。
+~~~
+***
+
+# ログの出力
+cronは実行がうまくいってる時は特に cron.logにログはたまらない。
+なので動いてるか確認したい場合は、タスク処理の中に「puts」などで出力させる。
+~~~
+[lib/tasks/hello.rake]
+namespace :greet do
+  desc 'ハローと出力する'
+  task :say_hello do
+    puts 'HELLO!'
+  end
+end
+
+
+[log/cron.log]
+HELLO!
+HELLO!
+HELLO!
+~~~
+***
+
+~~~
