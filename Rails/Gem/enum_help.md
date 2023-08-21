@@ -7,6 +7,7 @@
 ~~~
 [gemfile]
 gem 'enum_help'
+
 $ bundle
 ~~~
 ***
