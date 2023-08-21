@@ -9,6 +9,7 @@
 ~~~
 [gemfile]
 gem 'kaminari'
+
 $ bundle
 ~~~
 ***
