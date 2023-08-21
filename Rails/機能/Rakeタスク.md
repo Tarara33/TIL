@@ -1,3 +1,5 @@
+[参考](https://autovice.jp/articles/177)
+
 # Rakeタスクとは
 Ruby ＋　Make　 = Rakeという意味。    
 Rubyで書かれたコードをタスクとして作成しておき必要に応じて呼び出し実行する事が出来る機能。  
@@ -87,6 +89,7 @@ namespace :greet do
   end
 end
 ~~~
+⚠️ Rakeタスクで引数を複数受け取る場合、スペースは開けずにカンマ区切りにする。    
 ***
 
 ### ❓ ブロックの中身の _ はなに？？
@@ -110,17 +113,30 @@ hello:hello_name
 ***
 
 ### ❓ なぜブロックの第二引数をそのまま使えないの？？
+なぜ `#{word.name}`としているのか？  
+`#{word}`ではダメなのか？？  
+  
+その答えとしては、ブロックの第二引数にはオブジェクトが入るから。  
+試しに表示させてみると
+~~~
+namespace :hello do
+  desc 'hello+name'
+  task :hello_name, [:name] do |task, word|
+    puts word
+  end
+end
 
-
-
-⚠️ Rakeタスクで引数を複数受け取る場合、スペースは開けずにカンマ区切りにする。    
-また、実装の機会があったら調べる。
+=>
+#<Rake::TaskArguments name: Tarara>
+~~~
+となった。  
+そのため `#{word.name}`として抜き出している。
 ***
 
 # メモ: タスク内で他のタスクを実行する場合
 ~~~
 namespace :tasks do
-  task :task_1, [:word] do |args|
+  task :task_1, [:word] do |_, args|
     puts "Hello, #{args.word}"
   end
 
