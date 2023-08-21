@@ -9,6 +9,7 @@
 ~~~
 [gemfile]
 gem 'gretel'
+
 $ bundle
 ~~~
 ***
