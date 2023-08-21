@@ -61,3 +61,6 @@ end
 ~~~
 ***
 
+# リセットの手順
+[こちら](https://github.com/Tarara33/TIL/blob/main/Rails/%E6%A9%9F%E8%83%BD/%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88.md)
+***
