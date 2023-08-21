@@ -27,6 +27,7 @@ end
 ~~~
 [gemfile]
 gem 'config'
+
 $ bundle
 ~~~
 ***
