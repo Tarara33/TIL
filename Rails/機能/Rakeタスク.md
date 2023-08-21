@@ -170,6 +170,6 @@ $ rails 'hello:hello_name[Tarara]'
 ***
 
 # タスクを自動で実行させる
-今のままだと、自分でターミナルで叩かないと実行されない。
+今のままだと、自分でターミナルで叩かないと実行されない。  
 コレを自動化するには[コレ](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/whenever.md)が必要。
 ***
