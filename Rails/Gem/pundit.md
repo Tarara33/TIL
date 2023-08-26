@@ -1,6 +1,11 @@
-# 機能
-認可の仕組みを提供してくれる gem。  
-簡単に言うと「ユーザーによってページ表示の許可・拒否をしたり、表示情報の範囲を変えたりすることができる」
+[参考](http://www.code-magagine.com/?p=12027)  
+  
+# 機能  
+認可の仕組みを提供してくれる gem。    
+簡単に言うと「ユーザーによってページ表示の許可・拒否をしたり、表示情報の範囲を変えたりすることができる」  
+  
+コントローラーで判断してアクションを制限することができる。  
+そのためアクションで定義されてる表示するページ(render :newとか)も制限できる。  
 ***
 
 ### ❓ 認可とは？？　認証とは??
@@ -37,7 +42,7 @@ $ bundle
 ~~~
 ***
 
-## 認可を利用したいコントローラーに継承する
+# 認可を利用したいコントローラーに継承する
 ~~~
 [app/controllers/application_controller.rb]
 
@@ -47,28 +52,29 @@ end
 ~~~
 ***
 
-## 大元のポリシーファイル(認可の設定ファイル)を作る
+# 大元のポリシーファイル(認可の設定ファイル)を作る
 ~~~
 $ rails g pundit:install
 ~~~
 コレで「app/policies/」配下に「application_policy.rb」というファイルができる。
 ***
 
-## application_policy.rbの編集
+# application_policy.rbの編集
 ここで定義した内容がデフォルト値になり、  
-他のポリシーファイルにオーバーライドして使うため、細かく設定しておくと楽。
+他のポリシーファイルにオーバーライドして使うため、細かく設定しておくと楽。  
+💡 なので一応 7アクション文メソッド定義している。
 ~~~
 [application_policy.rb]
 
 class ApplicationPolicy
-  attr_reader :user, :record
+  ①attr_reader :user, :record
 
-  def initialize(user, record)
+  ②def initialize(user, record)
     @user = user
     @record = record
   end
 
-  def index?
+  ③def index?
     false
   end
 
@@ -80,7 +86,7 @@ class ApplicationPolicy
     false
   end
 
-  def new?
+  ④def new?
     create?
   end
 
@@ -92,15 +98,15 @@ class ApplicationPolicy
     update?
   end
 
-  def destroy?
-    false
+  ⑤def destroy?
+    user.admin? || user.editor?
   end
 
-  def scope
+  ⑥def scope
     Pundit.policy_scope!(user, record.class)
   end
 
-  class Scope
+  ⑦class Scope
     attr_reader :user, :scope
 
     def initialize(user, scope)
@@ -108,11 +114,140 @@ class ApplicationPolicy
       @scope = scope
     end
 
-    def resolve
+    ⑧def resolve
       scope
     end
   end
 end
 ~~~
-【ポイント】
-- メソッドに「?」ついてる
+***
+
+### ①
+なぜゲッターを書いている??  
+=> ②で定義しているインスタンス変数に他のメソッドがアクセスできるようにするため。  
+[ゲッターとは](https://github.com/Tarara33/TIL/blob/main/Ruby/%E3%82%AF%E3%83%A9%E3%82%B9/%E3%82%B2%E3%83%83%E3%82%BF%E3%83%BC%E3%81%A8%E3%82%BB%E3%83%83%E3%82%BF%E3%83%BC.md)
+***
+
+### ②
+【復習: initialize】  
+インスタンス生成時に必ず実行したい処理をメソッドを呼び出すことなく実行することができる。    
+      
+このコードでは変数の初期化をしている。    
+- @userには current_user(アクセスしているユーザー)が割り当てられる。
+- @recordには対応するモデル（リソースオブジェクト）のインスタンスを割り当てる。
+~~~
+def initialize(user, record)
+  @user = user
+  @record = record
+end
+~~~
+***
+
+### ③
+「？」をつけて返り値が true or falseになるようにしている。  
+trueなら認可する、 falseなら認可しない。    
+認可されないと、通常「Pundit::NotAuthorizedError」という例外が発生する。  
+[![Image from Gyazo](https://i.gyazo.com/76cdb9d163a2a5ae5648921b66e65a59.png)](https://gyazo.com/76cdb9d163a2a5ae5648921b66e65a59)
+***
+
+### ④
+メソッドの中身が true or falseではなく、他のメソッドになっている。  
+コレは、 中身のメソッドを呼び出してその結果に依存している。  
+  
+この場合は、 create?は falseなので、new?も falseであるため、   
+newアクションは認可されないので、newアクションで表示される予定のビューページも見れない。
+~~~
+def create?
+  false
+end
+
+def new?
+  create?
+end
+~~~
+***
+
+### ⑤
+このコードの意味は、userが adminか editorなら destroyアクションを認可するというもの。    
+      
+このメソッド内にいる userは最初 ②のinitializeで @userに代入された current_user。  
+①でゲッターを設置しているので、インスタンス情報にアクセスができて、  
+この current_userは admin または editorなのかを判断できる。  
+~~~
+def destroy?
+  user.admin? || user.editor?
+end
+~~~
+***
+
+### ⑥
+このコードは Punditライブラリにある policy_scope!というメソッドを呼んでいる。
+  
+#### ⭐️ policy_scope!  
+Punditで特定のスコープ内のレコードに対するアクセスを制御するメソッド。
+~~~
+def scope
+  Pundit.policy_scope!(user, record.class)
+end
+~~~
+***
+
+### ⑦
+Application Policyの中にデフォルトで Scopeというクラスも含まれている。  
+用途としては対象のモデルだけでなくモデルの中に含まれている属性まで加味して表示させるリソースを制御したい場合に使用する。  
+（例えば、管理者権限を持っているユーザーに対しては管理者情報も表示させる等）  
+~~~
+class Scope
+  attr_reader :user, :scope
+
+  def initialize(user, scope)
+    @user = user
+    @scope = scope
+  end
+~~~
+- @userには current_user(アクセスしているユーザー)が割り当てられる。  
+- @scopeにはポリシーが適用されるデータの範囲が入る。(アクセスしようとしているモデルクラス)  
+たとえば、ArticlePolicyなら Articleクラスが、UserPolicyなら Userクラスが入る感じ。
+***
+
+### ⑧
+resolveメソッドは、Punditポリシー内の Scopeクラスに定義されるメソッド。  
+⚠️ なので、定義するときは Scopeクラス内にする(インデント注意)  
+  
+#### ⭐️ resolve
+アクセス可能なリソース（通常はデータベースのレコード）を実際に取得し、返す役割を果たす。
+~~~
+def resolve
+  scope
+end
+~~~
+***
+
+# ポリシーを使いたいコントローラー用のポリシーファイル作る
+今は、「application_policy.rb」しかないので、例えば、      
+Articleコントローラーの indexアクションも Userコントローラーの indexアクションも全て falseになっている。  
+    
+コレをそれぞれのコントローラーごとに変えたい場合、ポリシーファイルを作る。    
+(Articleコントローラーの indexアクションは true、 Userコントローラーの indexアクションは falseなど)  
+
+## 作り方
+- 「app/policies」配下に「コントローラ名_policy.rb」というポリシーファイルを作成する。  
+- モデル名 + Policyでクラス名を定義  
+- def アクション名? で認可ルール(policy)を記述  
+(application_policy.rbで定義したデフォ値でいいアクションは書かなくてOK)
+~~~
+[app/policies/article_policy.rb]
+
+class ArticlePolicy < ApplicationPolicy
+
+  def index?
+    true
+  end
+end
+~~~
+コレで articleコントローラーでは indexアクションが認可されて、
+他のアクションは application_policy.rbで定義したものが適応される。
+***
+
+# コントローラーの編集
+#### ⚠️ ポリシーファイルを作っただけでは、コントローラーに適応されない。
