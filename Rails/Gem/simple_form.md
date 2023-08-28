@@ -34,6 +34,8 @@ form_withと同じで、モデルや URLをつけられる。
 ***
 
 # オプション
+オプションは色々あるので、[github](https://github.com/heartcombo/simple_form)みると良い。
+  
 # as
 基本的に 「input」を使ってフォームを作成するが、  
 textareaだったり、fileや hidden、などタイプを指定したい場合に使う。  
