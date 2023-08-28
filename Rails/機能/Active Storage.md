@@ -1,3 +1,4 @@
+[参考](https://railsguides.jp/active_storage_overview.html#active-storage%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)    
 [参考](https://qiita.com/hmmrjn/items/7cc5e5348755c517458a#active-storage-%E3%81%A8%E3%81%AF)
   
 # Active Storage
