@@ -1,3 +1,5 @@
+[参考](https://qiita.com/ken1flan/items/76dcdd4971d26b4fb13d#%E3%82%B3%E3%83%BC%E3%83%89-3)  
+  
 # Active Storageのバリデーション
 [Active Storage](https://github.com/Tarara33/TIL/blob/main/Rails/%E6%A9%9F%E8%83%BD/Active%20Storage.md)や Paperclipなどにおいて、ファイル添付属性に関連するオプションを設定する場合
 ~~~
