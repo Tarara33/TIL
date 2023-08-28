@@ -25,7 +25,7 @@ validates :eye_catch, attachment: { purge: true, content_type: %r{\Aimage/(png|j
 ここでの maximumはファイルの最大サイズをバイト単位で指定している。  
 ここでは約 10MB（10,485,760バイト）を設定し、超えればバリデーションに引っかかる。
   
-⚠️ attachment:{}の中身はオプションなのでコレらは全てメソッドではなくオプション！
+⚠️ `attachment:{}`の中身はオプションなのでコレらは全てメソッドではなくオプション！
 ***
 
 ### ちなみに...
@@ -180,7 +180,7 @@ def validate_each(record, attribute, value)
 
 ## ⑤・⑥ options[:maximum] / options[:content_type]
 この optionsには以下のコードで定義された同名のキーの値が格納されてる。    
-💡 `attachment:{}`の中身はオプションが書かれているので、options[]で読み取っている！ 
+💡 `attachment:{}`の中身はオプションが書かれているので、`options[]`で読み取っている！ 
 ~~~
 [app/models/article.rb]
 
