@@ -47,6 +47,7 @@ validates :eye_catch, attached: true, content_type: %r{\Aimage/(png|jpeg)\Z}, si
   
 ⚠️ カスタムバリデーションファイルは手動で作成(`検証名_validator.rb`つけるの忘れずに)
 ~~~
+例
 [app/validators/attachment_validator.rb]
 
 ①class AttachmentValidator < ActiveModel::EachValidator
@@ -70,16 +71,16 @@ validates :eye_catch, attached: true, content_type: %r{\Aimage/(png|jpeg)\Z}, si
 
   private
 
-  ⑦def validate_maximum(record, attribute, value)
+  def validate_maximum(record, attribute, value)
     if value.byte_size > options[:maximum]
-      record.errors[attribute] << (options[:message] || "は#{number_to_human_size(options[:maximum])}以下にしてください")
+      ⑧record.errors[attribute] << (options[:message] || "は#{number_to_human_size(options[:maximum])}以下にしてください")
       🩵false
     else
       💚true
     end
   end
 
-  ⑧def validate_content_type(record, attribute, value)
+  def validate_content_type(record, attribute, value)
     if value.content_type.match?(options[:content_type])
       true
     else
@@ -188,6 +189,47 @@ validates :eye_catch, attachment: { purge: true, content_type: %r{\Aimage/(png|j
 ~~~
 - [:maximum]は maximumの最大値「10_485_760」が格納されてる。    
 - [:content_type]は「%r{\Aimage/(png|jpeg)\Z}」が格納されてる。  
+***
 
+~~~
+if options[:maximum]
+  has_error = true unless validate_maximum(record, attribute, value)
+end
 
+if options[:content_type]
+  has_error = true unless validate_content_type(record, attribute, value)
+end
+~~~
+そしてそれぞれ、プライベートメソッドが　falseが返ってきたら(unlessだから)、変数 has_errorが trueに変わる。
+***
 
+## ⑦ record.send(attribute).purge
+~~~
+record.send(attribute).purge if options[:purge] && has_error
+~~~
+このコードの recordと、attributeには validate_eachで引数で受け取った値たちが入ってる。  
+  
+もし、options[:purge]が true かつ 変数 has_errorも trueなら  
+attribute(:eye_catch)が持つメソッド purgeを呼び出す。  
+
+### ⭐️ send
+レシーバの持っているメソッドを呼び出してくれるメソッド
+***
+
+## ⑧ record.errors[attribute]
+特定の属性（attribute）に関連付けられたエラーメッセージを格納するためのエラーコレクション。  
+  
+今回の場合 :eye_catchにエラーメッセージが入る。  
+options[:message]があればそれを、なければ後ろのやつが入る。  
+~~~
+def validate_maximum(record, attribute, value)
+    if value.byte_size > options[:maximum]
+      ⑧record.errors[attribute] << (options[:message] || "は#{number_to_human_size(options[:maximum])}以下にしてください")
+      🩵false
+    else
+      💚true
+    end
+  end
+~~~
+🩵💚 ⑤のコードで　true　or falseが必要なので書いてる。
+***
