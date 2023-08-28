@@ -1,5 +1,5 @@
 # Active Storageのバリデーション
-Active Storageや Paperclipなどにおいて、ファイル添付属性に関連するオプションを設定する場合
+[Active Storage](https://github.com/Tarara33/TIL/blob/main/Rails/%E6%A9%9F%E8%83%BD/Active%20Storage.md)や Paperclipなどにおいて、ファイル添付属性に関連するオプションを設定する場合
 ~~~
 validates :ファイルのカラム名, attachment: { オプション内容 }
 ~~~
