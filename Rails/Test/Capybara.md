@@ -148,6 +148,27 @@ end
 ~~~
 ***
 
+## wait
+非同期処理など画面の更新を待ちたい時に使う。
+
+### 設定方法① グローバル設定値を変更する
+デフォルトでは 2秒だが、変更することができる。    
+「spec/spec_helper.rb」に追記する。    
+~~~
+[spec/spec_helper.rb]
+
+Capybara.default_max_wait_time = 5(好きな秒数)
+~~~
+***
+
+### 設定方法② オプション引数で渡す
+`wait: 〇()秒数`を渡す。
+~~~
+find('.alert-success', text: "Success!", wait: 5)
+=> 5秒待ってから探す。
+~~~
+***
+
 # 画像を添付した投稿のテスト
 ① spec/配下に fixturesというフォルダを作成。        
 ② その配下にテスト用の「sample.jpg」(成功用)と「sample.txt」(失敗用)を入れる。        
