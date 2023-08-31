@@ -14,6 +14,7 @@ expect(response).to redirect_to user
 ### include 
 ~~~
 expect(response.body).to include full_title('Sign up')
+expect(response.body).to include '<div class="pagination">'
 ~~~
 ***
 
