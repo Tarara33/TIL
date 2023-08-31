@@ -1,3 +1,4 @@
+# page
 ### have_content
 ~~~
  expect(page).to have_content('更新しました')
