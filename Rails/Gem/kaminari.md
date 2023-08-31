@@ -104,7 +104,22 @@ def index
 ~~~
 ***
 
-## Viewの編集
+# コントローラー編集
+kaminariを使うアクションのモデルに`page(params[:page])`をつける。
+~~~
+def index
+  @users = User.all
+end
+
+↓
+
+def index
+  @users = User.page(params[:page])
+end
+~~~
+***
+
+# Viewの編集
 ~~~
 $ rails g kaminari:views bootstrap4(フレームワーク名)
 => 用意されてるフレームワークは
