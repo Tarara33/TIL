@@ -24,4 +24,8 @@ expect(flash).to be_any
 ~~~
 ***
 
-
+### be_empty
+~~~
+expect(flash).not_to be_empty
+~~~
+***
