@@ -21,7 +21,7 @@ end
 current_siteメソッドで @current_siteに入った Siteモデルのインスタンスが
 特定のアクションを実行できるか確認してる。
 
-認可を見るのは Siteモデルなので「app/policies/site_policy.rb」
+Siteモデルなので認可を確認するのは「app/policies/site_policy.rb」
 ~~~
 [app/policies/site_policy.rb]
 
@@ -29,3 +29,5 @@ def destroy?
   user.admin?
 end
 ~~~
+adminなら、destroyアクションができる！
+***
