@@ -199,3 +199,51 @@ Active Jobを使用して非同期でメールを送信するメソッド。
 $ ArticleMailer.report_summary.deliver_later
 ~~~
 ***
+
+# サーバーの設定
+メールを送信するときは、送信するサーバーが必要。  
+と言うことで、「config/environments/development.rb」にメール送信設定を記述する。  
+  
+今回は g-mailを使う記載方法。
+~~~
+[config/environments/development.rb]
+
+Rails.application.configure do
+...省略
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'gmail.com',
+    user_name:            '<YOUR EMAIL ADDRESS>',
+    password:             '<YOUR EMAIL PASSWORD>',
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
+end
+~~~
+
+#### ⭐️ raise_delivery_errors
+メールの送信に失敗した時にエラーを出す(true)か出さない(false)か。
+***
+
+#### ⭐️ delivery_method
+メールの送信方法。   
+デフォルトで :smtdになっている。  
+[![Image from Gyazo](https://i.gyazo.com/5426df4d5ea08334d3f1abbdbed8c6ae.png)](https://gyazo.com/5426df4d5ea08334d3f1abbdbed8c6ae)
+***
+
+#### ⭐️ smtp_settings
+smtpの設定。  
+  
+- port...SMTPサーバーのポート番号  
+- address...SMTPサーバーのホスト名  
+- domain... HELOドメイン  
+- user_name...メール送信に使用する gmailのアカウント  
+- password...メール送信に使用する gmailのパスワード  
+- authentication...認証方法  
+- enable_starttls_auto...メールの送信に TLS認証を使用するか
+***
+
+
