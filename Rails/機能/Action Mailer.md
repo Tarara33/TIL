@@ -1,5 +1,9 @@
-# メーラーの作成・設定
-## メーラー作成
+# Action Mailer
+Ruby on Rails に組み込まれているメール送信機能のこと。  
+Action Mailer を使うと、Ruby on Rails からメールを送信してくれる。  
+***
+
+# メーラー作成
 ~~~
 $ rails g mailer UserMailer(メーラークラス名) reset_password_email(クラス内のメソッド名)
 ~~~
