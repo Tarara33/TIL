@@ -58,6 +58,11 @@ class ArticleMailer < ApplicationMailer
     @article_published_yesterday = Article.published_at_yesterday 　　#published_at_yesterdayメソッドは scopeで作成しているもの。
     mail(to: 'admin@exsample.com', subject: '公開記事の集計結果')
 end
+
+
+[app/models/article.rb]
+
+scope :published_at_yesterday, -> { where(published_at: 1.day.ago.all_day) }
 ~~~
 @で定義されてる２つのインスタンス変数は、メール文を作る Viewファイルで使われる。  
 mailメソッドを使って、宛先(to)と件名(subject)を指定している。
@@ -68,6 +73,9 @@ mailメソッドを使って、宛先(to)と件名(subject)を指定している
 メールの宛先、差出人、件名、本文などを指定することができる。  
 ***
 
+#### ⭐️ all_day
+指定した日付の 00:00:00 から 23:59:59 までの範囲を表します。つまり、昨日の日付全体をカバーする。
+***
 
 # Mailerのテンプレート
 ## mailer.text.erb と mailer.html.erb
