@@ -1,4 +1,4 @@
-# Dockerを使ってMysqlに入る
+# Dockerを使って　MySqlに入る
 作業ディレクトリに「docker-compose.yml」のファイルを作り、内容記載する。   
 
 ターミナルでファイルのある作業ディレクトリまで「cd」で移動したら     
