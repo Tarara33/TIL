@@ -211,8 +211,43 @@ $ ArticleMailer.report_summary.deliver_later
 # サーバーの設定
 メールを送信するときは、送信するサーバーが必要。  
 と言うことで、「config/environments/development.rb」にメール送信設定を記述する。  
+***
+
+## ローカル環境
+~~~
+[config/environments/development.rb]
+
+Rails.application.configure do
+...省略
   
-今回は g-mailを使う記載方法。
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+~~~
+***
+
+#### ⭐️ raise_delivery_errors
+メールの送信に失敗した時にエラーを出す(true)か出さない(false)か。
+***
+
+#### ⭐️ perform_caching
+メール送信時にキャッシュを使うか(true)か使わない(false)か。    
+キャッシュが無効化だと、メールの送信が都度都度即座に行われるようになり、早い。    
+ただし、本番環境などでパフォーマンスを最適化するためにキャッシュを使用してパフォーマンス上げるなら true。
+***
+
+#### ⭐️ delivery_method
+メールの送信方法。     
+gem letter_opener_web指定。  
+***
+
+#### ⭐️ default_url_options 
+アプリでメールの URL生成に関するデフォルトのホストやポートなどのオプションを設定するための設定。  
+この設定は、メール内でリンクを生成する際に使用される。
+***
+
+## Gmailを使う記載方法。
 ~~~
 [config/environments/development.rb]
 
@@ -231,10 +266,6 @@ Rails.application.configure do
   }
 end
 ~~~
-
-#### ⭐️ raise_delivery_errors
-メールの送信に失敗した時にエラーを出す(true)か出さない(false)か。
-***
 
 #### ⭐️ delivery_method
 メールの送信方法。   
