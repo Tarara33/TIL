@@ -17,7 +17,7 @@ user 　　　　　　　　　　　　GET        　/users/:id(.:format)     
 ***
 
 ## 💡 routesでの検索
-アプリが大きくなると、コントローラーも増え、rails routesの結果が見にくくなる。
+アプリが大きくなると、コントローラーも増え、rails routesの結果が見にくくなる。          
 特定のコントローラーだけ検索したいときなどは　`| grep 検索文字`で絞る。
 ~~~
 $ rails routes | grep index
