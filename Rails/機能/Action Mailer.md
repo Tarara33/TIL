@@ -223,7 +223,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :letter_opener_web
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  host = 'localhost:3000'                     
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 ~~~
 ***
 
@@ -245,6 +246,9 @@ gem letter_opener_web指定。
 #### ⭐️ default_url_options 
 アプリでメールの URL生成に関するデフォルトのホストやポートなどのオプションを設定するための設定。  
 この設定は、メール内でリンクを生成する際に使用される。
+
+⚠️ hostには `https://`を含めずそれ以降を入れる。    
+⚠️ protocolに httpや httpsなど入れる。  
 ***
 
 ## Gmailを使う記載方法。
