@@ -106,7 +106,7 @@ match(部分一致) <=> eq(完全一致)
 
 # 💡 URLを含むメールのテスト
 リセットパスワードメールなど、メール本文にリンクを貼り付けるときは、    
-メールのリンクに使われる URLの hostが必要なので、どのhostを使うのか指定する必要がある。
+メールのリンクに使われる URLの hostが必要なので、どのhostを使うのか指定する必要がある。      
 「config/enviroments/test.rb」に設定書く。
 ~~~
 [config/enviroments/test.rb]
