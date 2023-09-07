@@ -103,3 +103,24 @@ let(:check_sent_mail) {
   
 match(部分一致) <=> eq(完全一致)
 ***
+
+# 他の書き方例
+### encode
+本文に userの名前が入ってるかのテストで、テストしたいメールがHTML形式も含むなら encodeも入れて書く。
+~~~
+expect(mail.body.encoded).to match(user.name)
+~~~
+そうすると、`<p>user.name</p>`ではなく、実際に画面に出る`user.name`での形式でテストする。
+***
+
+### CGI.escape
+例えば、リセットパスワードメールなどのテストで、URLにユーザーの emailが含まれているかの確認テストの場合、    
+    
+[![Image from Gyazo](https://i.gyazo.com/7eb1ba15706e2900831645ae34de1901.png)](https://gyazo.com/7eb1ba15706e2900831645ae34de1901)  
+      
+このように、`@`がエスケープされている。    
+その場合はテスト結果もエスケープした emailを探すようにする。
+~~~
+expect(mail.body.encoded).to match(CGI.escape(user.email))
+~~~
+***
