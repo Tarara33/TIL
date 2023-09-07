@@ -104,6 +104,19 @@ let(:check_sent_mail) {
 match(部分一致) <=> eq(完全一致)
 ***
 
+# 💡 URLを含むメールのテスト
+リセットパスワードメールなど、メール本文にリンクを貼り付けるときは、    
+メールのリンクに使われる URLの hostが必要なので、どのhostを使うのか指定する必要がある。
+「config/enviroments/test.rb」に設定書く。
+~~~
+[config/enviroments/test.rb]
+
+config.action_mailer.delivery_method = :test
+config.action_mailer.default_url_options = { host: 'example.com' }
+~~~
+テストなので、hostはローカルでOK。
+***
+
 # 他の書き方例
 ### encode
 本文に userの名前が入ってるかのテストで、テストしたいメールがHTML形式も含むなら encodeも入れて書く。
