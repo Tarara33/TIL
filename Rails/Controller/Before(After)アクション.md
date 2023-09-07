@@ -71,19 +71,3 @@ end
 
 
 
-# Before
-〇〇アクションの前に実行する
-
-### before_action
-指定したアクション前に実行する。
-***
-
-### before_save
-saveアクションの前に実行する。
-***
-
-### before_create
-createアクションの前に実行する。
-***
-
-
