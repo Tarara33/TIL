@@ -25,6 +25,11 @@ webサービスで新規登録やユーザログインのときに使われる�
 となる
 ***
 
+# オプション
+# model
+フォームで送信したデーターを保存するモデルが存在する場合につける。
+***
+
 # url:
 url:　で指定するURLは、入力フォームの送信先URL。       
 なので大体は 「crateアクション」のURLパス or 「updateアクション」のURLパス。                   
@@ -85,8 +90,57 @@ persisted? というメソッドを使い「 true なら patch、false なら po
 ~~~
 ***
 
+# scope
+送信するパラメーターに名前空間つけられる。            
+~~~
+[scopeなしの場合]
+
+<%= form_with url: users_path, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field, :name %>
+  <%= f.submit, "送信" %>
+<% end %>
+
+=> 生成される HTML
+
+<form action="/users" accept-charset="UTF-8" method="post">
+  <label for="name">name</label>
+  <input type="text" name="name" id="name">
+  <input type="submit" name="commit" value="submit" data-disable-with="submit">
+</form>
+
+
+
+[scopeありの場合]
+
+<%= form_with url: users_path, scope: session, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field, :name %>
+  <%= f.submit, "送信" %>
+<% end %>
+
+=> 生成される HTML
+
+<form action="/users" accept-charset="UTF-8" method="post">
+  <label for="session_name">name</label>
+  <input type="text" name="session[name]" id="session_name">
+  <input type="submit" name="commit" value="submit" data-disable-with="submit">
+</form>
+~~~
+***
+labelの for属性、inputの id属性が nameから session_nameに変わり、      
+name属性が nameから session[name]に変わった。      
+これにより、リクエストにのせて送られるパラメーターの構造が変わる。      
+      
+scopeを設定していない場合は params[:name]で name取得でき、      
+scope: sessionを設定した場合は params[:session][:name]で nameを取得できる。      
+paramsの中の sessionというハッシュの中の nameという感じ。      
+      
+💡 ちなみにモデルのインスタンスを与えた場合は、scopeを設定しなくても初めからグループ化されている。
+***
+
 # フォーム入力欄のオプション
-- accept    
+## accept    
 許可されるファイルのタイプを指定する。
 ~~~
 例：　<%= file_field :board_image , accept: "image/*" %>
@@ -97,7 +151,7 @@ persisted? というメソッドを使い「 true なら patch、false なら po
 ~~~
 ***
 
-- onchange    
+## onchange    
 ユーザーが要素の値を変更したときに発生するイベントを処理するために使用される。   
 具体的には、ユーザーがテキストフィールドにテキストを入力したり、セレクトボックスの選択肢を変更したり、   
 ファイルアップロードフィールドでファイルを選択したりするなど、   
@@ -124,7 +178,7 @@ JavaScriptの関数previewImageを呼び出すことを意味する。引数と�
 ~~~
 ***
 
-# URLだけつける？ モデルだけつける？
+# ❓ URLだけつける？ モデルだけつける？
 両方つかわず、片方のみを指定する場合、主に以下のようなケースが考えられる。
 
 - モデルを指定せずにURLだけを指定する場合:            
