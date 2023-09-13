@@ -39,9 +39,9 @@ hiddenなので両方とも隠しフィールドだが、保存の仕方が少�
 ***
 
 ## hidden_field_tag
-汎用的なフォームヘルパーで、どんな値でも扱える。
-例えば、hidden_field_tag :email, @user.emailって書くと @user.emailの値を持つ、名前が'email'の隠しフィールドを生成する。
-保存のされ方は、params[:email]
+汎用的なフォームヘルパーで、どんな値でも扱える。    
+例えば、hidden_field_tag :email, @user.emailって書くと @user.emailの値を持つ、名前が'email'の隠しフィールドを生成する。    
+保存のされ方は、params[:email]    
 ***
 
 ## 例
@@ -71,4 +71,13 @@ editアクションでメールアドレスを取り出すことについては�
   <%= f.submit "Update password", class: "btn btn-primary" %>
  <% end %>
 ~~~
+***
+
+### ❓ なぜ 、hidden_field_tag??
+上記のコードでは、メールアドレスはパスワードリセットのために必要だけど、    
+パスワードリセットのフォーム自体は Userモデルの属性とは直接関連してない。    
+    
+そのため、hidden_fieldより hidden_field_tagの方が適切。    
+hidden_field_tag :email, @user.emailのように書くことで、    
+メールアドレスを隠しフィールドに保持しながら、パスワードリセットの処理を行うことができる。  
 ***
