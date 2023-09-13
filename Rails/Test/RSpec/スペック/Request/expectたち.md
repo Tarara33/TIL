@@ -16,6 +16,18 @@ expect(response).to redirect_to user
 expect(response.body).to include full_title('Sign up')
 expect(response.body).to include '<div class="pagination">'
 ~~~
+  
+⚠️ includeはタグ内の属性全てと比較するので、
+~~~
+[rspec]
+
+expect(response.body).to include "<input type=\"hidden\" name=\"email\" id=\"email\" value=\"#{@user.email}\" />"
+
+[生成HTML]
+
+<input type="hidden" name="email" id="email" value="sarina0618@gmail.com" autocomplete="off">
+~~~
+このように`autocomplete`がテストに入ってなかったりすると失敗する。
 ***
 
 # flash
