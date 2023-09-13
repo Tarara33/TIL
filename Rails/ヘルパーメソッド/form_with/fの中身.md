@@ -1,0 +1,31 @@
+# form_with
+## テキストのタイプ
+
+- `text_field`    
+一行タイプ（string型）    
+***
+
+- `text_area`    
+複数行タイプ(text型)    
+***
+
+- `password_field`    
+パスワード入力
+    
+[![Image from Gyazo](https://i.gyazo.com/cc8462addcc50750b214bd51ffae4864.png)](https://gyazo.com/cc8462addcc50750b214bd51ffae4864)
+***
+    
+- `file_field`    
+ファイルのアップロード用のフィールドを作成    
+***
+
+- `hidden_field`    
+ユーザーには表示されないが、サーバーサイドで処理する必要があるデータをフォームに含める場合に使用。
+***
+
+- `select`
+セレクトボックス作成        
+詳しくは[コチラ](https://github.com/Tarara33/TIL/edit/main/Rails/%E6%A9%9F%E8%83%BD/%E3%82%BB%E3%83%AC%E3%82%AF%E3%83%88%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9.md)    
+        
+[![Image from Gyazo](https://i.gyazo.com/47e3ec877cdb917303245b560a0d4769.png)](https://gyazo.com/47e3ec877cdb917303245b560a0d4769)
+***
