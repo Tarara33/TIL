@@ -20,14 +20,3 @@ schemeファイルに変更を全て取り入れてるなら`$ rails db:reset`
 rails db:migrateしてから、rails db:rollbackしないでファイルを編集して  
 それを適応したいなら`$ rails db:migrate:reset`
 ***
-
-
-### rails db:setup
-アプリケーションのDB周りの初期設定をしてくれる。   
-以下３つのコマンドを実行してくれる
-~~~
-$ rails db:create   
-$ rails db:schema:load    
-$ rails db:seed   
-~~~
-***
