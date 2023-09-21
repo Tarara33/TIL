@@ -56,9 +56,14 @@ $ rails g scaffold モデル名 <カラム名1:型1> <カラム名2:型2>...
 
 ## scaffold_controller 
 アプリケーションの基本的な機能の一覧(index)、詳細(show)、新規作成(new/create)、編集(edit/update)、削除(destroy)   
-するために必要なコントローラやビューをまとめて生成。    
+するために必要なコントローラやビューをまとめて生成。   
 scaffoldとの違いはモデルやアセットが作られないこと。
 ~~~
 $ rails generate scaffold_controller コントローラ名 <カラム名:型>...
 ~~~
+***
+
+## ⭐️ json形式のファイル作りたく無い場合
+rails g scaffold すると通常 viewファイルやコントローラーに json形式で書かれる。    
+それが必要無い場合、 gemfileの gem 'jbuilder'をコメントアウトすれば作られなくなる。
 ***
