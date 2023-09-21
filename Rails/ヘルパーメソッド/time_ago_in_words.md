@@ -13,7 +13,7 @@ time_ago_in_words(3.minutes.ago)
 ~~~
 ***
 
-# Twitterみたいにこのツイートは現在時刻から何分前みたいにしたい時
+## Twitterみたいに現在時刻から何分前みたいにしたい時
 [![Image from Gyazo](https://i.gyazo.com/ee5c295dae87c7d56817235418c68d3f.png)](https://gyazo.com/ee5c295dae87c7d56817235418c68d3f)  
 
 ~~~
@@ -22,4 +22,14 @@ time_ago_in_words(3.minutes.ago)
 Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
 ~~~
 記事(@micropost)の作成時間(created_at)から現在時刻の差を出す。
+***
+
+# Rails cで確認できる
+helperオブジェクト使うとコンソールでも使える。
+~~~
+[rails c]
+
+$ helper.time_ago_in_words(1.year.ago)
+=> "about 1 year"
+~~~
 ***
