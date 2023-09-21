@@ -1,3 +1,5 @@
+[Gemなしのバリデーション](https://github.com/Tarara33/TIL/tree/main/Rails/Model/%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3)  
+  
 # 機能
 active_storageに簡単にバリデーションを追加できる。  
 既存の validateと同じような記述でバリデーションを追加できる！  
