@@ -2,6 +2,8 @@
 ページネーションを作る。  
 投稿一覧などのデータを複数のページに分割して表示する方法。
 [![Image from Gyazo](https://i.gyazo.com/2f9ce27d791865cd6149f9f7edd3193a.png)](https://gyazo.com/2f9ce27d791865cd6149f9f7edd3193a)
+
+※ will_paginateという同じような機能を持つ gemもある。
 ***
 
 # 使い方
