@@ -15,12 +15,14 @@ form画面のviewやパーシャルファイルにかいたりするのが一般
 
 [app/view/users/new.html.erb]
 <% form_with (model: @user, local: true) do |f|
-  <%= render 'shared/errors', obect: f.object %>
+  <%= render 'shared/errors', object: f.object %>
 => パーシャルファイルの「object」の部分が「@user.object」になって適応される。
 ~~~
-<%= render 'shared/errors', obect: ＠user %>でもいいが、   
-postモデルのフォームに使いたい時は<%= render 'shared/errors', obect: ＠post %>    
-など変えなきゃいけないので「f.object」にすると同じ文章で使いまわせる
+### 💡 ポイント
+`<%= render 'shared/errors', obect: ＠user %>`でもいいが、   
+postモデルのフォームに使いたい時は `<%= render 'shared/errors', obect: ＠post %>` など変えなきゃいけないので 
+  
+**f.object にすると同じ文章で使いまわせる**
 ***
 
 ## errors.any?　と　errors.present?
