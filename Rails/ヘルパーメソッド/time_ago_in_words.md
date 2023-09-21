@@ -3,6 +3,8 @@
 # time_ago_in_words
 日時を表示  
 Twitterなどで見かける「3分前」みたいな表示をする場合に使う。  
+  
+⭐️ 引数には過去の時間を入れ、その時間と現在時刻の差を出す。
 ~~~
 [例]
 time_ago_in_words(3.minutes.ago)
