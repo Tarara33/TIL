@@ -9,11 +9,27 @@
 ***
 
 # request.referrer
-現在のリクエストを送信する前にブラウザが最後に訪れた URLを表す。  
+referrerとは、前のページのURLのこと。  
+現在のリクエストを送信する前にブラウザが最後に訪れた URLを表す。 
 つまり、ユーザーがどのページから現在のページに来たかを示す情報。
   
 ~~~
 redirect_to request.referrer
 ~~~
-このように書くと、元のいたページに戻る感じになる。
+このように書くと、元のページに戻る感じになる。
+***
+
+## ❓ redirect_back_or_to と redirect_to request.referrer
+どちらも、元のページに戻るが違いとしては、  
+デフォルトを指定できる(redirect_back_or_to)かできない(redirect_to request.referrer)か。  
+
+### redirect_back_or_to
+指定されたデフォルトの URLにリダイレクトする代わりに、    
+リクエストのリファラー（request.referrer）が存在する場合にはリファラーの URLにリダイレクトする。  
+リファラーが存在しない場合にはデフォルトの URLにリダイレクトする。
+***
+
+### redirect_to request.referrer
+request.referrer を直接使用して、現在のリクエストのリファラー（前のページの URL）にリダイレクトする。    
+リダイレクト先をデフォルトの URLではなく、必ずリファラーに設定したい場合に使用。
 ***
