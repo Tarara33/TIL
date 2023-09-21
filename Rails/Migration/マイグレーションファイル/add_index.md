@@ -25,7 +25,7 @@ emailにインデックスとユニーク制約をつけたとする。
 add_index :users, :email, unique: true
 ~~~
 そうすると、たとえば emailが「DDDD」という新しいユーザーが登録されるとき、
-DBは emailが Dから始まるところから探し始める。
+DBは emailが Dから始まるところから探し始める。    
 なので、早い + 負担が減る。
 
 [![Image from Gyazo](https://i.gyazo.com/cda27c64d29991e388ed817348b91d82.png)](https://gyazo.com/cda27c64d29991e388ed817348b91d82)
