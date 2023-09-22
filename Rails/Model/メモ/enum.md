@@ -1,4 +1,5 @@
-[参考](https://zenn.dev/gottsu/articles/66b3ebe0f9e5a6#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB)
+[参考](https://zenn.dev/gottsu/articles/66b3ebe0f9e5a6#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB)  
+[国際化はこちら](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/enum_help.md)   
   
 # enumとは
 enumは、特定のフィールドの値を予め定義した固定のセットから選択するためのデータ型。      
