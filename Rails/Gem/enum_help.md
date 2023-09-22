@@ -1,5 +1,5 @@
 # 機能
-[enum](https://github.com/Tarara33/TIL/blob/main/Rails/Model/%E3%83%A1%E3%83%A2/enum.md) の国際化。
+[enum](https://github.com/Tarara33/TIL/blob/main/Rails/Model/enum/enum.md) の国際化。
 ***
 
 # 使い方
