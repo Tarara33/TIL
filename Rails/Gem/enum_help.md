@@ -61,7 +61,7 @@ $ User.roles_i18n.invert
 ## セレクトボックス(登録フォームの場合)
 ブラウザには日本語、リクエストは英語文字列にする必要がある。  
 なので、`User.roles_i18n.invert`した後の`{"男性"=>"man", "女性"=>"woman"}`を使う。  
-[セレクトボックス](https://github.com/Tarara33/TIL/blob/main/Rails/%E6%A9%9F%E8%83%BD/%E3%82%BB%E3%83%AC%E3%82%AF%E3%83%88%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9.md)の動きでは、ハッシュ形式だと、キーが表示・値がリクエストに入る。
+[セレクトボックス](https://github.com/Tarara33/TIL/blob/main/Rails/View/%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E7%B3%BB/%E3%82%BB%E3%83%AC%E3%82%AF%E3%83%88%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9.md)の動きでは、ハッシュ形式だと、キーが表示・値がリクエストに入る。
 ~~~
 <%= form_with model: @user do |f| %>
   <%= f.select :gender, User.genders_i18n.invert, {} %>
