@@ -42,7 +42,17 @@ enumで 1=womanと定義づけてるので、登録は gender: 1でも　woman�
 ***
 
 # フォーム
-## ラジオボタンの場合
+## ⚠️ フォームの形式によって、リクエストに入れるべき値が違う。
+- 登録フォームの場合
+選んだ値を英語の文字列（"admin"や"user"など）としてパラメータにセットする必要がある。  
+つまりここでは`{man: 0, woman: 1}`のキー(man, woman)の方。
+
+- 検索フォームの場合
+Ransackで enumを検索する場合、パラメータには enumの整数値（0や1など）をセットする必要がある。  
+つまりここでは`{man: 0, woman: 1}`の値(0, 1)の方。
+***
+
+# ラジオボタンの場合(登録フォーム)
 ~~~
 
 <%= form_with model: @user do |f| %>
@@ -56,7 +66,7 @@ enumで 1=womanと定義づけてるので、登録は gender: 1でも　woman�
 [![Image from Gyazo](https://i.gyazo.com/91a5a960fbba3f1c4533585c82493cf9.png)](https://gyazo.com/91a5a960fbba3f1c4533585c82493cf9)
 ***
 
-## セレクトボックス
+# セレクトボックス(登録フォーム)
 🩵の部分は　`モデル名.カラム名(複数形).keys`となっている。
 ~~~
 <%= form_with model: @user do |f| %>
@@ -67,3 +77,12 @@ enumで 1=womanと定義づけてるので、登録は gender: 1でも　woman�
 [![Image from Gyazo](https://i.gyazo.com/2eb64b7f6d4adbeda8acade365db69d8.png)](https://gyazo.com/2eb64b7f6d4adbeda8acade365db69d8)
 ***
 
+## セレクトボックス(検索フォーム)
+ブラウザ表示はキー(man, woman)だが、リクエストは値(0, 1)としなければいけない。    
+なので mapを使って、表示とリクエストに入れる形を分ける。  
+詳しくは[セレクトボックス](https://github.com/Tarara33/TIL/blob/main/Rails/%E6%A9%9F%E8%83%BD/%E3%82%BB%E3%83%AC%E3%82%AF%E3%83%88%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9.md)で
+~~~
+<%= search_form_for @q, url: users_path do |f| %>
+  <%= f.select :gender, User.genders.map{ |key, value| [key, value] } %>
+~~~
+***
