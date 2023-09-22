@@ -77,7 +77,7 @@ Ransackで enumを検索する場合、パラメータには enumの整数値（
 [![Image from Gyazo](https://i.gyazo.com/2eb64b7f6d4adbeda8acade365db69d8.png)](https://gyazo.com/2eb64b7f6d4adbeda8acade365db69d8)
 ***
 
-## セレクトボックス(検索フォーム)
+# セレクトボックス(検索フォーム)
 ブラウザ表示はキー(man, woman)だが、リクエストは値(0, 1)としなければいけない。    
 なので mapを使って、表示とリクエストに入れる形を分ける。  
 詳しくは[セレクトボックス](https://github.com/Tarara33/TIL/blob/main/Rails/%E6%A9%9F%E8%83%BD/%E3%82%BB%E3%83%AC%E3%82%AF%E3%83%88%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9.md)で
