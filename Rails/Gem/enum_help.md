@@ -48,7 +48,7 @@ $ User.roles_i18n.invert
 性別の enumを例とする。
 
 ## ⚠️ フォームの形式によって、リクエストに入れるべき値が違う。
-[enum](https://github.com/Tarara33/TIL/blob/main/Rails/Model/%E3%83%A1%E3%83%A2/enum.md)の部分でも書いてるが、  
+[enum](https://github.com/Tarara33/TIL/blob/main/Rails/Model/enum/enum.md)の部分でも書いてるが、  
 登録フォーム と 検索フォーム(Ransack使用) でリクエストに入れるべき値が変わる。  
 
 - 登録フォーム  
