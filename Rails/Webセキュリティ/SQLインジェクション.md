@@ -24,7 +24,7 @@ SELECT * FROM users WHERE email = 's@exsample.com'(入力された email) AND pa
 ***
 
 ## しかし...
-たとえば悪意あるユーザーが、email・passwordに 「OR '1'='1'」と入れたとする。
+たとえば悪意あるユーザーが、email・passwordに 「' OR '1'='1」と入れたとする。
   
 [![Image from Gyazo](https://i.gyazo.com/e6e02c2fc4d1bfb2a7db743026d4a8ba.png)](https://gyazo.com/e6e02c2fc4d1bfb2a7db743026d4a8ba)
 
@@ -32,10 +32,16 @@ SELECT * FROM users WHERE email = 's@exsample.com'(入力された email) AND pa
 ~~~
 SELECT * FROM users WHERE email = '' OR '1'='1' AND password = '' OR '1'='1';
 ~~~
-ORに続く 「'1'='1'」は trueを返し、正しいと評価されるため、    
+ORに続く 「'1'='1」は trueを返し、正しいと評価されるため、    
 攻撃者は正しいメールアドレスとパスワードを知らずに、データベース内のすべてのユーザー情報を取得できてしまう。
   
 #### それを防ぐにはエスケープさせる！
+***
+
+### ❓ ''の数
+「' OR '1'='1」はなぜ「'' OR '1'='1'」と入力しないの？？
+SQLに組み込まれるときに、「''」の中に値が入るため、「'' OR '1'='1'」を入力すると、
+「''' OR '1'='1''」となるため。
 ***
 
 # エスケープ と プレースホルダー
