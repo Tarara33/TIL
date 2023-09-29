@@ -116,3 +116,7 @@ format.turbo_stream
 #### ⭐️ turbo_stream.update
 非同期的な更新アクションを示す方法の一つ。
 ***
+
+# gemもある
+turbo-railsという gemもある。
+***
