@@ -24,7 +24,7 @@ SELECT * FROM users WHERE email = 's@exsample.com'(入力された email) AND pa
 ***
 
 ## しかし...
-たとえば悪意あるユーザーが、email・passwordに 「OR '1'='1」と入れたとする。
+たとえば悪意あるユーザーが、email・passwordに 「OR '1'='1'」と入れたとする。
   
 [![Image from Gyazo](https://i.gyazo.com/e6e02c2fc4d1bfb2a7db743026d4a8ba.png)](https://gyazo.com/e6e02c2fc4d1bfb2a7db743026d4a8ba)
 
