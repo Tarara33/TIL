@@ -1,3 +1,5 @@
+[rubyでのまとめ](https://github.com/Tarara33/TIL/tree/main/Ruby/Minitest)  
+  
 # 使い方
 ~~~
 $ rails test
