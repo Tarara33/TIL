@@ -31,6 +31,9 @@ str.join('-')
 
 str.join('Z')
 => "aZbZc"
+
+str.join(1)
+=> エラー
 ~~~
 ⚠️ 引数に数値はエラー出る。
 ***
