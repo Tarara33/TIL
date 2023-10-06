@@ -80,12 +80,3 @@ $ nodenv local 15.14.0
 $ nodenv global 16.3.0
 ~~~
 ***
-
-# npm
-npmとは Node Package Managerの略で Node.jsのパッケージを管理するシステム。  
-コレを入れておくと、インストールや管理が楽になる。  
-  
-似たようなやつで「yarn」がある。  
-機能としては同じ。  
-私自身は homebrewに入れている。
-***
