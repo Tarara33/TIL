@@ -25,6 +25,10 @@ $ bundle -v
 - 現在持っているバージョン確認
 ~~~
 $ gem list bundler
+
+*** LOCAL GEMS ***
+
+bundler (2.3.26, 1.16.2)
 ~~~
 ***
 
