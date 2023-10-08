@@ -85,7 +85,7 @@ Gemfileの書き方や Gemのバージョン指定に関するルールが含ま
 
 inherit_from: .rubocop_todo.yml
 
-require
+require:
   - rubocop-rails
   
 AllCops:
