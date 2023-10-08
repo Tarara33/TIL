@@ -8,6 +8,49 @@ Rubyの静的コード解析を実行するgem。
 (HTML、CSS、またはそれらの中の埋め込みrubyは解析してくれない。)
 ***
 
+# 導入
+rubocopは一つの Gemというより本体 + オプションという感じで組み合わせる。
+
+### gem 'rubocop'
+これが rubocopの本体。なのでこれは入れないと動かない。
+***
+
+### gem 'rubocop-rails'
+Railsアプリケーション向けの RuboCop拡張。  
+Railsアプリケーション特有のコーディング規約やベストプラクティスに従ったコードを保つのに役立つ。
+***
+
+### gem 'rubocop-rspec'
+RSpecに特有のコーディング規約をチェックし、テストコードの品質を評価する。
+***
+
+### gem 'rubocop-performance'
+Rubyコードのパフォーマンスに関連するルールを提供する RuboCopの拡張。  
+この Gemを使用すると、コードの実行効率を向上させるための最適化の提案や、  
+パフォーマンス上の問題を検出するためのルールを実行できる。  
+例えば、無駄なループや遅いメソッド呼び出しなどを警告する。
+***
+
+### gem 'rubocop-checkstyle_formatter'
+RuboCopの出力を Checkstyle XMLフォーマットで出力するためのフォーマッター。  
+これにより、他のツールや CI/CDパイプラインと統合しやすくなる。
+***
+
+##  書き方例
+個人開発なら、下記ぐらいで OK
+~~~
+[Gemfile]
+
+group :development, :test do
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+end
+~~~
+チーム開発などで、コードの書き方にルールがあれば、gem 'rubocop-checkstyle_formatter'あたりも使う。
+***
+
 # 設定
 - .rubocop.yml
 RuboCopの設定ファイル。    
