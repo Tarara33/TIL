@@ -1,0 +1,26 @@
+# keys
+ハッシュのキーを取り出すメソッド
+~~~
+hash = {a: 1, b: 2, c: 3}
+hash.keys
+=> [:a, :b, :c]
+~~~
+***
+
+# values
+ハッシュの要素を取り出すメソッド
+~~~
+hash = {a: 1, b: 2, c: 3}
+hash.values
+=> [1, 2, 3]
+~~~
+***
+
+# has_key? (エイリアス: key?, include?, member?)
+ハッシュの中に指定したキーが存在するか確認するメソッド
+~~~
+hash = {a: 1, b: 2, c: 3}
+hash.has_key?(:b)
+=> true
+~~~
+***
