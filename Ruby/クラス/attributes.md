@@ -1,7 +1,7 @@
 [参考](https://qiita.com/tyamagu2/items/8abd93bb7ab0424cf084)
 
 # attributesとは
-オブジェクトが抱えるデータのことで、属性（attribute）と呼ぶことがある。
+オブジェクトが抱えるデータのことで、属性（attribute）と呼ぶことがある。  
 例えば Userクラスに name, age, emailなどがあったらそれらのことを属性（attribute）と呼ぶ。
 ***
 
