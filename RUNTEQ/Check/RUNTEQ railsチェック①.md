@@ -115,9 +115,16 @@ p %x(ruby -v)
 ***
 
 - %r...正規表現
+%rなら、スラッシュなどをエスケープしなくていい！
 ~~~
-p %r(abc)
-=> /\/abc\//
+https://example.com
+これを
+
+[スラッシュで囲んだ場合]
+/https:\/\/example\.com/
+
+[%rで囲んだ場合]
+%r{https://example\.com}
 ~~~
 ***
 
