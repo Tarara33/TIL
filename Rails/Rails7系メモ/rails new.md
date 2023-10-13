@@ -1,4 +1,5 @@
-[参考](https://qiita.com/megane42/items/bf85746b9cefaf38f473)
+[参考](https://qiita.com/megane42/items/bf85746b9cefaf38f473)  
+[参考](https://qiita.com/kuma_chill/items/b9577de1dc2f4a293728)
 
 # ⭐️ rails new
 rails7系からフロントサイドが変わった部分がある。  
