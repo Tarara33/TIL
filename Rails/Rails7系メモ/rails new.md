@@ -1,7 +1,9 @@
 [参考](https://qiita.com/megane42/items/bf85746b9cefaf38f473)
 
-# rails new
-何もつけずに rails new行うと、importmapを使う。
+# ⭐️ rails new
+rails7系からフロントサイドが変わった部分がある。  
+
+何もつけずに rails new行うと、importmapを使う。  
 ***
 
 # ❓ importmap
@@ -56,4 +58,54 @@ import 'bootstrap';
 
 ぐらい。  
 どちらかというと PCが JSファイルまとめたりしない分楽になるみたい。
+***
+
+# ⭐️ Rails new + esbuild
+こちらは Node.js使う。Node.js使うので　yarnなども必要。  
+importmapではなく esbuildを使う。
+~~~
+$ rails new app_name --css=bootstrap
+~~~
+Rails７系はアセットパイプラインに Webpackerをデフォルトで使用するようになったので、      
+このように rails new コマンドで --css オプションを指定して、  
+CSSフレームワークを選択した場合、Webpackerと esbuildがデフォルトで使用される。
+***
+
+# ❓ esbuild
+Webpackerなどと同じで、javascriptのバンドラー。  
+Webpackerよりまとめる速度がめちゃはやい！らしい！
+***
+
+## 💡 ちなみに...
+javascriptのバンドラーは rails newの時に指定することができるので、  
+現在すでに動いているアプリの環境を移行したいとかでなければ new時に指定するのがおすすめ。  
+
+後々追加もできるが、めんどくさい。  
+例えば、最初に rails newで importmapを JSバンドラーに設定した後に、  
+やっぱり esbuildを JSバンドラーにするとなると、以下のようなことをしなければいけない。
+~~~
+* esbuildのインストール
+* 依存関係の調整
+* JavaScriptファイルの整理
+* importmapの削除
+* ビルドスクリプトの実行
+* ビューの更新
+~~~
+***
+
+# importmap か esbuildか
+~~~
+【importmap が適している場合】
+* プロジェクトが小規模で、複雑な依存関係を持っていない場合。
+* クライアントサイドの JavaScript モジュールの管理が主要な課題であり、ブラウザでのモジュールのロードが問題となる場合。
+* シンプルなフロントエンドのアプリケーションを開発しており、高度なビルドプロセスが不要な場合。
+
+【esbuild が適している場合】
+* プロジェクトが大規模で、多くの依存関係を持ち、👍高度なビルドプロセスが必要な場合。
+* フロントエンドとバックエンドの両方で JavaScript コードを管理し、効率的なバンドリングとトランスパイルを実現したい場合。
+* 高速なバンドル生成が重要で、パフォーマンスが要求される場合。
+~~~
+**⚠️ もし、Hotwireなどを使用する予定があれば esbuildがいい！**  
+リアルタイム通信には 高速ビルドが必要。  
+importmapはビルドやトランスパイルのプロセスが含まれていない。
 ***
