@@ -25,8 +25,9 @@
 [![Image from Gyazo](https://i.gyazo.com/1d24c51e079e127eead4a828d7f0971f.png)](https://gyazo.com/1d24c51e079e127eead4a828d7f0971f)
 
 右にあるカバンボタンを押すと、Reviewのところに先ほど +にしたフォントたちが含まれる。  
-そして、下の linkか importを選ぶ。    
-bodyタグ内に その下の font-family...を書くと、全体に適応される。  
+そして、下の linkか importを選ぶ。  
+使いたいセレクターのところにその下の font-family...を書く。  
+💡 bodyタグ内に書くと、全体に適応される。  
 
 今回は試しに app/assets/stylesheet/application.scssに書く例
 ~~~
@@ -36,6 +37,29 @@ bodyタグ内に その下の font-family...を書くと、全体に適応され
 
 body {
   font-family: 'M PLUS 1p', sans-serif;
+}
+~~~
+***
+
+# それぞれのセレクターで違うフォントやサイズをつかう場合
+使い方 4番まではおなじ。  
+使いたいセレクターでそれぞれ、font-family...を書く。 
+~~~
+[app/assets/stylesheet/application.scss]
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;500&display=swap');
+
+body {
+  font-family: 'M PLUS 1p', sans-serif;
+}
+
+main {
+  font-family: 'M PLUS 1p', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-family: 'Yusei Magic', sans-serif;
 }
 ~~~
 ***
