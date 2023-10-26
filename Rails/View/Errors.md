@@ -19,8 +19,8 @@ form画面のviewやパーシャルファイルにかいたりするのが一般
 => パーシャルファイルの「object」の部分が「@user.object」になって適応される。
 ~~~
 ### 💡 ポイント
-`<%= render 'shared/errors', obect: ＠user %>`でもいいが、   
-postモデルのフォームに使いたい時は `<%= render 'shared/errors', obect: ＠post %>` など変えなきゃいけないので 
+`<%= render 'shared/errors', object: ＠user %>`でもいいが、   
+postモデルのフォームに使いたい時は `<%= render 'shared/errors', object: ＠post %>` など変えなきゃいけないので 
   
 **f.object にすると同じ文章で使いまわせる**
 ***
