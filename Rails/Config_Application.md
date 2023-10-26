@@ -15,6 +15,8 @@ module RunteqNormal
       # css,javascriptファイルを作成しない
       g.test_framework false
       # テストファイルを作成しない
+      g.test_framework :rspec, fixture: false
+      # テストを rspecで作る。(fixtureは作らない)
       g.skip_routes true
       # routes.rbを変更しない
    end
