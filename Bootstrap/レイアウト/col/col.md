@@ -37,7 +37,7 @@ bootstrapでは12のカラムに分かれる。
 大きさを指定する場合は`col-1~12`で指定する。     
 指定しない場合は行 ÷ 列数の数のサイズになる。
 
-⚠️ offset 使う場合はその colも含めた数字で並ぶ。
+⚠️ [offset](https://github.com/Tarara33/TIL/blob/main/Bootstrap/%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88/col/offset.md) 使う場合はその colも含めた数字で並ぶ。
 
 ## 例
 均等に col-4
