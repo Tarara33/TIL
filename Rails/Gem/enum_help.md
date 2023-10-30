@@ -13,8 +13,7 @@ $ bundle
 ***
 
 ## 国際化設定
-「config/locals/ja.yml」だと下記の書き方で反映された。  
-「config/locals/activerecord/ja.yml」だと反映されなかった。
+「config/locals/ja.yml」に書く。
 ~~~
 [config/locals/ja.yml]
 
