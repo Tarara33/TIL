@@ -1,6 +1,6 @@
 # col(カラム)
 bootstrapでは12のカラムに分かれる。    
-これはブラウザを小さくしても変わらない並び方をする。
+ブラウザの幅によって並べ方を変えたい場合は[ブレイクポイント](https://github.com/Tarara33/TIL/blob/main/Bootstrap/%E3%83%AC%E3%82%A4%E3%82%A2%E3%82%A6%E3%83%88/%E3%83%96%E3%83%AC%E3%82%A4%E3%82%AF%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88.md)つける。
 
 [![Image from Gyazo](https://i.gyazo.com/7ba315d949da7d8b18e883855db255fe.jpg)](https://gyazo.com/7ba315d949da7d8b18e883855db255fe)
 
