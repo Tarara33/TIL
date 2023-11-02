@@ -169,6 +169,20 @@ find('.alert-success', text: "Success!", wait: 5)
 ~~~
 ***
 
+## page.scroll_to()
+ページをスクロールさせる。
+~~~
+[ある要素が見えるところまで]
+page.scroll_to('ここまで')
+=> viewページの 「ここまで」という要素が見つかるまでスクロールする。
+
+[一番下まで]
+page.scroll_to :bottom
+=>最下層までスクロールする。
+~~~
+⚠️ スクロールの後は、[sleep](https://github.com/Tarara33/TIL/blob/main/Rails/Test/RSpec/%E3%82%B9%E3%83%9A%E3%83%83%E3%82%AF/System/%E5%9F%BA%E6%9C%AC.md#sleep)などでスクロールしている時間を待ってあげないと、スクロール終える前に次のテスト要素実行しちゃう！
+***
+
 # 画像を添付した投稿のテスト
 ① spec/配下に fixturesというフォルダを作成。        
 ② その配下にテスト用の「sample.jpg」(成功用)と「sample.txt」(失敗用)を入れる。        
