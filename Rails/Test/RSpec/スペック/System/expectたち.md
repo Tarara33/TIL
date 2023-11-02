@@ -24,6 +24,12 @@ expect(page).to have_selector("input[value=#{author.name}]")
 ~~~
 ***
 
+### have_link
+~~~
+expect(page).to have_link(edit_item_path(item))
+~~~
+***
+
 ### have_http_status
 コレする時は ドライバーを RackTestに切り替える必要がある。   
 capybaraの設定で他のドライバー使ってても、テストファイル内にコレ書いてあれば、特定のテストは RackTestに切り替わる。
