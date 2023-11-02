@@ -36,7 +36,8 @@ applicationコントローラーで設定したbefore_actionを
 ***
 
 ## 定義
-コントローラー内でする
+コントローラー内でする。    
+だいたいまず、大元の application_controllerで require_loginさせて、全体に制限かける。
 ~~~
 例[app/controllers/application_controller.rb]
 class ApplicationController < ActionController::Base
@@ -54,7 +55,7 @@ class ApplicationController < ActionController::Base
   end
 end
 ~~~
-⚠️このままだと全てのアクションでroot_pathに永遠とリダイレクトされてしまうので、    
+⚠️ このままだと全てのアクションでroot_pathに永遠とリダイレクトされてしまうので、    
 ユーザー登録のアクションでは require_loginアクションをスキップする。
 ~~~
 [app/controllers/user_controller.rb]
