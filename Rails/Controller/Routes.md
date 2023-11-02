@@ -28,6 +28,18 @@ users 　　　　　　　　　　GET       　 /users(.:format)              
 ~~~
 ***
 
+# routesファイルの書き方(例)
+~~~
+[config/routes.rb]
+root 'homes#top'
+get 'login', to: 'user_sessions#new'
+post 'login', to: 'user_sessions#create'
+delete 'logout', to: 'user_sessions#destroy'
+
+resources :users
+~~~
+***
+
 # resources (複数系　リソース) :コントローラー名
 resourcesメソッドに含まれる
 -　index...一覧    
