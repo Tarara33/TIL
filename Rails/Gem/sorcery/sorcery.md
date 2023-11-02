@@ -150,7 +150,38 @@ end
 現在ログイン中のuserを返す。コントローラ、ビューで使える。    
 ***
 
+## auto_login()
+その名の通りオートログイン。  
+メールアドレスやパスワードを使わず userとしてログインする。  
+使い道は、ユーザー登録後にログインさせる、ゲストでログインするなど
+~~~
+[ユーザー登録後にログイン]
 
+class UsersController < ApplicationController
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      auto_login(@user)
+      redirect_back_or_to items_path, success: t('.success')
+    else
+      flash.now[:danger] = t('.fail')
+      render :new, status: :unprocessable_entity
+    end
+  end
+end
+~~~
+~~~
+[ゲストでログイン]
+
+class UserSessionsController < ApplicationController
+  def guest_login
+    guest_user = User.find_by!(role: 'guest')
+    auto_login(guest_user)
+    redirect_to root_path, notice: 'ログインしました'
+  end
+end
+~~~
+***
 
 
 
