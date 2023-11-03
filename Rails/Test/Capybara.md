@@ -183,6 +183,48 @@ page.scroll_to :bottom
 ⚠️ スクロールの後は、[sleep](https://github.com/Tarara33/TIL/blob/main/Rails/Test/RSpec/%E3%82%B9%E3%83%9A%E3%83%83%E3%82%AF/System/%E5%9F%BA%E6%9C%AC.md#sleep)などでスクロールしている時間を待ってあげないと、スクロール終える前に次のテスト要素実行しちゃう！
 ***
 
+## アラートを押す場合
+[参考](https://qiita.com/at-946/items/403d85d45cb02615c323)  
+`accept_confirm(OK)` or `dismiss_confirm(NO)`を使う。
+~~~
+[OKを押したい]
+  
+page.accept_confirm do
+  click_button 'はい'
+end
+
+
+[NOを押したい]
+
+page.dismiss_confirm do
+  click_button 'いいえ'
+end
+~~~
+***
+
+### ❓ どういう動きをするのか？
+アラートブロックの中身のボタンやリンクを押したときアラートが出て、囲んでるアラートブロックの種類(OK/NO)のボタンを押す。  
+というような動きをするので、アラートブロック前にボタンやリンクを押す動きはとらなくていい。  
+~~~
+[❌ 間違い]
+visit post_path(post)
+click_button '削除'
+page.accept_confirm do
+  click_button 'はい'
+end
+expect(current_path).to eq posts_path
+
+
+[⭕️ 正解]
+
+visit post_path(post)
+page.accept_confirm do
+  click_button '削除'
+end
+expect(current_path).to eq posts_path
+~~~
+***
+
 # 画像を添付した投稿のテスト
 ① spec/配下に fixturesというフォルダを作成。        
 ② その配下にテスト用の「sample.jpg」(成功用)と「sample.txt」(失敗用)を入れる。        
