@@ -3,6 +3,8 @@
 Uploaderクラスを持つようになるgem。   
 なので画像に関しての設定（保存先は？、　デフォルト画像は？、　画像のサイズは？など）は   
 Uploaderクラス内に記述する。
+
+💡 細かい画像リサイズなどは[mini magick](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/%E7%94%BB%E5%83%8F/mini_magick.md)でやった方がいい！
 ***
 
 - Paperclip   
