@@ -1,9 +1,11 @@
 # carrierwave + mini_magickでできること（一部）
 mini_magick使う時は
 ~~~
+[app/uploaders/〇〇_uploader.rb]
+
 include CarrierWave::MiniMagick
 ~~~
-を記述する。
+を記述してから画像のリサイズなど書く。。
 ***
 
 ## resize_to_fit(width, height)
