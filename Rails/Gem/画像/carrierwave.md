@@ -18,7 +18,7 @@ Uploaderクラス内に記述する。
 ~~~
 [Gemfile]
 
- gem 'carrierwave'
+gem 'carrierwave'
 $ bundle
 ~~~
 ***
