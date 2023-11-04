@@ -1,3 +1,12 @@
+# 準備
+~~~
+[Gemfile]
+
+gem 'mini_magick'
+$ bundle
+~~~
+***
+
 # carrierwave + mini_magickでできること（一部）
 mini_magick使う時は
 ~~~
