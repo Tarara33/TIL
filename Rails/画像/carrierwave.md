@@ -13,6 +13,14 @@ Uploaderクラス内に記述する。
 
 # carrierwaveを使った導入
 ## ①Gemfileに記載してbundle installする。    
+~~~
+[Gemfile]
+
+ gem 'carrierwave'
+$ bundle
+~~~
+***
+
 ## ②Uploaderクラスをアプリ内に作る。
 ~~~
 $ rails g uploader アップローダーモデル名（既存モデル名ではなく、「画像カラム持たせるモデル＋Image」とか。　例：　BoardImage）
