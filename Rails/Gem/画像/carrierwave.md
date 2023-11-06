@@ -1,10 +1,11 @@
 # 画像を扱う Gemの紹介
 - carrierwave   
 Uploaderクラスを持つようになる gem。   
-なので画像に関しての設定（保存先は？・デフォルト画像は？・画像のサイズは？など）は   
+なので画像に関しての設定（保存先は？・デフォルト画像は？・アップしていい画像の形式は？など）は   
 Uploaderクラス内に記述する。
-
-💡 細かい画像リサイズなどは[mini magick](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/%E7%94%BB%E5%83%8F/mini_magick.md)でやった方がいい！
+  
+⚠️ 画像のリサイズなど加工に関する機能は持たない。  
+画像リサイズなどは[mini magick](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/%E7%94%BB%E5%83%8F/mini_magick.md)でやる！
 ***
 
 - Paperclip   
@@ -124,7 +125,7 @@ end
 => 悪意のあるコードを含む実行可能ファイルなどがアップロードされるのを防ぐことができる。
 ***
 
-### 4.画像の処理(一部紹介)
+### 4.画像の加工(mini magick使用・一部紹介)
 詳しくは Mini_magickで。
 
 ### サムネイルの生成    
