@@ -1,5 +1,5 @@
 # 画像を扱う Gemの紹介
-- carrierwave   
+- [carrierwave](https://github.com/carrierwaveuploader/carrierwave#securing-uploads)   
 Uploaderクラスを持つようになる gem。   
 なので画像に関しての設定（保存先は？・デフォルト画像は？・アップしていい画像の形式は？など）は   
 Uploaderクラス内に記述する。([carrierwaveでできること](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/%E7%94%BB%E5%83%8F/%E3%83%A1%E3%83%A2/carrierwave%E3%81%A7%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8.md))
