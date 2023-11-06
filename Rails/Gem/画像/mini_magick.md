@@ -1,4 +1,5 @@
-[参考](https://qiita.com/wonder_boooy/items/1510f8750d1282693148)  
+[参考](https://qiita.com/wonder_boooy/items/1510f8750d1282693148)    
+[github](https://github.com/minimagick/minimagick)  
 
 # 準備
 ~~~
@@ -58,4 +59,31 @@ process resize_to_fill: [100, 100, "Center"]
 ***
 
 [![Image from Gyazo](https://i.gyazo.com/440b3209e8d9553f7eab24ef68e88c43.png)](https://gyazo.com/440b3209e8d9553f7eab24ef68e88c43)
+***
+
+# サムネサイズの設定
+画像を表示箇所によってサイズを変えたい場合。  
+例えばヘッダーでアイコンを表示する場合は少し小さめなサイズで表示、マイページでは大きめに表示したい場合など。  
+~~~
+[アップローダーファイル]
+version :icon do
+  process resize_to_fit: [50, 50]
+end
+
+version :icon_large do
+  process resize_to_fit: [100, 100]
+end
+
+
+[Viewファイル]
+
+<!-- 通常の画像表示 -->
+<%= image_tag current_user.photo_url %>
+
+<!-- 小さめアイコンの表示 -->
+<%= image_tag current_user.photo_url(:icon) %>
+
+<!-- 大きめアイコンの画像表示 -->
+<%= image_tag current_user.photo_url(:icon_large) %>
+~~~
 ***
