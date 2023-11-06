@@ -83,4 +83,4 @@ end
 ***
 
 # よくある条件
-- [サムネイルの設定](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/%E7%94%BB%E5%83%8F/mini_magick.md#%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%B5%E3%82%A4%E3%82%BA%E3%81%AE%E8%A8%AD%E5%AE%9A)
+- [サムネサイズでアイコン用とマイページ用の条件](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/%E7%94%BB%E5%83%8F/mini_magick.md#%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%B5%E3%82%A4%E3%82%BA%E3%81%AE%E8%A8%AD%E5%AE%9A)
