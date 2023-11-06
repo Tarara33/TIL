@@ -78,12 +78,12 @@ end
 [Viewファイル]
 
 <!-- 通常の画像表示 -->
-<%= image_tag current_user.photo_url %>
+<%= image_tag current_user.画像のカラム名.url %>
 
 <!-- 小さめアイコンの表示 -->
-<%= image_tag current_user.photo_url(:icon) %>
+<%= image_tag current_user.画像のカラム名.url(:icon) %>
 
 <!-- 大きめアイコンの画像表示 -->
-<%= image_tag current_user.photo_url(:icon_large) %>
+<%= image_tag current_user.画像のカラム名.url(:icon_large) %>
 ~~~
 ***
