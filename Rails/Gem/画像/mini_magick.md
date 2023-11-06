@@ -1,3 +1,5 @@
+[参考](https://qiita.com/wonder_boooy/items/1510f8750d1282693148)  
+
 # 準備
 ~~~
 [Gemfile]
