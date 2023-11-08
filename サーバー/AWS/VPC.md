@@ -1,4 +1,4 @@
-<img width="733" alt="image" src="https://github.com/Tarara33/TIL/assets/128697599/8e57175a-f11c-4ee4-966d-381f3fd8eb90">[参考](https://en-junior.com/vpc/#index_id0)
+[参考](https://en-junior.com/vpc/#index_id0)
 
 # VPCとは
 「Virtual Private Cloud」の略で、直訳すると「仮想的な自分専用クラウド」  
