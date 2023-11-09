@@ -86,3 +86,4 @@ end
 通常の Rubyクラスには attr_accessor を使用し、  
 ActiveModelを含むクラス（例: Railsモデルやフォームオブジェクト）には attribute を使用すると良い!
 ***
+
