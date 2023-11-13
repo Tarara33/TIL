@@ -125,3 +125,7 @@ $ tag.items_count
 
 このように、sizeの場合はCOUNTするためのクエリが発生するが、カウンターキャッシュなら発生しない。
 ***
+
+# 💡 gemもある
+[参考](https://qiita.com/sazumy/items/e5399f113360e05032e0)
+***
