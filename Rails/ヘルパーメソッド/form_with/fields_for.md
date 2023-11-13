@@ -2,9 +2,18 @@
 
 # fields_for
 これを使うと親モデルに紐付いた子モデルのデータを編集できる。  
+バリデーションも親子両方のエラーメッセージ出る！
 
 例えばこのような関係のテーブルの時に、親である Userモデルのフォームに 子である Profileモデルのフォームを入れられる。
 [![Image from Gyazo](https://i.gyazo.com/702a0db398c47bb9fdd171204f571283.png)](https://gyazo.com/702a0db398c47bb9fdd171204f571283)
+***
+
+## ❓ [FormObject](https://github.com/Tarara33/TIL/blob/main/Rails/%E6%A9%9F%E8%83%BD/Form%20Object/Form%20Object%E3%81%A8%E3%81%AF.md)と何が違う？？
+どちらも複数モデルに対して更新できるが、
+- fields_for...親子関係のモデルをシンプルに編集する場合に便利。
+- FormObject...複数モデルにまたがるデータの作成や更新が絡む場合に便利。
+
+どっちがいいかは、アプリの要件や好みによるが、複雑なものは FormObjectの方が適している。
 ***
 
 # 使い方
