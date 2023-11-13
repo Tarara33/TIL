@@ -144,4 +144,24 @@ private
 ~~~
 ***
 
+# ❓ 多対多の fields_for
+## 変わること
+- accepts_nested_attributes_forを中間モデルに書く。
+- formにかく fields_forをネストする。
+~~~
+[フォーム]
 
+<%= form_with(model:@親モデル, local: true) do |f| %>
+  <%= render 'shared/errors', object: f.object %>
+  
+  🩵<%= f.fields_for :中間モデル名 do |mid| %>
+    <%= mid.fields_for :子モデル名 do |child| %>
+      <div class="mb-3">
+        <%= child.label :name %>
+        <%= child.text_field :name, class: 'form-control' %>
+      </div>
+    <% end %>
+  <% end %>
+~~~
+フォームビルダーオブジェクトをそれぞれの段階で書き間違えないように注意！
+***
