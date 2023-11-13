@@ -1,3 +1,5 @@
+[公式](https://github.com/lassebunk/gretel)
+
 # 機能
 パンくずリストを作る    
 ※ 現在ページまでの道のりみたいなやつ
