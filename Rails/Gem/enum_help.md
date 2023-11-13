@@ -1,3 +1,5 @@
+[公式](https://github.com/zmbacker/enum_help)
+
 # 機能
 [enum](https://github.com/Tarara33/TIL/blob/main/Rails/Model/enum/enum.md) の国際化。
 ***
