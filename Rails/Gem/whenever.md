@@ -1,3 +1,5 @@
+[公式](https://github.com/javan/whenever)
+
 # cron    
 cronは、UNIX系の OSで動いているプログラム。  
 事前に「○時になったら○○のコマンドを実行」と指示を出しておくと、  
