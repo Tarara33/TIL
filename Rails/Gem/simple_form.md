@@ -1,3 +1,5 @@
+[公式](https://github.com/heartcombo/simple_form)
+
 # 機能
 フォームを簡単に作れるようになる。
 form_withよりも簡単に作れる(らしい)
