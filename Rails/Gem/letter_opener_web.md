@@ -1,3 +1,5 @@
+[公式](https://github.com/fgrehm/letter_opener_web)
+
 # 機能
 開発環境で送信したメールをブラウザで確認することができる。    
 似ている　Gemで letter_openerがある。[違い](https://rubyandrails.hatenablog.com/entry/letter_opener_web)    
