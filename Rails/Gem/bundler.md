@@ -1,3 +1,5 @@
+[公式](https://github.com/rubygems/bundler)
+
 # 機能
 gemの依存関係とバージョンを管理するためのツール。    
 複数のジェムのパッケージみたいな。
