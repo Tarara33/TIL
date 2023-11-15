@@ -110,3 +110,21 @@ javascriptのバンドラーは rails newの時に指定することができる
 リアルタイム通信には 高速ビルドが必要。  
 importmapはビルドやトランスパイルのプロセスが含まれていない。
 ***
+
+## ❓ でも Rails7チュートリアルでは Hotwireを importmapでも使えた！  
+デフォルトで入ってる`gem "importmap-rails"`があること、  
+`$ rails importmap:install`コマンドで、Import Mapに必要な設定ファイルを生成し、  
+Turboと Stimulusを Import Mapに追加することで使える。
+~~~
+リアルタイム通信を行う場合、Turbo Streamsを使うと Railsの Hotwire機能を使って実装できる。
+Importmapを使っても Turbo Streamsは動作するが、もし JavaScriptのコードが複雑になり、
+ビルドプロセスやトランスパイルが必要になる場合は esbuildなどのツールを導入することを検討するといい。
+~~~
+
+## ちなみに esbuildで Hotwire使う場合
+~~~
+gem "turbo-rails"
+gem "stimulus-rails"
+~~~
+`$ rails turbo:install stimulus:install`を行う。
+***
