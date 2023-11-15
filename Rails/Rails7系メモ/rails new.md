@@ -126,5 +126,5 @@ Importmapを使っても Turbo Streamsは動作するが、もし JavaScriptの�
 gem "turbo-rails"
 gem "stimulus-rails"
 ~~~
-`$ rails turbo:install stimulus:install`を行う。
+がデフォルトで入っていて、「app/javascript/application.js」に`import "@hotwired/turbo-rails"`書いてあればOKそう。
 ***
