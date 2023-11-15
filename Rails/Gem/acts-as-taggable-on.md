@@ -4,7 +4,8 @@
 モデルにタグ機能をつけられる gem
 ***
 
-# 導入
+# 使い方
+## Gem導入
 ~~~
 [gemfile]
 gem 'acts-as-taggable-on'
@@ -13,7 +14,7 @@ $ bundle
 ~~~
 ***
 
-# インストール
+## インストール
 ~~~
 $ rails acts_as_taggable_on_engine:install:migrations
 ~~~
@@ -73,7 +74,7 @@ end
 ~~~
 ***
 
-# 使い方
+# 設定
 ## ① タグをつけるモデルにコードを追加
 例えば Postモデルにタグづけをするなら、
 ~~~
