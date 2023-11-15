@@ -6,7 +6,8 @@
 ただ、全てを見つけるわけではないので、頼りすぎは良くない！
 ***
 
-# 導入
+# 使い方
+## Gem導入
 ~~~
 [gemfile]
 group :development do
@@ -17,7 +18,7 @@ $ bundle
 ~~~
 ***
 
-# インストール
+## インストール
 ~~~
 $ rails g bullet:install
 ~~~
