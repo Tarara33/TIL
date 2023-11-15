@@ -25,7 +25,7 @@ end
 ***
 
 # 使い方
-## 導入
+## Gem導入
 ~~~
 [gemfile]
 gem 'config'
