@@ -45,6 +45,7 @@ body要素の一部のみを更新する（特定の HTMLタグなど）
 
 # 使い方
 ## 導入
+importmapか esbuildで違うので[こちら](https://github.com/Tarara33/TIL/blob/main/Rails/Rails7%E7%B3%BB%E3%83%A1%E3%83%A2/rails%20new.md#-%E3%81%A7%E3%82%82-rails7%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%A7%E3%81%AF-hotwire%E3%82%92-importmap%E3%81%A7%E3%82%82%E4%BD%BF%E3%81%88%E3%81%9F)も見て。  
 gem importmap-railsを bundleしていたら、このようにインストールする。
 ~~~
 $ rails importmap:install turbo:install stimulus:install
