@@ -6,6 +6,7 @@ gemの依存関係とバージョンを管理するためのツール。
 ***
 
 # 使い方
+## Gem導入
 ~~~
 ＄ gem install bundler
 
