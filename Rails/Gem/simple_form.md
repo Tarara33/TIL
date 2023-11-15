@@ -5,7 +5,8 @@
 form_withよりも簡単に作れる(らしい)
 ***
 
-# 導入
+#使い方
+## Gem導入
 ~~~
 [gemfile]
 gem 'simple_form'
