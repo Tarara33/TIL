@@ -45,10 +45,41 @@ body要素の一部のみを更新する（特定の HTMLタグなど）
 
 # 使い方
 ## 導入
-importmapか esbuildで違うので[こちら](https://github.com/Tarara33/TIL/blob/main/Rails/Rails7%E7%B3%BB%E3%83%A1%E3%83%A2/rails%20new.md#-%E3%81%A7%E3%82%82-rails7%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%A7%E3%81%AF-hotwire%E3%82%92-importmap%E3%81%A7%E3%82%82%E4%BD%BF%E3%81%88%E3%81%9F)も見て。  
-gem importmap-railsを bundleしていたら、このようにインストールする。
+JSのライブラリ importmapか esbuildで導入が違う。  
+rails7系は デフォルトで gem入ってるので特にインストール必要ないが、必要なものはこんな感じ。
 ~~~
-$ rails importmap:install turbo:install stimulus:install
+💛 importmapの場合
+[Gemfile]
+gem 'importmap-rails'
+gem 'turbo-rails'
+gem 'stimulus-rails'
+
+
+🧡 esbuildの場合
+[Gemfile]
+gem 'turbo-rails'
+gem 'stimulus-rails'
++
+[app/javascript/application.js]
+import "@hotwired/turbo-rails"
+~~~
+***
+
+# コードの書き方
+今回は例として ブックマークボタンを hotwireで実装する。
+
+## ① 部分的に変えたいところを決める
+Viewファイルの中から部分的に変えたいところを `turbo_frame_tag`メソッドで囲む。  
+~~~
+[app/views/items/show.html.erb]
+
+<div id="bookmark-button-<%= item.id %>">
+  <% if current_user.bookmark?(item) %>
+    <%= render 'bookmarks/unbookmark', {item: item} %>
+  <% else %>
+    <%= render 'bookmarks/bookmark', {item: item} %>
+  <% end %>
+</div>
 ~~~
 ***
 
