@@ -160,3 +160,17 @@ semantic ui ※指定するコマンドはsemantic_ui
 theme:...特定のテーマを設定するオプション。
 ***
 
+# 国際化
+[i18n](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/i18n/%E5%9F%BA%E6%9C%AC.md)の導入をして、「config/locals/ja.yml」に記載。
+~~~
+[config/locals/ja.yml]
+
+ja:
+  views:
+    pagination:
+      next: 次へ
+      previous: 前へ
+      first: 最初
+      last: 最後
+~~~
+***
