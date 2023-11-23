@@ -62,7 +62,7 @@ end
 
 ③表示中のページの左右何ページ分のリンクを表示するかを指定。    
 ④先頭ページ、及び最終ページから何ページ分のリンクを表示するかを指定。    
-⚠️left、right が指定された場合は、そちらの値が優先される。    
+⚠️ left、right が指定された場合は、そちらの値が優先される。    
 ⑤先頭ページから何ページ分のリンクを表示するかを指定。    
 ⑥最終ページから何ページ分のリンクを表示するかを指定。
 ~~~
@@ -135,8 +135,9 @@ materialize
 pure css ※指定するコマンドはpurecss
 semantic ui ※指定するコマンドはsemantic_ui
 ~~~
-これを打つと「app/views/kaminari/」配下にファイルができる。
-    
+これを打つと「app/views/kaminari/」配下にファイルができる。  
+⚠️ bootstrapなどバージョンが変わるやつは、最新バージョンあるかなどチェックした方がいい！
+
 ~~~
 [app/views/board/index.html.erb]
 <%= paginate @boards %>
