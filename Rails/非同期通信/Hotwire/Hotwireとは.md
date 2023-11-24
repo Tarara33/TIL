@@ -66,5 +66,5 @@ import "@hotwired/turbo-rails"
 ***
 
 # コードの書き方
-書き方は何通りかあるのでこちらで。
+書き方は何通りかあるので[こちら](https://github.com/Tarara33/TIL/tree/main/Rails/%E9%9D%9E%E5%90%8C%E6%9C%9F%E9%80%9A%E4%BF%A1/Hotwire/%E6%9B%B8%E3%81%8D%E6%96%B9)で。
 ***
