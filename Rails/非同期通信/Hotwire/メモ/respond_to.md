@@ -18,9 +18,8 @@ end
 ***
 
 # 💡 リクエストによって読み込むファイルが違う
-#### 📝 メモ: リクエストの違い
-HTML形式のリクエストは、ページをフルページを更新する。  
-Turbo Stream形式のリクエストは、ページの一部分だけが更新される。
+[リクエストの違い](https://github.com/Tarara33/TIL/blob/main/Rails/%E9%9D%9E%E5%90%8C%E6%9C%9F%E9%80%9A%E4%BF%A1/Hotwire/%E3%83%A1%E3%83%A2/%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%E3%81%AE%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E5%BD%A2%E5%BC%8F.md)
+
 
 [![Image from Gyazo](https://i.gyazo.com/0acdb2d9cc8cde0657c4d63dba0f6b97.png)](https://gyazo.com/0acdb2d9cc8cde0657c4d63dba0f6b97)
 
