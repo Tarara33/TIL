@@ -81,3 +81,19 @@ def goodnight; end
 💡 `<%= turbo_frame_tag %>` で生成される HTMLは`<turbo-frame>`なので、  
 どちらか片方は`<%= turbo_frame_tag %>`、もう片方は`<turbo-frame>`とお互い揃えなくても動く。
 ***
+
+# リクエストからレスポンスの流れ
+1. クライアント側    
+`<turbo-frame>`内からのリンクなので、リクエストヘッダーに  
+「Turbo-Frame: hotwire-frame」を付与する（これでTurbo Frameリクエストになる）。
+
+2. サーバー側  
+サーバー側はリクエストヘッダーに Turbo-Frameが存在すると Turbo Frameリクエストだと判断する。  
+Turbo Frameリクエストの場合、高速化のためにレイアウトテンプレート（application.html.erb）のレンダリングはせずに、  
+メインテンプレート（hello.html.erb）だけをレンダリングしてレスポンスする。
+
+3. クライアント側  
+クライアント側はレスポンス（hello.html.erbのレンダリング結果）を受け取り、`<turbo-frame>`の  
+idが一致する`<turbo-frame id="hotwire-frame">`部分（一覧部分）だけを置換する。  
+それ以外の部分に関しては、レスポンスはされるが利用されずに捨てられる。
+***
