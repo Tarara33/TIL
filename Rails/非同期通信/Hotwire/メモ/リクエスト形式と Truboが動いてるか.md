@@ -53,5 +53,8 @@ fetchでも画面が上までスクロールされたりしたら Turbo機能し
 ページ遷移やフォームの送信を行った時に、ページ全体がリフレッシュされずに部分的に更新される場合は Turboが機能してる。
 ***
 
-## ③ turbo_frame_tagなどがコード内にある。
+## ③ `turbo_frame_tag（<turbo-frame>）`がコード内にある。
+`turbo_frame_tag（<turbo-frame>）`があると、リクエストヘッダーに Turbo-Frame:が含まれる。
+
+[![Image from Gyazo](https://i.gyazo.com/b652f54f38c1cf2d4c92f90644f3a605.png)](https://gyazo.com/b652f54f38c1cf2d4c92f90644f3a605)
 ***
