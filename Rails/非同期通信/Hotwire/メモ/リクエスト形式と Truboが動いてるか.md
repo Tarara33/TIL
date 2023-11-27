@@ -56,5 +56,5 @@ fetchでも画面が上までスクロールされたりしたら Turbo機能し
 ## ③ `turbo_frame_tag（<turbo-frame>）`がコード内にある。
 `turbo_frame_tag（<turbo-frame>）`があると、リクエストヘッダーに Turbo-Frame:が含まれる。
 
-[![Image from Gyazo](https://i.gyazo.com/b652f54f38c1cf2d4c92f90644f3a605.png)](https://gyazo.com/b652f54f38c1cf2d4c92f90644f3a605)
+[![Image from Gyazo](https://i.gyazo.com/98f5f61490cb540bbe28bea58ff56248.png)](https://gyazo.com/98f5f61490cb540bbe28bea58ff56248)
 ***
