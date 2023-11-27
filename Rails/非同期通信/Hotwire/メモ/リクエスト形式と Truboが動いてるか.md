@@ -57,4 +57,6 @@ fetchでも画面が上までスクロールされたりしたら Turbo機能し
 `turbo_frame_tag（<turbo-frame>）`があると、リクエストヘッダーに Turbo-Frame:が含まれる。
 
 [![Image from Gyazo](https://i.gyazo.com/98f5f61490cb540bbe28bea58ff56248.png)](https://gyazo.com/98f5f61490cb540bbe28bea58ff56248)
+
+💡 `turbo_frame_tag（<turbo-frame>）`内にあるリンクやフォームは Turbo Frameリクエストになる
 ***
