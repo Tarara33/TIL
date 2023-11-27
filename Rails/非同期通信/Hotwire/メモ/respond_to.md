@@ -41,7 +41,8 @@ HTMLリクエストには通常の HTMLレスポンスを、Turbo Streamリク�
 ***
 
 ## ❓ どのようにリクエストを Turbo Stream形式にするの？
-リンクなどに、`data: { turbo_frame: 'id名' }`を書く。
+`<turbo-frame>`タグ内にリンクやフォームを書くか、  
+リンクなどに、`data: { turbo_frame: 'id名' }`属性を書く。
 ~~~
 [greet.html.erb]
 <div class="container">
