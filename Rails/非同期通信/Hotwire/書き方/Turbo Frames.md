@@ -82,6 +82,45 @@ def goodnight; end
 どちらか片方は`<%= turbo_frame_tag %>`、もう片方は`<turbo-frame>`とお互い揃えなくても動く。
 ***
 
+# 引数にオブジェクトを渡す
+例えば、一覧画面でページ遷移せずに編集したいとき。  
+
+[![Image from Gyazo](https://i.gyazo.com/999367bad55e27567e60640353dd6035.png)](https://gyazo.com/999367bad55e27567e60640353dd6035)
+
+[![Image from Gyazo](https://i.gyazo.com/eb17c8db815300eea5b8894b8702d0d5.png)](https://gyazo.com/eb17c8db815300eea5b8894b8702d0d5)
+
+その場合、上写真の検証でもあるが、「cat_100, cat_99, cat_98...」など idが並んでおり、  
+その中で cat_100を編集したい場合、`<turbo-frame id='cat_100'>`とユニーク idの形になる必要がある。
+
+[![Image from Gyazo](https://i.gyazo.com/fed55a25462813b052b3796cd69a5032.png)](https://gyazo.com/fed55a25462813b052b3796cd69a5032)
+***
+
+## ユニーク idの付け方
+- オブジェクトを渡す。`(<%= turbo_frame_tag オブジェクト名 do %>)`
+- `dom_id`をつけて渡す。`(<%= turbo_frame_tag dom_id(オブジェクト名) do %>)`
+- 式展開で渡す。`(<%= turbo_frame_tag "オブジェクト名_#{オブジェクト名.id}" do %>)`
+
+以下３つは同じ動きをする。
+~~~
+[app/views/cats/_cat.html.erb]
+
+<%= turbo_frame_tag cat do %>
+<%= turbo_frame_tag dom_id(cat) do %>
+<%= turbo_frame_tag "cat_#cat.id}" do %>
+
+⚠️ パーシャルなので @catとしていない。
+
+[生成 HTMLこんな感じ]
+<turbo-frame id="cat_1">...</turbo-frame>
+~~~
+***
+
+## ❓ dom_id
+Railsのヘルパーメソッドで、特定の ActiveRecordオブジェクトに対応する DOM要素の IDを生成してくれる。    
+これを使うことで、オブジェクトに基づいた一意の IDを持つ HTML要素を簡単に作成できるようになる。  
+これを使えば、JavaScriptや CSSでその要素を簡単に特定できるようになる!
+***
+
 # リクエストからレスポンスの流れ
 1. クライアント側    
 `<turbo-frame>`内からのリンクなので、リクエストヘッダーに  
