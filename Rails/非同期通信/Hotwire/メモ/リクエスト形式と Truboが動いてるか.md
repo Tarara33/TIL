@@ -26,7 +26,9 @@ Turboを使ったリクエストは通常、XHR（XMLHttpRequest）や Fetchと�
 [![Image from Gyazo](https://i.gyazo.com/6cc664e3e5a54319a1804605066dc213.png)](https://gyazo.com/6cc664e3e5a54319a1804605066dc213)
 ***
 
-まず、Turboを効かせてないもの、効かせてるもの、どちらもリクエストは HTML形式である。
+まず、Turboを効かせてないもの、効かせてるもの、どちらもリクエストは HTML形式である。  
+💡 Turboは GETリクエストではフォーマットが Turbo Streamにならない。  
+GET以外の PUT/PATCH/DELETEでなる。
 
 [![Image from Gyazo](https://i.gyazo.com/919a9ed9af0b3b28c001524fba972de9.png)](https://gyazo.com/919a9ed9af0b3b28c001524fba972de9)
 ***
