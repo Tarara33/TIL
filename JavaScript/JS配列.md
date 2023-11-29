@@ -173,3 +173,21 @@ console.log(point);
 追加オブジェクト入れたら追加される
 ***
 
+# 関数と組み合わせる
+関数発動時に、分割代入する方法。
+~~~
+const arr = ["Japan", "Tokyo", "Shinjuku"];
+
+const fnArr = ([country, state, city]) => {
+  console.log(`country: ${country}`);
+  console.log(`state: ${state}`);
+  console.log(`city: ${city}`);
+};
+
+fnArr(arr);
+=>
+country: Japan
+state: Tokyo
+city: Shinjuku
+~~~
+***
