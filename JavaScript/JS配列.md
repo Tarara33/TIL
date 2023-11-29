@@ -69,18 +69,6 @@ console.log(deleted);
 ⚠️deleteされた値は一つでも配列で代入される。
 ***
 
-# レスト構文
-配列を作ったがやっぱりこれらの値を別々の定数にしたいかつ、定数に入れたいのは最初の２つだけで残りは配列のままでいいという場合    
-定数（変数）名　[新しい定数（変数）名, ...新しい配列名] = 元の配列名
-~~~
-const array = [1,2,3,4,5];
-const [a,b,...newArray] = array;
-console.log(a); //1
-console.log(b); //2
-console.log(neweArray); //[3,4,5]
-~~~
-***
-
 # 配列にオブジェクトを入れる
 ~~~
 const point = [
