@@ -41,44 +41,6 @@ console.log(point); // {y:50}
 ~~~
 ***
 
-# スプレット構文
-- ...配列名　とすることで配列中に別の配列を入れてくれる
-~~~
-const point = {x: 10, y: 50};
-const other = {r: 30, s: 900, ...point};
-console.log(other); //{r: 30, s: 900, x: 10, y: 50}
-~~~
-***
-
-# 分割代入
-オブジェクトを作ったけど、やっぱりこれらの値を別々の定数にしたかったとする   
-定数（変数） {オブジェクトのキーと同じ定数名} = 元のオブジェクト名
-
-💡 オブジェクトのキー名を入れるので、配列の場合と違い、順番気にしなくていい。
-~~~
-const point = {x: 10, y: 50};
-const {x, y}= point;
-console.log(x); //10
-console.log(y); //50
-~~~
-***
-
-## 関数と組み合わせる
-関数発動時に、分割代入する方法。
-()内に{}で囲む。
-~~~
-const objAddress = { country: "Japan", state: "Tokyo", city: "Shinjuku" };
-
-const fnObj = ({country, state, city}) => {
-  console.log(`country: ${country}`);
-  console.log(`state: ${state}`);
-  console.log(`city: ${city}`);
-};
-
-fnObj(objAddress);
-~~~
-***
-
 # レスト構文
 オブジェクトを作ったがやっぱりこれらの値を別々の定数にしたいかつ、   
 定数に入れたいのは最初の２つだけで残りはオブジェクトのままでいいという場合   
