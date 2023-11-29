@@ -107,6 +107,26 @@ console.log(y); //10
 ~~~
 ***
 
+## 関数と組み合わせる
+関数発動時に、分割代入する方法。
+~~~
+const arr = ["Japan", "Tokyo", "Shinjuku"];
+
+const fnArr = ([country, state, city]) => {
+  console.log(`country: ${country}`);
+  console.log(`state: ${state}`);
+  console.log(`city: ${city}`);
+};
+
+fnArr(arr);
+=>
+country: Japan
+state: Tokyo
+city: Shinjuku
+~~~
+***
+
+
 # レスト構文
 配列を作ったがやっぱりこれらの値を別々の定数にしたいかつ、定数に入れたいのは最初の２つだけで残りは配列のままでいいという場合    
 定数（変数）名　[新しい定数（変数）名, ...新しい配列名] = 元の配列名
@@ -171,23 +191,4 @@ console.log(point);
 //[{x:30, y:40}]
 ~~~
 追加オブジェクト入れたら追加される
-***
-
-# 関数と組み合わせる
-関数発動時に、分割代入する方法。
-~~~
-const arr = ["Japan", "Tokyo", "Shinjuku"];
-
-const fnArr = ([country, state, city]) => {
-  console.log(`country: ${country}`);
-  console.log(`state: ${state}`);
-  console.log(`city: ${city}`);
-};
-
-fnArr(arr);
-=>
-country: Japan
-state: Tokyo
-city: Shinjuku
-~~~
 ***
