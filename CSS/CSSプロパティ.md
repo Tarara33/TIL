@@ -23,7 +23,12 @@ positionプロパティがついている要素に使える(static以外)
 # max-width　と　min-width
 - max-width...ブラウザの幅が広がっても、指定数値以上広がらない
 - min-width...ブラウザの幅が狭まっても、指定数値以上狭まらない
-- ***
+***
+
+# max-height　と　min-height
+- max-height...ブラウザのが高さが上がっても、指定数値以上、上がらない
+- min-height...最低限の高さ。大きくなる分には勝手に高くなる。
+***
 
 # overflow
 - hidden...定めた枠以上の要素はカットされる
@@ -119,4 +124,6 @@ background: url() center/cover pink
 隣り合ったテーブルセルの間隔を指定する
 - collapse...隣接するボーダーラインを重ねあわせて表示するよう指定
 - separate...隣接するボーダーラインを離して表示する、初期値
-- ***
+***
+
+
