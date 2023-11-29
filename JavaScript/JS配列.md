@@ -69,45 +69,6 @@ console.log(deleted);
 ⚠️deleteされた値は一つでも配列で代入される。
 ***
 
-# スプレット構文
-- ...配列名　とすることで配列中に別の配列を入れてくれる
-~~~
-const a = [1,2,3];
-const b = [6,7,...a];
-console.log(b); //[6,7,1,2,3]
-~~~
-引数としても扱える
-~~~
-const array = [2,5]
-function sum(a,b) {
-  console.log(a + b);
-}
-sum(...array); //7
-~~~
-⚠️引数よりも配列の要素が多い場合は前から順に代入されるため無視される
-***
-
-## 関数と組み合わせる
-関数発動時に、分割代入する方法。  
-()内に[]で囲む。
-~~~
-const arr = ["Japan", "Tokyo", "Shinjuku"];
-
-const fnArr = ([country, state, city]) => {
-  console.log(`country: ${country}`);
-  console.log(`state: ${state}`);
-  console.log(`city: ${city}`);
-};
-
-fnArr(arr);
-=>
-country: Japan
-state: Tokyo
-city: Shinjuku
-~~~
-***
-
-
 # レスト構文
 配列を作ったがやっぱりこれらの値を別々の定数にしたいかつ、定数に入れたいのは最初の２つだけで残りは配列のままでいいという場合    
 定数（変数）名　[新しい定数（変数）名, ...新しい配列名] = 元の配列名
