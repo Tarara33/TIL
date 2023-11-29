@@ -89,3 +89,28 @@ console.log(entries);
 なぜ「entry[1]」に足していくのか？   
 => 配列の中のインデックス番号[1]に足していくため。[0]に足すと「math + 」のようになるため。   
 ***
+
+# ⭐️ 省略記法
+オブジェクトに値を入れる時、キー名が同じなら省略できる。
+~~~
+const name = 'TARARA';
+const age = 29;
+=> これらの値を myProfileオブジェクトに入れる
+
+[省略なし]
+const myProfile = {
+  name: name,
+  age: age
+};
+
+[省略あり]
+const myProfile = {
+  name,
+  age
+};
+
+↓
+
+const myProfile = { name, age };
+~~~
+***
