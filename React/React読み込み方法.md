@@ -9,3 +9,14 @@ HEADタグにこれを書く。
 ⚠️ これは開発用のバージョンなので、本番環境では minifiedバージョンを使う。
 ***
 
+# npm/yarnでインストール
+~~~
+$ npx create-react-app my-app
+
+$ cd my-app
+
+$ npm start
+=> サーバー起動
+~~~
+このコマンドで、Create React Appがシステムにインストールされ、任意のディレクトリで使用できるようになる。
+***
