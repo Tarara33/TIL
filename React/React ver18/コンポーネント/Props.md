@@ -52,3 +52,61 @@ export const ColorfulMessage = (⭐️props) => {
 
 ## 図にしてみると
 
+[![Image from Gyazo](https://i.gyazo.com/6c274bbe9cc2e4d8299b9e544b1115b5.png)](https://gyazo.com/6c274bbe9cc2e4d8299b9e544b1115b5)
+***
+
+# 子コンポーネントに渡すときの技
+## タグの間の要素の取得
+タグの間にある要素は `props.children`で取得できる。
+~~~
+[オブジェクトキーに入れる場合]
+
+【親】 <ColorfulMessage message="元気ですか？？"></ColorfulMessage>
+↓
+【子】 return <p>{props.message}</p>;
+
+
+[props.children]
+
+【親】 <ColorfulMessage>お元気ですか</ColorfulMessage>
+↓
+【子】 return <p>{props.children}</p>;
+~~~
+わざわざ タグ間からキーに入れなくても OK!
+***
+
+## 分割代入しちゃう
+~~~
+[colorfulmessage.jsx]
+
+export const ColorfulMessage = (props) => {
+⭐️const { color, children } = props;
+  const contentStyle = {
+    💡color: ⭐️color,
+    =>オブジェクトの省略で colorのみでも OK
+
+    fontSize: "18px",
+  };
+
+  return <p style={contentStyle}>{⭐️children}</p>;
+};
+~~~
+💡 ちなみに、このコード、[オブジェクトの省略](https://github.com/Tarara33/TIL/blob/main/JavaScript/JS%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88.md#%EF%B8%8F-%E7%9C%81%E7%95%A5%E8%A8%98%E6%B3%95)が使える。
+***
+
+### さらに短縮
+引数で受け取った時点で分割代入する。
+~~~
+[colorfulmessage.jsx]
+
+export const ColorfulMessage = ({⭐️ color, children }) => {
+
+  const contentStyle = {
+    color: ⭐️color,
+    fontSize: "18px",
+  };
+
+  return <p style={contentStyle}>{⭐️children}</p>;
+};
+~~~
+***
