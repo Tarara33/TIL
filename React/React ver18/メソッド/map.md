@@ -30,15 +30,13 @@ const Todo = () => {
         <p className="title">未完了のTODO</p>
         <ul>
           🩵{todos.map((todo) => {
-            return (
-              <li ⭐️key={todo.id}>
-                <div>
-                  <p>{todo.title}</p>
-                  <button>完了</button>
-                  <button>削除</button>
-                </div>
-              </li>
-            );
+            <li ⭐️key={todo.id}>
+              <div>
+                <p>{todo.title}</p>
+                <button>完了</button>
+                <button>削除</button>
+              </div>
+            </li>
           })}
         </ul>
       </div>
