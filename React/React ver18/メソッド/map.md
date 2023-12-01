@@ -29,7 +29,7 @@ const Todo = () => {
       <div>
         <p className="title">未完了のTODO</p>
         <ul>
-          🩵{todos.map((todo) => {
+          🩵{todos.map((todo) => (
             <li ⭐️key={todo.id}>
               <div>
                 <p>{todo.title}</p>
@@ -37,7 +37,7 @@ const Todo = () => {
                 <button>削除</button>
               </div>
             </li>
-          })}
+          ))}
         </ul>
       </div>
     </>
