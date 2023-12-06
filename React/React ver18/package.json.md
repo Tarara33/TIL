@@ -36,7 +36,7 @@ ejectは実行すると元には戻せない。
 $ npm or yarn run eject
 ~~~
 
-実行してみると configファイルが出たり、package.jsonの reactコマンドの中身が変わったりしている。  
-実際はこんな感じのコマンド流してたよ的なのがわかる。
+実行してみると configファイルが出たり、package.jsonの reactコマンドの中身が変わったりしている。    
+実際はこんな感じのコマンド流してたよ的なのがわかる。  
 [![Image from Gyazo](https://i.gyazo.com/9ffe1fe2441f832699f8746ffe841d48.png)](https://gyazo.com/9ffe1fe2441f832699f8746ffe841d48)
 ***
