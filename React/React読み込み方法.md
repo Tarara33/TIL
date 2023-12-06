@@ -11,7 +11,7 @@ HEADタグにこれを書く。
 
 # npm/yarnでインストール
 ~~~
-$ npx create-react-app my-app
+$ npx create-react-app アプリ名
 
 $ cd my-app
 
