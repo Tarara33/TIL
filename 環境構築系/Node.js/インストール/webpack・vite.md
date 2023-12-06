@@ -31,6 +31,6 @@ Viteにおける「バリアント」は、主に使用する言語やコンパ�
 
 [![Image from Gyazo](https://i.gyazo.com/9aaf3e77b0f1f172c34b97193bbcd6bd.png)](https://gyazo.com/9aaf3e77b0f1f172c34b97193bbcd6bd)
 
-SWCというのはより高速にビルドを行うためのツール。
+SWCというのはより高速にビルドを行うためのツール。  
 ただ、ファイル容量が重いので、特段必要ない場合には、通常の間 JavaScriptか TypeScriptを選べば OK。
 ***
