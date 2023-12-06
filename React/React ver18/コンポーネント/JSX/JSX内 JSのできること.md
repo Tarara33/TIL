@@ -43,7 +43,8 @@ const Sample = () => {
 ~~~
 ***
 
-## コメントアウトは出ない
+#画面上に出ないもの
+## コメントアウト
 これは空タグとなり、画面には出ない。
 ~~~
 const Sample = () => {
@@ -54,3 +55,17 @@ const Sample = () => {
   );
 };
 ~~~
+***
+
+## bool値
+trueや falseのこと
+~~~
+const Sample = () => {
+  const bool = true
+
+  return(
+    <h3>{bool}</h3>
+  );
+};
+~~~
+***
