@@ -135,6 +135,24 @@ export const ColorfulMessage = ( {color, ⭐️children="Happy" }) => {
 ~~~
 ***
 
+# 受け取った propsのキー名を変えたい時
+例えば以下のコードで親コンポーネントから受け取った props 「message」を「m」として使いたい時。  
+`キー名: 使いたいキー名`とする。
+~~~
+[親]
+
+<ColorfulMessage message="HAPPY" />
+
+--------------------------------------------------------------------
+[colorfulmessage.jsx]
+
+export const ColorfulMessage = (⭐️{message: m ="Happy" }) => {
+
+  const contentStyle = () => <p>⭐️{m}</p>;
+};
+~~~
+***
+
 # 送れるもの
 要素や定数、関数など送れる！
 ***
