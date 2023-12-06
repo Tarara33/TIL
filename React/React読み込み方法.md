@@ -24,3 +24,13 @@ $ npm start
 
 indexファイルなども作られる。
 ***
+
+## localでの見方
+サーバーを立ち上げると、このように localの URLがあるのでクリックすると
+
+[![Image from Gyazo](https://i.gyazo.com/5f6f38c5903d571f4f185714886b52c9.png)](https://gyazo.com/5f6f38c5903d571f4f185714886b52c9)
+
+Reactの画面でる。
+
+[![Image from Gyazo](https://i.gyazo.com/2eaaeea621dc85bc99c3dd3af47e7f5e.png)](https://gyazo.com/2eaaeea621dc85bc99c3dd3af47e7f5e)
+***
