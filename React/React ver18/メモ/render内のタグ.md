@@ -68,6 +68,7 @@ React.Fragmentで囲むと生成される HTMLは divタグなどはなく要素
 ***
 
 ## ③ 空タグ
+Flagmentの短縮バージョン。
 ~~~
 [index.js]
 
@@ -90,7 +91,7 @@ root.render(
   </StrictMode>,
 );
 ~~~
-空タグは生成される HTMLは divとなる。
+React.Fragment同様、生成される HTMLは divタグなどはなく要素のみになる。
 
-[![Image from Gyazo](https://i.gyazo.com/f8fe4f14fafcd297b6a18b5f0c513e3c.png)](https://gyazo.com/f8fe4f14fafcd297b6a18b5f0c513e3c)
+[![Image from Gyazo](https://i.gyazo.com/7c3e4c6800edccfba06a2affdf7d84c3.png)](https://gyazo.com/7c3e4c6800edccfba06a2affdf7d84c3)
 ***
