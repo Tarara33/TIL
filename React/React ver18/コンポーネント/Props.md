@@ -152,7 +152,3 @@ export const ColorfulMessage = (⭐️{message: m ="Happy" }) => {
 };
 ~~~
 ***
-
-# 送れるもの
-要素や定数、関数など送れる！
-***
