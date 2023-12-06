@@ -111,6 +111,30 @@ export const ColorfulMessage = ({⭐️ color, children }) => {
 ~~~
 ***
 
+# デフォルト値設定できる
+~~~
+[colorfulmessage.jsx]
+
+export const ColorfulMessage = ( {color, ⭐️children="Happy" }) => {
+
+  const contentStyle = {
+    color,
+    fontSize: "18px",
+  };
+
+  return <p style={contentStyle}>{⭐️children}</p>;
+};
+
+
+--------------------------------------------------------------------
+[親]
+
+<ColorfulMessage color="green" />
+
+=> 緑色の文字でデフォルトの「Happy」が表示される
+~~~
+***
+
 # 送れるもの
 要素や定数、関数など送れる！
 ***
