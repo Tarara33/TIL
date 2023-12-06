@@ -34,3 +34,7 @@ Reactの画面でる。
 
 [![Image from Gyazo](https://i.gyazo.com/2eaaeea621dc85bc99c3dd3af47e7f5e.png)](https://gyazo.com/2eaaeea621dc85bc99c3dd3af47e7f5e)
 ***
+
+# [vite](https://github.com/Tarara33/TIL/blob/main/%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E7%B3%BB/Node.js/%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/webpack%E3%83%BBvite.md)を使う場合
+フレームワークに React選ぶ。
+***
