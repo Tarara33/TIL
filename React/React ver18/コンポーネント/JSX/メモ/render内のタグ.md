@@ -60,7 +60,7 @@ root.render(
   </StrictMode>,
 );
 ~~~
-⚠️ React.Fragmentを使う場合は、reactを importする時、全て importする。(デフォルトインポート)
+⚠️ React.Fragmentを使う場合は、reactを importする時、全て importする。(デフォルトインポート)か `{Figment}`をインポートする。
 
 React.Fragmentで囲むと生成される HTMLは divタグなどはなく要素のみになる。
 
@@ -91,6 +91,8 @@ root.render(
   </StrictMode>,
 );
 ~~~
+⚠️ こちらの場合は Figmentのインポートいらない。  
+
 React.Fragment同様、生成される HTMLは divタグなどはなく要素のみになる。
 
 [![Image from Gyazo](https://i.gyazo.com/7c3e4c6800edccfba06a2affdf7d84c3.png)](https://gyazo.com/7c3e4c6800edccfba06a2affdf7d84c3)
