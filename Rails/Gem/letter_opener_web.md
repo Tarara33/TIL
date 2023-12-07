@@ -29,6 +29,7 @@ if Rails.env.development?
    「localhost:3000/letter_opener」にアクセスすると送信メールが見れるようになる。
  end
 ~~~
+URL: [localhost:3000/letter_opener](localhost:3000/letter_opener)
 ***
 
 # 開発環境ファイルの編集
