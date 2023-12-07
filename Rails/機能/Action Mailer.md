@@ -35,7 +35,8 @@ class ApplicationMailer < ActionMailer::Base
 end
 ~~~
 共通の処理・設定を記述する場合には defaultメソッドを使用する。  
-layout はメールの作成文のテンプレートを指定している。  
+layout はメールの作成文のテンプレートを指定している。   
+(app/views/layouts/mailer.html.erbや mailer.text.erb)をテンプレートとして指定している。
   
 [![Image from Gyazo](https://i.gyazo.com/fcea4624032207f21b41b79b1bfd1f60.png)](https://gyazo.com/fcea4624032207f21b41b79b1bfd1f60)
 ***
