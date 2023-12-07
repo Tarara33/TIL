@@ -61,6 +61,18 @@ end
 ~~~
 ***
 
+# トークンに有効期間を設ける
+デフォルトでは、ユーザーがリクエストを行ってからリンクをたどるまで、期限が設けられていない。        
+もし、期限つけたいときは「config/intializers/sorcery.rb」の 421行目付近の    
+`user.reset_password_expiration_period`をコメントアウトして期限を書く。    
+~~~
+[config/intializers/sorcery.rb]
+
+user.reset_password_expiration_period = 24 * 3600
+=> 24 * 3600 # 24時間（秒単位）
+~~~
+***
+
 # リセットの手順
 [こちら](https://github.com/Tarara33/TIL/blob/main/Rails/%E6%A9%9F%E8%83%BD/%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88.md)
 ***
