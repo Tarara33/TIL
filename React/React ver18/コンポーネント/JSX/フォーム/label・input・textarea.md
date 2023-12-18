@@ -1,6 +1,12 @@
 # label / input
 ラベルを設定しておくと、ラベル部分をクリックすると、フォームにフォーカス当たる。  
-label内の`htmlFor`の値と input内の`id`の値を一致させる。
+
+## 使い方
+1. label内の`htmlFor`の値と input内の`id`の値を一致させる。
+2. labelタグで inputタグなどを囲む。
+***
+
+# input(labelは id合わせるバージョン)
 ~~~
 
 import { useState } from "react";
@@ -19,7 +25,7 @@ const Example = () => {
 ~~~
 ***
 
-# textarea
+# textarea(labelはタグで囲むバージョン)
 ~~~
 import { useState } from "react";
 
@@ -28,11 +34,11 @@ const Example = () => {
 
   return (
     <>
-      <label htmlFor="def">ラベル</label>
-      <textarea id="def"
-          placeholder="初期値"
-          🔴value={val}
-          onChange={(e) => setVal(e.target.value)} />
+      <label>
+        <textarea placeholder="初期値"
+                  🔴value={val}
+                  onChange={(e) => setVal(e.target.value)} />
+      ラベル</label>
 ~~~
 
 # 💡 閉じタグがいらない
