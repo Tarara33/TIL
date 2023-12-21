@@ -1,3 +1,6 @@
+[公式](https://github.com/kjvarga/sitemap_generator)  
+[参考](https://qiita.com/momo1010/items/27fa9290d0a8ed79bc24)
+
 # sitemap_generator
 サイトマップを作る gem。  
 サイトマップってのは、ウェブサイトの地図みたいなもの。  
@@ -74,7 +77,7 @@ end
 🌞SitemapGenerator::Sitemap.default_host = "http://gift-compass.com"
 
 SitemapGenerator::Sitemap.create do
- # ルートページ
+ # ⭐️ルートページ
   add root_path, 🩵priority: 1.0, 💚changefreq: 'daily'
 
   # 静的ページ
@@ -92,6 +95,10 @@ SitemapGenerator::Sitemap.create do
 end
 ~~~
 ##### 🌞 サイトのホストを書く。
+***
+
+##### ⭐️ ルートパス
+root_path はデフォルトで追加されているので書かなくてもOK
 ***
 
 ##### 🩵 priority(ページの優先度)
@@ -113,8 +120,76 @@ end
 ***
 
 ## ❓ アイテム詳細ページも見られる場合は？？
-もし、ログインしなくてもアイテム一覧ページが見られる場合の書き方は？？
-１ページではなく、商品ごとにページを追加する必要があるので
+もし、ログインしなくてもアイテム一覧ページが見られる場合の書き方は？？  
+items#show ページは一意のアイテムごとに異なる URLを持つため、アイテム数分だけ addメソッドでサイトマップに追加する必要がある。  
+一つ一つ addするのは大変なので each文で回す。
 ~~~
 [config/sitemap.rb]
 
+# items#show
+Item.find_each do |item|
+  add item_path(item), 🧡lastmod: item.updated_at
+end
+~~~
+##### 🧡 lastmod
+サイトマップエントリにおいて各ページの最終更新日を指定している。    
+これにより、検索エンジンに対して各ページが最後に変更された日時を提供している。  
+
+この場合検索エンジンに対して、各アイテムが最後に変更された日時を伝えている。
+***
+
+# サイトマップの更新
+ページが増えたらサイトマップを更新する必要がある。  
+アプリ自体のページが増えなくても、例えば投稿型などならユーザーが新しい投稿するたびに urlが増えるので更新する必要がある。  
+~~~
+$  rails sitemap:refresh
+~~~
+***
+
+# サイトマップの自動更新
+サイトマップは定期的に更新する必要があるので自動更新されるようにする場合。
+
+## [whenever](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/whenever.md)で更新
+スケジュールファイルに以下のようにかく。
+~~~
+[config/schedule.rb]
+every 1.day, at: '3:00 am' do
+  rake 'sitemap:refresh'
+end
+~~~
+***
+
+## サイトマップ生成のトリガーをアプリ内のイベントにする
+サーバーによっては cronジョブはお金かかることあるので、直接コードに書くのもアリ。
+
+例えば、items#showもサイトマップに入れるなら、itemが作成、更新するたびにサイトマップを更新するようにする。  
+その場合、itemsコントローラーの create/updateアクション内にサイトマップ更新コードをかく。
+~~~
+[items_controller.rb]
+
+def create
+@item = current_user.items.new(item_params)
+
+  if @item.save
+    ⭐️regenerate_sitemap
+    redirect_to item_path(@item), success: t('.success')
+  else 
+    flash.now[:danger] = t('.fail')
+    render :new, status: :unprocessable_entity
+  end
+end
+
+private
+  ⭐️サイトマップを再生成するメソッド
+  def regenerate_sitemap
+    ①SitemapGenerator::Interpreter.run
+    ②SitemapGenerator::Sitemap.ping_search_engines
+  end
+~~~
+##### ① SitemapGenerator::Interpreter.run
+「config/sitemap.rb」に設定した内容に基づいてサイトマップを生成するコードを実行するメソッド。
+
+##### ② SitemapGenerator::Sitemap.ping_search_engines
+生成されたサイトマップを検索エンジンに通知するためのメソッド。  
+オプションなのつけなくてもいいけど、SEOには有効かもしれない。
+***
