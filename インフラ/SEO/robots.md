@@ -7,13 +7,13 @@
 
 # 作り方
 ## robots.txtファイルを作る
-アプリの publicディレクトリに robots.txtという名前のファイルを作る。
+アプリの ルートディレクトリに robots.txtという名前のファイルを作る。
 ***
 
 ## robots.txt編集
 以下の場合、すべてのページをクロールして OKという意味になる。
 ~~~
-[public/robots.txt]
+[robots.txt]
 
 User-agent: *
 Disallow:
