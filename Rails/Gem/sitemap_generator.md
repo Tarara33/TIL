@@ -193,3 +193,37 @@ private
 生成されたサイトマップを検索エンジンに通知するためのメソッド。  
 オプションなのつけなくてもいいけど、SEOには有効かもしれない。
 ***
+
+# ローカル環境でサイトマップを確認する
+`http://localhost:3000/sitemap.xml.gz`にアクセスして解凍した xmlファイルを VSCodeなどで見る。
+***
+
+# ❓ サイトマップが本番サーバーで見れない
+`$  rails sitemap:refresh`して出てきた URLに飛んだものの、404エラーで見れない。  
+=> そのコマンドを VSCodeなど、ローカル環境でしても本番サーバーでは反映されないから！
+
+例えば [render](https://github.com/Tarara33/TIL/tree/main/%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC/render)でデプロイしてるなら、環境構築用ファイルにこのコマンドを書く必要がある。
+~~~
+[bin/render-build.sh]
+
+#!/usr/bin/env bash
+# exit on error
+set -o errexit
+
+bundle install
+bundle exec rake assets:precompile
+bundle exec rake assets:clean
+bundle exec rake db:migrate
+⭐️bundle exec rails sitemap:refresh
+~~~
+これでデプロイする！
+***
+
+## ❓ ダウンロードしちゃうけどいいの？
+ローカルURLや、本番URLでサイトマップを開いた時に 圧縮ファイル形式(.gz)だからダウンロードしちゃうけどいいの？  
+=> これは Googleなどの検索エンジンが認識できる形式だから、ダウンロードされるのは問題ない。  
+ただ、人間が内容を確認する場合は、ダウンロードした.gzファイルを解凍して.xmlにする必要があるので、解凍して VSCodeなどで見る！  
+
+検索エンジンがサイトマップをちゃんと読み取れているかどうかは、  
+サーチコンソールの[「サイトマップ」](https://github.com/Tarara33/TIL/blob/main/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/SEO/%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97.md)セクションで確認して「成功」なら大丈夫。
+***
