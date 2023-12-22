@@ -80,7 +80,7 @@ app/assets/images配下に画像を置いて、パスを入れる。
 ***
 
 # シェアで反映される確認する
-[バリデーター](https://gift-compass.onrender.com/)で反映されるかチェックできる。    
+[バリデーター]([https://gift-compass.onrender.com/](https://cards-dev.twitter.com/validator))で反映されるかチェックできる。    
 左の URLに cardに表示される URLを入れる。  
 元々は実際にプレビューが見れたようだが、現在は見れない。    
 しかし、右下の Logが通っていれば実際に共有時に反映されるはず。
