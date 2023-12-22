@@ -25,12 +25,25 @@ Disallow:
 ##### Disallow:
 この配下に表示したくないページのディレクトリなどを指定する。
 ~~~
-[public/robots.txt]
+[robots.txt]
 
 User-agent: *
 Disallow: /admin/
 ~~~
 この書き方だと、adminフォルダ配下のページはクロールしないように指示している。
+***
+
+# ⭐️ サイトマップを登録
+[サイトマップ](https://github.com/Tarara33/TIL/blob/main/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/SEO/%E3%82%B5%E3%82%A4%E3%83%88%E3%83%9E%E3%83%83%E3%83%97.md)を作っていたら robots.txtに記載する。
+~~~
+[robots.txt]
+
+User-agent: *
+Disallow: /admin/
+
+Sitemap: https://gift-compass.com/sitemap.xml.gz
+~~~
+`$ rails sitemap:refresh`コマンドで出てきた URLを書いている。
 ***
 
 # ❓ ログインが必要なページも Disallowに書いたほうがいい？？
@@ -42,6 +55,11 @@ Disallow: /admin/
 そのページを Disallowで指定してクローラーがアクセスしないようにするのがいいかもしれない。
 ***
 
-# Google Search Consoleに登録
+# ❓ Google Search Consoleに登録する？？
+サイトマップのように登録する？？
+=> 登録はしないでOK  
+robots.txtはサーバーに置いておくだけで、検索エンジンがアクセスしたときに読み込まれる。
+***
+
 
 
