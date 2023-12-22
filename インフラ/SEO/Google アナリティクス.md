@@ -59,4 +59,52 @@ Googleアナリティクスはウェブサイトやアプリのお医者さん�
 タグの設定終わってないよと出るので、アプリにタグを入れていく。
 
 [![Image from Gyazo](https://i.gyazo.com/8b567db97c5a8105355c812b6fc98d85.png)](https://gyazo.com/8b567db97c5a8105355c812b6fc98d85)
+***
 
+## タグの実装手順を手動でインストールにしてコピーする
+[![Image from Gyazo](https://i.gyazo.com/db2c94684df72f4adac43e0c9b7ad534.png)](https://gyazo.com/db2c94684df72f4adac43e0c9b7ad534)
+***
+
+## app/views/layouts/applicayion.rbの HEADタグにタグを入れる
+HEADタグに直接書いてもいいし、パーシャルにして本番環境なら読み込むというようにしてもいい。
+
+後者の場合
+~~~
+[app/views/layouts/_google_analytics.html.erb]
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NM6QZG2P9V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NM6QZG2P9V');
+</script>
+~~~
+~~~
+[app/views/layouts/applicayion.rb]
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= display_meta_tags(default_meta_tags) %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+  ⭐️<% if Rails.env.production? %>
+      <%= render 'layouts/google_analytics' %>
+    <% end %>
+  </head>
+~~~
+***
+
+## デプロイ後計測が始まる
+デプロイしてから数分かかった。
+
+[![Image from Gyazo](https://i.gyazo.com/b7e7343c6a3585f9539842f75ec42819.png)](https://gyazo.com/b7e7343c6a3585f9539842f75ec42819)
+***
