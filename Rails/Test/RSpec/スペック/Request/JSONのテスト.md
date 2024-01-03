@@ -25,3 +25,17 @@ end
 ### 🩵
 ヘッダーに CONTENT_TYPEと ACCEPTを application/jsonとして設定しているのは、  
 リクエストが JSON形式であり、レスポンスも JSONを期待していることを指定している。
+
+検証機能のレスポンスヘッダーに CONTENT_TYPE  
+リクエストヘッダー側に ACCEPTがある。
+
+ポストマンを使って確認すると、CONTENT_TYPEが application/jsonだった。
+[![Image from Gyazo](https://i.gyazo.com/a72351590a279547f510ac7107337210.png)](https://gyazo.com/a72351590a279547f510ac7107337210)
+
+リクエストヘッダー側の ACCEPTでは application/json確認できなかった...。
+***
+
+### 💚
+レスポンスボディから JSONをパースして得られた'data'配列の要素数が、article_num変数の値と等しいかをチェックしている。  
+つまり、期待される記事の数が実際に返ってきているかを確認している。
+***
