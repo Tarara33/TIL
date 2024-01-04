@@ -4,7 +4,7 @@
 # fast-jsonapi
 [JSON](https://github.com/Tarara33/TIL/blob/main/API/API%E3%81%A8JSON%E3%81%A8%E3%81%AF.md#json)の serializer。
 
-#### ❓ serializer
+#### ❓ serializer(シリアライザー)
 JSON形式のファイルの中身をコンピューターがわかりやすい文字列に書き換えること。
 ~~~
 {
@@ -81,14 +81,18 @@ end
 class ArticlesController < BaseController
   def index
     ① articles = Article.all
-    ② json_string = ArticleSerializer.new(articles).serialized_json
+    ② json_string = 🩵ArticleSerializer.new(articles).⭐️serialized_json
 
     ③ render json: json_string
   end
 end
 ~~~
-①で 変数 articlesに代入した全記事情報を JSON形式にするため、    
-②で先ほど作った `ArticleSerializer`クラスを引数 articlesを使って new(JSON形式に変更)。  
-③JSON形式にしたものをブラウザで表示。
+##### ⭐️ serialized_json
+このメソッドは、シリアライザーが生成した JSONデータを取得するためのもので、  
+これにより Railsの renderメソッドなどを使って、JSONデータをクライアントに返すことができる。
+
+🩵 ArticleSerializer.new(article)は articleオブジェクトを JSONにシリアライズするためのシリアライザーを作成し、  
+その後の`.serialized_json`はそのシリアライザーを使って JSONデータを生成するメソッド。
+
 ***
 
