@@ -71,8 +71,10 @@ show, editアクションの実行に、idが必要ない場合に有効なの�
 何番めに作ったユーザーだとかわかってしまうし、自分以外の編集しないのでidなくていい。    
 という場合などに使える！
 ~~~
-resource :profiles, only: %i[show edit update]
+resource :profile, only: %i[show edit update]
 ~~~
+⚠️ コントローラー名が複数形でも、 resourceに書くときは単数系にする。
+
 **resourceで作った場合**
 [![Image from Gyazo](https://i.gyazo.com/4263a8a1d2a421b8aa1dbe888aec29ca.png)](https://gyazo.com/4263a8a1d2a421b8aa1dbe888aec29ca)
 **resourcesで作った場合**
