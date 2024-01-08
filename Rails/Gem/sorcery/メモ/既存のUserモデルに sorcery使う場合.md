@@ -33,8 +33,9 @@ class SorceryCore < ActiveRecord::Migration[6.0]
 end
 ~~~
 すでに Userモデルが存在するので、 create_tableのままだと、エラー出る。  
-そのため、既存の Userモデルにカラム追加のような書き方をする。
+そのため、既存の Userモデルにカラム追加のような書き方をする。  
+⚠️ もし追加するもの何もなければ SorceryCoreマイグレーションファイルは消してOK！
 
-4. `$ rails db:migrate`
+4. `$ rails db:migrate`(SorceryCoreマイグレーションファイルある場合)  
 5. Userモデルに `authenticates_with_sorcery!`がついてることを確認！
 ***
