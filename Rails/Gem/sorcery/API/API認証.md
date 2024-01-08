@@ -91,3 +91,5 @@ form_authenticity_tokenメソッドはそのために用意されたもので、
 ***
 
 # Postmanでリクエストの確認
+[Postman](https://github.com/Tarara33/TIL/blob/main/%E3%83%84%E3%83%BC%E3%83%AB/Postman.md)で`/authentication`にPOSTリクエスト送ってみる。
+***
