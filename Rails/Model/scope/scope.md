@@ -17,6 +17,15 @@ end
 
 scope :past_published, -> { where('published_at <= ?', Time.current) }
 ~~~
+### ❓ <= ?とは
+?はプレースホルダーと呼ばれ、第二引数で指定した値が置き換えられる。  
+SQLインジェクションを防ぐ書き方の１種で、今回の場合は、Time.currentの部分が ？に置き換えられる。
+
+以下のコードは同等となる。
+~~~
+scope :past_published, -> { where('published_at <= ?', Time.current) }
+scope :past_published, -> { where('published_at <= Time.current') }
+~~~
 ***
 
 ## 引数を使う方法
