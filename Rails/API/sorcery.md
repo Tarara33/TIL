@@ -238,7 +238,7 @@ def create
 ***
 
 ## トークンありで /api/v1/articles にアクセスした場合
-リクエストヘッダーに、キー「Authorization」、値「Bearer <アクセストークン>」を入れて、リクエスト送信すると、表示される。
+認証を選んで、タイプを「「Bearer トークン」を選択して、値にトークンを入れてリクエスト送信すると、表示される。
 
-[![Image from Gyazo](https://i.gyazo.com/cd28da1aee98f0a8f80ff7aa571f653a.png)](https://gyazo.com/cd28da1aee98f0a8f80ff7aa571f653a)
+[![Image from Gyazo](https://i.gyazo.com/7317dc99e638435131e3120786332330.png)](https://gyazo.com/7317dc99e638435131e3120786332330)
 ***
