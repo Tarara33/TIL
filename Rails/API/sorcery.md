@@ -114,3 +114,39 @@ end
 そうでなければ、api_keyインスタンスを作る。
 ***
 
+## コントローラー編集
+すでに作った、ユーザー登録・ログインコントローラーを編集する。
+~~~
+[ユーザー登録コントローラー]
+
+def create
+  user = User.new(user_params)
+
+  if user.save
+    api_key = user.activate_api_key!
+    ❓response.headers['AccessToken'] = api_key.access_token
+  else...
+end
+
+
+[ログインコントローラー]
+
+def create
+  user = login(params[:email], params[:password])
+
+  if user
+    api_key = user.activate_api_key!
+    ❓response.headers['AccessToken'] = api_key.access_token
+  else...
+end
+~~~
+### ❓ なぜヘッダーに入れるの？？ レスポンスヘッダーだけでいいの？？
+APIを使うときに、その APIが誰が使っているのかを確認する必要がある(認証)から。  
+だから、ApiKeyのaccess_tokenを Headerに含めることで、  
+「ボクはちゃんと許可をもらったユーザーだよ」とサーバーに教えて、サービスを安全に使えるようにする。
+
+レスポンスヘッダーだけでいい理由は、まず response.headersはサーバーからクライアントに返すレスポンスのヘッダーを指している。  
+request.headerじゃなくて response.headersなのは、APIの使用者に対してサーバーが access_tokenを提供しているから。  
+これでクライアントは次回のリクエスト時にこの access_tokenをリクエストヘッダーに含めてサーバーに送ることができるんだ。  
+サーバーはそのトークンを見て認証を行うよ！
+***
