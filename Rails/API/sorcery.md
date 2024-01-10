@@ -119,26 +119,28 @@ end
 ~~~
 [ユーザー登録コントローラー]
 
-def create
-  user = User.new(user_params)
+class RegistrationsController < BaseController
+  def create
+    @user = User.new(user_params)
+  
+    if user.save
+      api_key = user.activate_api_key!
+      ❓response.headers['AccessToken'] = api_key.access_token
+    else...
+  end
 
-  if user.save
-    api_key = user.activate_api_key!
-    ❓response.headers['AccessToken'] = api_key.access_token
-  else...
-end
-
-
+-----------------------------------------------------------------------
 [ログインコントローラー]
 
+class AuthenticationsController < BaseController
 def create
-  user = login(params[:email], params[:password])
-
-  if user
-    api_key = user.activate_api_key!
-    ❓response.headers['AccessToken'] = api_key.access_token
-  else...
-end
+    @user = login(params[:email], params[:password])
+  
+    if user
+      api_key = user.activate_api_key!
+      ❓response.headers['AccessToken'] = api_key.access_token
+    else...
+  end
 ~~~
 ### ❓ なぜヘッダーに入れるの？？ レスポンスヘッダーだけでいいの？？
 APIを使うときに、その APIが誰が使っているのかを確認する必要がある(認証)から。  
@@ -155,4 +157,88 @@ request.headerじゃなくて response.headersなのは、APIの使用者に対�
 Postmanにて、ログインしてみると、レスポンスヘッダーに access_tokenが含まれている。
 
 [![Image from Gyazo](https://i.gyazo.com/2b9cb93194b34041b9f8d3738324fdb5.png)](https://gyazo.com/2b9cb93194b34041b9f8d3738324fdb5)
+***
+
+## 認証するメソッドを実装する。
+今の段階では、まだトークンの発行までしかできておらず、トークンを使って認証まではできないので実装を進める。  
+ユーザー登録・ログインコントローラーの継承元(今回は BaseController)で実装する。
+~~~
+[Baseコントローラー]
+
+class BaseController < ApplicationController
+  🧡include ActionController::HttpAuthentication::Token::ControllerMethods
+
+  💚protected
+      
+  def authenticate
+    ⭐️authenticate_or_request_with_http_token do |token, _options|
+      @_current_user || = ApiKey.active.find_by(access_token: token)&.user
+    end
+  end
+
+  💙def current_user
+    @_current_user
+  end
+
+  def set_access_token!(user)
+    api_key = user.activate_api_key!
+    response.headers['AccessToken'] = api_key.access_token
+  end
+~~~
+### ⭐️ authenticate_or_request_with_http_tokenメソッド
+Ruby on Railsのコントローラーでよく使用されるメソッドの一つで、  
+HTTPヘッダーに含まれるトークンを使用してユーザーを認証するためのもの。  
+主に APIにおいて、トークンベースの認証を行う際に利用される。
+
+使う時は🧡モジュールを includeする必要がある。
+***
+
+💙 @_current_user
+ローカルキャッシュのため、`_`つく。([詳しくはここ](https://github.com/Tarara33/TIL/blob/main/Ruby/%E3%83%A1%E3%83%A2/%E5%A4%89%E6%95%B0.md#%E7%9B%B4%E6%8E%A5%E3%81%93%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E5%A4%89%E6%95%B0%E3%82%92%E5%8F%82%E7%85%A7%E3%81%97%E3%81%AA%E3%81%84%E3%81%A7%E6%AC%B2%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%82%82%E4%BD%BF%E3%81%86%E5%8F%82%E8%80%83))  
+@をつけてインスタンス変数にする。(クラス内の他のメソッドからでも参照できるように)
+
+💚 [protected](https://github.com/Tarara33/TIL/blob/main/Ruby/%E3%82%AF%E3%83%A9%E3%82%B9/public%E3%83%BBprivate%E3%83%BBprotected.md)でメソッドの使用制限かけている。  
+protectedを使う理由は、authenticateや current_userメソッドが外部から直接呼び出されることを防ぐため。  
+これらのメソッドは認証処理とユーザーの取得に使われる内部ロジックで、コントローラーのアクションとして外部に晒すべきではない。
+***
+
+## コントローラー編集
+`set_access_token!(user)`メソッドを作ったので、書き換える
+~~~
+[ユーザー登録コントローラー]
+
+class RegistrationsController < BaseController
+  def create
+    @user = User.new(user_params)
+  
+    if user.save
+      set_access_token!(user)
+    else...
+  end
+
+-----------------------------------------------------------------------
+[ログインコントローラー]
+
+class AuthenticationsController < BaseController
+def create
+    @user = login(params[:email], params[:password])
+  
+    if user
+      set_access_token!(user)
+    else...
+  end
+~~~
+***
+
+# 認証の確認
+## トークンなしで /api/v1/articles にアクセスした場合
+`HTTP Token: Access denied.` がレスポンスボディとして返される。( authenticate_or_request_with_http_token の標準の挙動)  
+
+[![Image from Gyazo](https://i.gyazo.com/eb627fa89654c509a4052c6f30542ad5.png)](https://gyazo.com/eb627fa89654c509a4052c6f30542ad5)
+***
+
+## トークンありで /api/v1/articles にアクセスした場合
+リクエストヘッダーに、キー「Authorization」、値「Bearer <アクセストークン>」を入れて、リクエスト送信すると、表示される。
+
+[![Image from Gyazo](https://i.gyazo.com/cd28da1aee98f0a8f80ff7aa571f653a.png)](https://gyazo.com/cd28da1aee98f0a8f80ff7aa571f653a)
 ***
