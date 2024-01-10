@@ -150,3 +150,9 @@ request.headerじゃなくて response.headersなのは、APIの使用者に対�
 これでクライアントは次回のリクエスト時にこの access_tokenをリクエストヘッダーに含めてサーバーに送ることができるんだ。  
 サーバーはそのトークンを見て認証を行うよ！
 ***
+
+## 一度確認
+Postmanにて、ログインしてみると、レスポンスヘッダーに access_tokenが含まれている。
+
+[![Image from Gyazo](https://i.gyazo.com/2b9cb93194b34041b9f8d3738324fdb5.png)](https://gyazo.com/2b9cb93194b34041b9f8d3738324fdb5)
+***
