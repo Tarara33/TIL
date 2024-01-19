@@ -91,4 +91,149 @@ role属性は、要素がどのような役割を果たすかを示すもの。
 表示用のラベル（表示テキスト）を指定している。
 *** 
 
-## 
+## 検索フォームとオートコンプリート部分のビューを紐付ける
+1. 自動補完ビューの対象フォームを  
+`<div data-controller="autocomplete" data-autocomplete-url-value="/cats/search" role="combobox"></div>`で囲む。
+2. フォームタグ内に`data: { autocomplete_target: 'input' }`属性追加する。
+~~~
+[app/views/items/_search_form.html.erb]
+
+<%= search_form_for q, url: items_path, html: {class: 'd-flex mt-3'} do |f| %>
+  <div class="col me-2">
+    <div 🩷data-controller="autocomplete" 💜data-autocomplete-url-value="/items/search_name" 🩵role="combobox" class="position-relative">
+      <%= f.search_field :item_name_cont, 🤍data: { autocomplete_target: 'input' }, class: 'form-control', placeholder: Item.human_attribute_name('item_name') %>
+      💡<ul class="autocomplete-item position-absolute d-flex flex-wrap list-unstyled bg-white w-100" style="z-index: 1000;" data-autocomplete-target="results"></ul>
+    </div>
+  </div>
+~~~
+💡 ここの ulタグはこのオートコンプリート表示場所のため。
+
+[![Image from Gyazo](https://i.gyazo.com/e63ca5b27c7ad563e60038d808790d75.png)](https://gyazo.com/e63ca5b27c7ad563e60038d808790d75)
+***
+
+#### 🩷
+data-controller属性は、Stimulus.jsという JavaScriptフレームワークのためのもので、  
+この属性により、この要素に autocompleteという名前の Stimulus.jsのコントローラーが関連付けられる。
+***
+
+#### 💜
+オートコンプリート機能において補完候補を取得するための URLを指定している。  
+ここに、先ほど作った自動補完ビューのURL入れる。
+***
+
+#### 🩵
+role属性は、この要素がどのような役割を果たすかを示すもの。  
+ここでは`combobox`と指定されており、この要素がコンボボックスとして機能することを示す。    
+コンボボックスは通常、ユーザーに対して選択肢を提供し、選択させるための UIパターン。
+****
+
+#### 🤍
+autocomplete_targetが `input` に設定されている場合、  
+通常はオートコンプリート機能を実装する JavaScriptコードがこの入力フィールドを対象として補完候補を制御する。
+***
+
+## アクション・ルーティング設定
+`search_name`アクションをコントローラーに追加する。
+~~~
+[app/controllers/item_controller.rb]
+
+class ItemsController < ApplicationController
+
+  def search_name
+    @items = Item.where("item_name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+~~~
+***
+
+routingも設定する。
+~~~
+[config/routes.rb]
+
+resources :items do
+  collection do
+    get :search_name
+  end
+end
+~~~
+***
+
+# 💡 複数箇所でオートコンプリートしたい場合
+[![Image from Gyazo](https://i.gyazo.com/b4aea4006f06fe4365b6ef89a1fa14cd.png)](https://gyazo.com/b4aea4006f06fe4365b6ef89a1fa14cd)
+
+## 自動補完ビューをそれぞれ作る。
+~~~
+[app/views/items/search_name.html.erb]
+
+<% @items.each do |item| %>
+  <li class="ms-2 my-2 small" 💚role="option" 💙data-autocomplete-value="<%= item.item_name %>" 🧡data-autocomplete-label="<%= item.item_name %>">
+    <%= item.item_name %>
+  </li>
+<% end %>
+~~~
+~~~
+[app/views/items/search_tag.html.erb]
+
+<% @tags.each do |tag| %>
+  <li class="ms-2 my-2 small" 💚role="option" 💙data-autocomplete-value="<%= tag.tag_name %>" 🧡data-autocomplete-label="<%= tag.tag_name %>">
+    <%= tag.tag_name %>
+  </li>
+<% end %>
+~~~
+***
+
+## フォームの編集
+~~~
+[app/views/items/_search_form.html.erb]
+
+<%= search_form_for q, url: items_path, html: {class: 'd-flex mt-3'} do |f| %>
+  <div class="col me-2">
+    <div data-controller="autocomplete" ⭐️data-autocomplete-url-value="/items/search_name" role="combobox" class="position-relative">
+      <%= f.search_field :item_name_cont, data: { autocomplete_target: 'input' }, class: 'form-control', placeholder: Item.human_attribute_name('item_name') %>
+      💡<ul class="autocomplete-item position-absolute d-flex flex-wrap list-unstyled bg-white w-100" style="z-index: 1000;" data-autocomplete-target="results"></ul>
+    </div>
+  </div>
+
+  <div class="col me-2">
+    <div data-controller="autocomplete" ⭐️data-autocomplete-url-value="/items/search_tag" role="combobox" class="position-relative">
+      <%= f.search_field :tags_tag_name_cont, data: { autocomplete_target: 'input' }, class: 'form-control', placeholder: Tag.human_attribute_name('tag_name') %>
+      <ul class="autocomplete-item position-absolute d-flex flex-wrap list-unstyled bg-white w-100" style="z-index: 1000;" data-autocomplete-target="results"></ul>
+    </div>
+  </div>
+~~~
+⭐️ 補完候補を取得するための URLはそれぞれのビューへの URLにする。
+***
+
+## コントローラー・ルーティングの編集
+~~~
+[app/controllers/item_controller.rb]
+
+class ItemsController < ApplicationController
+
+  def search_name
+    @items = Item.where("item_name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def search_tag
+    @tags = Tag.where("tag_name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+~~~
+~~~
+[config/routes.rb]
+
+resources :items do
+  collection do
+    get :search_name
+    get :search_tag
+  end
+end
+~~~
+***
