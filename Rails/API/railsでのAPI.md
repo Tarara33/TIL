@@ -1,3 +1,10 @@
+# railsを APIとして使う場合
+rails newの時に`--api`オプションをつける。
+~~~
+$ rails new アプリ名 --api
+~~~
+***
+
 # railsでのAPIの意味
 Railsで APIを使うメリットには以下のようなものがある。
 
