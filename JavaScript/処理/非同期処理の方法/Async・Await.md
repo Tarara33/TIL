@@ -50,14 +50,15 @@ Promiseが結果を返すまで処理を待機させることが特徴的で、t
 }
 
 ② async function sample_2() {
-  console.log(1)
+  console.log(2)
   ④const result = await sample(); // Promiseの結果が分かるまで待機
   console.log(result);
 }
 
 ③ sample_2();
-// 123
+// 2 1 123
 ~~~
+**【処理の流れ】**  
 ③で sample_2()実行して②の処理が始まる。    
 ④で ①sample()を呼び出しているが、awaitで処理が終わるまで待つ。    
 sample()の処理が終わったら、sample2の処理の続きへ。
