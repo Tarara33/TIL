@@ -1,10 +1,4 @@
-### 前提
-- react + typeScript + railsでアプリ作成
-- rails API new済み
-- フロント側も new済み
-- APIコントローラーで index, show, create, update, deleteアクション作成済み
-
-# ビュー画面を rails APIと連携
+# indexアクションの連携
 【バックエンド側】  
 APIコントローラーで indexアクションを実装
 ~~~
