@@ -1,5 +1,5 @@
 # createアクションの連携
-【バックエンド側】
+【バックエンド側】  
 APIコントローラーで createアクションを実装
 ~~~
 [app/controllers/todo_controller.rb]
@@ -21,8 +21,8 @@ class TodosController < ApplicationController
 ***
 
 # 方法
-① Todoデータを作成する関数の作成
-【フロント側】
+## ① Todoデータを作成する関数の作成
+【フロント側】  
 ⚠️ [indexアクション](https://github.com/Tarara33/TIL/blob/main/Rails/API/%E5%AE%9F%E8%A3%85%E4%BE%8B/Todo%E3%82%A2%E3%83%97%E3%83%AA/index%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E9%80%A3%E6%90%BA.md)の方により細かく書いてる。
 ~~~
 [src/api.ts]
