@@ -117,3 +117,64 @@ export default TodoEditForm;
 - ()...空の引数を受け取る関数であることを示している。
 - void...関数が何も返さない（void）ことを示している。
 ***
+
+## ③ 編集モードの時に編集フォームを呼ぶ
+【フロント側】   
+ToDoアイテムが編集モードなら、編集フォームを呼ぶ。  
+そうでないなら Todoを表示する。
+
+というコンポーネントを作る。
+~~~
+[src/components/TodoItem.tsx]
+
+import React, { useState } from 'react';
+import TodoEditForm from './TodoEditForm';
+
+// todoオブジェクトの型定義
+type Todo = {
+  id: number;
+  title: string;
+  description: string;
+  completed: boolean;
+};
+
+// propsの型定義
+type TodoItemProps = {
+  todo: Todo;
+};
+
+const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleEditCancel = () => {
+    setIsEditing(false);
+  };
+
+  return (
+    <div>
+      🩵{!isEditing ? 🌞(
+        <div>
+          <h3>{todo.title}</h3>
+          <p>{todo.description}</p>
+          <button onClick={handleEditClick}>Edit</button>
+        </div>
+      ) : 🌝(
+        <TodoEditForm todo={todo} 💜onEdit={handleEditCancel} />
+      )}
+    </div>
+  );
+};
+
+export default TodoItem;
+~~~
+🩵 `!`がついているので、isEditingが falseが trueとなる。  
+三項演算子で trueなら🌞、falseなら🌝の表示をする。
+
+💜 propsに onEditで handleEditCancel関数を渡している。  
+TodoEditFormの handleSubmit関内で`onEdit()`と、 onEdit関数を読んでいる。  
+ここでは onEditに handleEditCancel関数が入るので、これが実行される。
+***
