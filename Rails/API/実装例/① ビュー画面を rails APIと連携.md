@@ -1,9 +1,10 @@
 ### 前提
+- react + typeScript + railsでアプリ作成
 - rails API new済み
-- フロント側も new済み(今回は react)
+- フロント側も new済み
 - APIコントローラーで index, show, create, update, deleteアクション作成済み
 
-# ① ビュー画面を rails APIと連携
+# ビュー画面を rails APIと連携
 【バックエンド側】  
 APIコントローラーで indexアクションを実装
 ~~~
@@ -23,9 +24,8 @@ class TodosController < ApplicationController
 ***
 
 # 方法
-## Todoデータを取得する関数の作成
+## ① Todoデータを取得する関数の作成
 【フロント側】  
-Todoデータを取得する関数の作成する
 ~~~
 [src/api.ts]
 
@@ -68,3 +68,64 @@ throwがなかったら、エラーが起きてもその場で止まるだけで
 ~~~
 ***
 
+## ② 作成した関数を使う
+【フロント側】  
+~~~
+[src/App.tsx]
+
+import { useEffect, useState } from 'react';
+⭐️ import { getTodos } from './api';
+
+🩷// todoの型定義
+type Todo = {
+  id: number;
+  title: string;
+  description: string;
+  completed: boolean;
+};
+
+const  App = () => {
+
+  // Todoリストの初期値を空の配列に設定
+  const [todos, setTodos] = 💛useState<Todo[]>([]);
+
+  useEffect(() => {
+    const fetchTodos = async () => {
+      try {
+        const todosData = await getTodos();
+        setTodos(todosData);
+      } catch (error) {
+        console.error('Error while fetching todos:', error);
+      }
+    };
+
+    💙fetchTodos();
+  }, 💙[]);
+
+  return (
+    <div className="container">
+      <h1>ToDo List</h1>
+      <ul>
+        {todos.map((🤍todo: any) => (
+          <li key={todo.id}>{todo.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default App;
+~~~
+⭐️ 先ほど作った関数コンポーネントをインポートする。
+
+🩷 TypeScript使うならデータ型定義しておくといい。
+
+💛 useStateの初期値に[データ型](https://github.com/Tarara33/TIL/blob/main/React/React%20ver18/%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88/%E3%83%95%E3%83%83%E3%82%AF/useState/%E3%83%A1%E3%83%A2/%E5%88%9D%E6%9C%9F%E5%80%A4%E3%81%AE%E8%A8%AD%E5%AE%9A.md#%E3%83%87%E3%83%BC%E3%82%BF%E5%9E%8B%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%99%E3%82%8B)を指定する。
+
+💙 第二引数にただの`[]`を使用しているので、レンダリングの時のみ useEffectが呼ばれる。  
+その時に、fetchTodos()を下に書くことで、初回呼び出された時にfetchTodosメソッドが発動される。  
+(書いておかないと、useEffectは発動するが、fetchTodosメソッドは発動しない。)
+
+🤍 TypeScriptにおいて、任意の型を表すキーワード。  
+anyは、mapメソッドを使用する際に、todoの型が具体的には不明であることを示している。
+***
