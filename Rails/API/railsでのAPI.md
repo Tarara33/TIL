@@ -3,6 +3,7 @@ rails newの時に`--api`オプションをつける。
 ~~~
 $ rails new アプリ名 --api
 ~~~
+その後設定する([こちら](https://github.com/Tarara33/TIL/blob/main/Rails/Gem/rack-cors.md))
 ***
 
 ## ❓ 通常の newと何が違う？?
