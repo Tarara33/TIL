@@ -83,3 +83,22 @@ end
 
 # in節で代入された変数を同じ in節で参照できる
 ~~~
+records = [
+  [7,7,7],
+  [1,6,6]
+]
+
+records.each do |record|
+  case record
+  in [n, ^n, ^n]
+    puts "全部同じ数: #{record}"
+  else
+    puts "違う数字同士です: #{record}"
+  end
+end
+
+=> 全部同じ数: [7, 7, 7]
+=> 違う数字同士です: [1, 6, 6]
+~~~
+`in [n, ^n, ^n]`部分は数値配列の並び`[a, b, c]`の最初に代入される aと残り二つが同じか？という動きになる。
+***
