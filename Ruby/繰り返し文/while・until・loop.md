@@ -18,6 +18,17 @@ end
 ~~~
 ***
 
+### 条件を trueにすることもできる(⚠️ break必須)
+~~~
+num = 0
+while true
+  puts num
+  num += 1
+  break if num >= 5
+end
+~~~
+***
+
 # until文
 条件式が trueになるまで処理を繰り返し行う。
 ~~~
