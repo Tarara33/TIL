@@ -22,3 +22,24 @@ scanメソッドは指定要素を配列で返すので、sizeメソッドなど
 => 4
 ~~~
 ***
+
+# start_with?
+先頭が引数のいずれかであるとき trueを返す。  
+引数に正規表現も使える。
+~~~
+"string".start_with?("str")
+=> true
+
+"string".start_with?("ing")
+=> false
+
+"string".start_with?("ing", "str")
+=> true
+
+"string".start_with?(/\w/)
+=> true
+
+"string".start_with?(/\d/)
+=> false
+~~~
+***
