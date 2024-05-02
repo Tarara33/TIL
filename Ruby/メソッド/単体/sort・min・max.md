@@ -49,3 +49,7 @@ p animals.min(2) { |a, b| a.length <=> b.length }
 # minメソッドと sortメソッドの違い
 minメソッドは最小値1つ (もしくは引数で指定した個数)返すが、sortメソッドは並び替えて配列ごと返す。
 ***
+
+# max
+minの逆。
+***
