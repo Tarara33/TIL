@@ -45,3 +45,14 @@ str.join(1)
 => ["Ruby", "on", "Rails"]
 ~~~
 ***
+
+# strip
+文字列の先頭と末尾にある空白文字（スペース、タブ、改行など）を取り除くためのメソッド。
+~~~
+str = "  hello  "
+clean_str = str.strip
+
+puts clean_str
+=> "hello"
+~~~
+***
